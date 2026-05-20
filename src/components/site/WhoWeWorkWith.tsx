@@ -15,7 +15,7 @@ export function WhoWeWorkWith() {
       <div className="mx-auto max-w-7xl">
         <SectionLabel
           label="Who we work with"
-          headline={<>Built for <span className="italic font-medium text-muted-foreground">these</span> businesses.</>}
+          headline={<>Built for <span className="italic font-medium grad-text">these</span> businesses.</>}
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -24,14 +24,23 @@ export function WhoWeWorkWith() {
             return (
               <div
                 key={t}
-                className={`group relative rounded-3xl border border-border/60 p-8 min-h-[180px] flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 ${
-                  isLast ? "bg-foreground text-background" : "bg-card hover:border-foreground/40"
+                className={`reveal reveal-delay-${(i % 5) + 1} group relative overflow-hidden rounded-3xl p-8 min-h-[180px] flex flex-col justify-between transition-all duration-500 hover:-translate-y-2 ${
+                  isLast
+                    ? "bg-[#AAFF00] text-[#0033FF] border border-[#AAFF00]"
+                    : "glass hover:border-white/40"
                 }`}
               >
-                <span className="font-display text-xs text-muted-foreground">
+                {!isLast && (
+                  <span
+                    aria-hidden
+                    className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ background: "radial-gradient(400px 200px at var(--mx,50%) var(--my,0%), rgba(170,255,0,0.25), transparent 60%)" }}
+                  />
+                )}
+                <span className={`relative font-display text-xs ${isLast ? "text-[#0033FF]/70" : "text-white/60"}`}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className={`font-display text-2xl md:text-[1.7rem] font-semibold tracking-tight ${isLast ? "text-background/90" : ""}`}>
+                <h3 className={`relative font-display text-2xl md:text-[1.7rem] font-semibold tracking-tight transition-transform duration-500 group-hover:translate-x-1 ${isLast ? "" : "text-white"}`}>
                   {t}
                 </h3>
               </div>
@@ -39,7 +48,7 @@ export function WhoWeWorkWith() {
           })}
         </div>
 
-        <p className="mt-10 max-w-2xl text-base text-muted-foreground md:text-lg">
+        <p className="mt-10 max-w-2xl text-base text-white/70 md:text-lg reveal">
           If your industry isn't listed — reach out. We'll tell you if we're the right fit.
         </p>
       </div>

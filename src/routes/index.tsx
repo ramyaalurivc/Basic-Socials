@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useReveal } from "@/hooks/use-reveal";
 import { Nav } from "@/components/site/Nav";
 import { Hero } from "@/components/site/Hero";
 import { WhoWeWorkWith } from "@/components/site/WhoWeWorkWith";
@@ -13,8 +14,9 @@ export const Route = createFileRoute("/")({
 });
 
 function Index() {
+  useReveal();
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="min-h-screen text-foreground">
       <Nav />
       <main>
         <Hero />
