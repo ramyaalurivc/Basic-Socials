@@ -41,44 +41,45 @@ const services = [
 
 export function Services() {
   return (
-    <section id="services" className="px-6 py-24 md:py-32 bg-[var(--cream-deep)]">
+    <section id="services" className="relative px-6 py-24 md:py-32 overflow-hidden">
+      <div aria-hidden className="absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[500px] rounded-full bg-[#AAFF00] opacity-10 blur-3xl" />
       <div className="mx-auto max-w-7xl">
         <SectionLabel
           label="Services"
-          headline={<>What <span className="italic font-medium text-muted-foreground">we</span> do.</>}
+          headline={<>What <span className="italic font-medium grad-text">we</span> do.</>}
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {services.map((s) => (
-            <div key={s.n} className="flip h-[320px]">
+          {services.map((s, i) => (
+            <div key={s.n} className={`flip h-[320px] reveal reveal-delay-${(i % 5) + 1}`}>
               <div className="flip-inner">
-                <div className="flip-face bg-card border border-border/60">
+                <div className="flip-face glass">
                   <div className="flex items-start justify-between">
-                    <span className="font-display text-sm text-muted-foreground">{s.n}</span>
-                    <span className="h-2 w-2 rounded-full bg-accent" />
+                    <span className="font-display text-sm text-white/60">{s.n}</span>
+                    <span className="h-2 w-2 rounded-full bg-[#AAFF00] shadow-[0_0_12px_#AAFF00]" />
                   </div>
-                  <h3 className="font-display text-[2rem] md:text-[2.3rem] font-semibold leading-[1] tracking-[-0.03em]">
+                  <h3 className="font-display text-[2rem] md:text-[2.3rem] font-semibold leading-[1] tracking-[-0.03em] text-white">
                     {s.title}
                   </h3>
-                  <div className="flex items-center justify-between text-xs text-muted-foreground">
+                  <div className="flex items-center justify-between text-xs text-white/60">
                     <span>Hover for details</span>
                     <span className="opacity-60">↗</span>
                   </div>
                 </div>
-                <div className="flip-face flip-back bg-foreground text-background border border-foreground">
+                <div className="flip-face flip-back bg-[#AAFF00] text-[#0033FF] border border-[#AAFF00]">
                   <div className="flex items-start justify-between">
-                    <span className="font-display text-sm opacity-60">{s.n}</span>
+                    <span className="font-display text-sm opacity-70">{s.n}</span>
                     <span className="font-display text-sm">{s.title}</span>
                   </div>
                   <ul className="space-y-2.5">
                     {s.points.map((p) => (
                       <li key={p} className="flex gap-2 text-sm leading-snug">
-                        <span className="text-accent">→</span>
+                        <span>→</span>
                         <span>{p}</span>
                       </li>
                     ))}
                   </ul>
-                  <p className="text-xs opacity-70">{s.tag}</p>
+                  <p className="text-xs opacity-80 font-medium">{s.tag}</p>
                 </div>
               </div>
             </div>
