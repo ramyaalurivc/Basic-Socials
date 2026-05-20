@@ -11,7 +11,7 @@ const services = [
     n: "02",
     title: "Social Media",
     points: ["Handle creation & setup", "Content, creatives, reels", "Community management", "Online Reputation Management"],
-    tag: "Full platform presence — handled.",
+    tag: "Full platform presence, handled.",
   },
   {
     n: "03",
@@ -23,7 +23,7 @@ const services = [
     n: "04",
     title: "Video & AI Content",
     points: ["Reels & short-form video", "Full-length ad films", "AI-produced videos & product shoots", "AI avatars"],
-    tag: "Real camera and AI — we nail them both.",
+    tag: "Real camera and AI. We nail them both.",
   },
   {
     n: "05",

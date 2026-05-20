@@ -21,11 +21,10 @@ export function Contact() {
             Contact
           </span>
           <h2 className="mt-5 font-display text-[clamp(2.4rem,6vw,4.8rem)] font-bold leading-[0.95] tracking-[-0.03em] reveal reveal-delay-1">
-            Let's make<br />
-            something <span className="italic font-medium grad-text">loud</span>.
+            Basically We <span className="italic font-medium grad-text">Understand</span> The Assignment.
           </h2>
           <p className="mt-6 text-lg text-white/70 max-w-md reveal reveal-delay-2">
-            Tell us about your brand. We reply within 24 hours — usually a lot sooner.
+            Tell us yours.
           </p>
 
           <div className="mt-8 space-y-3 reveal reveal-delay-3">
@@ -91,8 +90,8 @@ export function Contact() {
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  <Field label="Your name" name="name" placeholder="Jane Doe" required />
-                  <Field label="Brand / Company" name="brand" placeholder="Acme Co." required />
+                  <Field label="Your name" name="name" required />
+                  <Field label="Brand / Company" name="brand" required />
                 </div>
 
                 <div>
@@ -124,7 +123,6 @@ export function Contact() {
                   <textarea
                     rows={4}
                     className="w-full rounded-2xl bg-white/5 border border-white/15 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#AAFF00] transition"
-                    placeholder="Goals, timelines, budget, references…"
                   />
                 </div>
 
@@ -157,9 +155,8 @@ export function Contact() {
 function Field({
   label,
   name,
-  placeholder,
   required,
-}: { label: string; name: string; placeholder?: string; required?: boolean }) {
+}: { label: string; name: string; required?: boolean }) {
   return (
     <div>
       <label className="block text-xs uppercase tracking-wider text-white/60 mb-2">
@@ -168,7 +165,6 @@ function Field({
       <input
         name={name}
         required={required}
-        placeholder={placeholder}
         className="w-full rounded-2xl bg-white/5 border border-white/15 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#AAFF00] transition"
       />
     </div>

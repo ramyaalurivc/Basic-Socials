@@ -39,7 +39,7 @@ export function Footer() {
           <div>
             <p className="text-xs uppercase tracking-wider text-white/50 mb-4">Studio</p>
             <p className="text-white/80 text-sm leading-relaxed">
-              Creative marketing & consulting agency. We handle your entire marketing — branding, content, ads, talent.
+              Creative marketing & consulting agency in Hyderabad.
             </p>
           </div>
           <div>
@@ -65,7 +65,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li><a href="mailto:hello@basicsocials.in" className="ulink text-white/80 hover:text-white">hello@basicsocials.in</a></li>
               <li><a href="https://wa.me/910000000000" className="ulink text-[#AAFF00]">WhatsApp →</a></li>
-              <li className="text-white/60">Mon — Sat · 10am to 7pm IST</li>
+              <li className="text-white/60">Mon to Sat · 10am to 7pm IST</li>
             </ul>
           </div>
         </div>
