@@ -23,8 +23,9 @@ export function Nav() {
           scrolled ? "bg-white/15 backdrop-blur-2xl shadow-[0_8px_32px_-12px_rgba(0,0,0,0.4)]" : "bg-white/10 backdrop-blur-xl"
         }`}
       >
-        <a href="#top" className="px-4 font-display text-base font-bold tracking-tight text-white">
-          basic<span className="text-[#AAFF00]">.</span>socials
+        <a href="#top" className="px-4 font-display text-base font-bold tracking-tight text-white flex items-center gap-1.5">
+          Basic Socials
+          <span className="h-1.5 w-1.5 rounded-full bg-[#AAFF00] shadow-[0_0_8px_#AAFF00]" />
         </a>
         <div className="hidden md:flex items-center gap-1 px-2">
           {links.map((l) => (
