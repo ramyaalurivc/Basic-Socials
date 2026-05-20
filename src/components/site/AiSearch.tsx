@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { SectionLabel } from "./SectionLabel";
 
 const queries = [
   "Best Cardiologist in Hyderabad",
@@ -13,14 +12,19 @@ const queries = [
 ];
 
 export function AiSearch() {
-  const [active, setActive] = useState(2);
+  const [active, setActive] = useState(0);
 
   useEffect(() => {
     const id = setInterval(() => {
       setActive((a) => (a + 1) % queries.length);
-    }, 2400);
+    }, 2600);
     return () => clearInterval(id);
   }, []);
+
+  const ROW = 64; // px row height
+  const VISIBLE = 5; // odd number so middle is centered
+  const CENTER = Math.floor(VISIBLE / 2);
+  const containerH = ROW * VISIBLE;
 
   return (
     <section id="ai" className="relative px-6 py-24 md:py-32 overflow-hidden">
@@ -44,40 +48,66 @@ export function AiSearch() {
         </p>
 
         <div className="mt-12 mx-auto max-w-3xl reveal reveal-delay-3">
-          <div className="rounded-[2rem] glass-strong p-5 md:p-7 text-left space-y-1.5">
-            {queries.map((q, i) => {
-              const isActive = i === active;
-              return (
-                <div
-                  key={q}
-                  className={`flex items-center gap-3 rounded-2xl px-4 md:px-5 py-3.5 transition-all duration-500 ${
-                    isActive
-                      ? "bg-white/95 border border-[#AAFF00] shadow-[0_0_30px_rgba(170,255,0,0.45)]"
-                      : "bg-transparent"
-                  }`}
-                >
-                  <span
-                    className={`h-7 w-7 shrink-0 rounded-full flex items-center justify-center text-sm transition-all ${
-                      isActive ? "bg-[#0033FF] text-[#AAFF00]" : "bg-white/10 text-white/60"
-                    }`}
-                  >
-                    {isActive ? "✦" : "+"}
-                  </span>
-                  <span
-                    className={`flex-1 truncate font-medium transition-colors ${
-                      isActive ? "text-[#0033FF]" : "text-white/45"
-                    }`}
-                  >
-                    {q}
-                  </span>
-                  {isActive && (
-                    <span className="h-9 w-9 shrink-0 rounded-full bg-[#0033FF] text-[#AAFF00] flex items-center justify-center shadow-[0_0_20px_rgba(0,51,255,0.6)]">
-                      ↑
-                    </span>
-                  )}
-                </div>
-              );
-            })}
+          <div className="relative rounded-[2rem] glass-strong p-5 md:p-7 text-left">
+            {/* Fixed centered highlight strip */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute left-5 right-5 md:left-7 md:right-7 rounded-2xl bg-white/95 border border-[#AAFF00] shadow-[0_0_40px_rgba(170,255,0,0.55)]"
+              style={{
+                height: ROW - 8,
+                top: `calc(${20 + CENTER * ROW}px + 4px)`,
+              }}
+            />
+            {/* Scrolling list viewport */}
+            <div
+              className="relative overflow-hidden"
+              style={{
+                height: containerH,
+                maskImage:
+                  "linear-gradient(to bottom, transparent 0, #000 18%, #000 82%, transparent 100%)",
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, transparent 0, #000 18%, #000 82%, transparent 100%)",
+              }}
+            >
+              <div
+                className="will-change-transform"
+                style={{
+                  transform: `translateY(${(CENTER - active) * ROW}px)`,
+                  transition: "transform 900ms cubic-bezier(0.22, 1, 0.36, 1)",
+                }}
+              >
+                {queries.map((q, i) => {
+                  const isActive = i === active;
+                  return (
+                    <div
+                      key={q}
+                      className="relative flex items-center gap-3 px-4 md:px-5"
+                      style={{ height: ROW }}
+                    >
+                      <span
+                        className={`h-7 w-7 shrink-0 rounded-full flex items-center justify-center text-sm transition-colors duration-500 ${
+                          isActive ? "bg-[#0033FF] text-[#AAFF00]" : "bg-white/10 text-white/50"
+                        }`}
+                      >
+                        {isActive ? "✦" : "+"}
+                      </span>
+                      <span
+                        className={`flex-1 truncate font-medium transition-colors duration-500 ${
+                          isActive ? "text-[#0033FF]" : "text-white/40"
+                        }`}
+                      >
+                        {q}
+                      </span>
+                      {isActive && (
+                        <span className="h-9 w-9 shrink-0 rounded-full bg-[#0033FF] text-[#AAFF00] flex items-center justify-center shadow-[0_0_20px_rgba(0,51,255,0.6)]">
+                          ↑
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs text-white/60">
