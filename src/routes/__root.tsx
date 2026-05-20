@@ -72,14 +72,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Basic Socials · Creative Marketing & Consulting Agency, Hyderabad" },
-      { name: "description", content: "Creative marketing & consulting agency in Hyderabad." },
+      { title: "Basic Socials Creative Marketing & Consulting Agency, Hyderabad" },
+      { name: "description", content: "We basically handle your entire marketing -branding, social, performance, video & AI, talent and consulting. Based in Hyderabad." },
       { name: "author", content: "Basic Socials" },
-      { property: "og:title", content: "Basic Socials · We Basically Handle Your Entire Marketing" },
-      { property: "og:description", content: "Creative marketing & consulting agency in Hyderabad. Branding, social, performance, video & AI." },
+      { property: "og:title", content: "Basic Socials Creative Marketing & Consulting Agency, Hyderabad" },
+      { property: "og:description", content: "We basically handle your entire marketing -branding, social, performance, video & AI, talent and consulting. Based in Hyderabad." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Basic Socials Creative Marketing & Consulting Agency, Hyderabad" },
+      { name: "twitter:description", content: "We basically handle your entire marketing -branding, social, performance, video & AI, talent and consulting. Based in Hyderabad." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vdZwvarEtkanO4HtnKOv5jg8fLh2/social-images/social-1779293139405-Basic_Socials_Logo_Full.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vdZwvarEtkanO4HtnKOv5jg8fLh2/social-images/social-1779293139405-Basic_Socials_Logo_Full.webp" },
     ],
     links: [
       {
