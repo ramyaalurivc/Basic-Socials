@@ -4,6 +4,8 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap");
+
 /*
  * Design system definition.
  *
@@ -63,25 +65,31 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
+  --background: oklch(0.96 0.012 95);
+  --foreground: oklch(0.16 0.01 80);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
+  --card-foreground: oklch(0.16 0.01 80);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.16 0.01 80);
+  --primary: oklch(0.16 0.01 80);
+  --primary-foreground: oklch(0.96 0.012 95);
+  --secondary: oklch(0.92 0.015 90);
+  --secondary-foreground: oklch(0.16 0.01 80);
+  --muted: oklch(0.92 0.015 90);
+  --muted-foreground: oklch(0.45 0.01 80);
+  --accent: oklch(0.78 0.22 142);
+  --accent-foreground: oklch(0.16 0.01 80);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
+  --border: oklch(0.85 0.012 90);
+  --input: oklch(0.88 0.012 90);
+  --ring: oklch(0.78 0.22 142);
+  --ink: oklch(0.16 0.01 80);
+  --cream: oklch(0.96 0.012 95);
+  --cream-deep: oklch(0.92 0.018 90);
+  --green: oklch(0.78 0.22 142);
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -140,5 +148,98 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    background: color-mix(in oklab, var(--ink) 8%, transparent);
+    color: var(--ink);
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    backdrop-filter: blur(8px);
+  }
+
+  .btn-green {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.95rem 1.6rem;
+    border-radius: 9999px;
+    background: var(--green);
+    color: var(--ink);
+    font-weight: 600;
+    transition: transform .2s ease, filter .2s ease;
+  }
+  .btn-green:hover { transform: translateY(-1px); filter: brightness(1.05); }
+
+  .btn-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.95rem 1.6rem;
+    border-radius: 9999px;
+    background: var(--ink);
+    color: var(--cream);
+    font-weight: 600;
+    transition: transform .2s ease, filter .2s ease;
+  }
+  .btn-dark:hover { transform: translateY(-1px); }
+
+  .ticker {
+    display: flex;
+    gap: 3rem;
+    animation: ticker 35s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Flip card */
+  .flip { perspective: 1200px; }
+  .flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform .7s cubic-bezier(.2,.8,.2,1);
+    transform-style: preserve-3d;
+  }
+  .flip:hover .flip-inner { transform: rotateY(180deg); }
+  .flip-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: 1.5rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .flip-back { transform: rotateY(180deg); }
+
+  .grid-line {
+    background-image:
+      linear-gradient(to right, color-mix(in oklab, var(--ink) 8%, transparent) 1px, transparent 1px);
+    background-size: 100% 100%;
   }
 }
