@@ -155,9 +155,8 @@ export function Contact() {
 function Field({
   label,
   name,
-  placeholder,
   required,
-}: { label: string; name: string; placeholder?: string; required?: boolean }) {
+}: { label: string; name: string; required?: boolean }) {
   return (
     <div>
       <label className="block text-xs uppercase tracking-wider text-white/60 mb-2">
@@ -166,7 +165,6 @@ function Field({
       <input
         name={name}
         required={required}
-        placeholder={placeholder}
         className="w-full rounded-2xl bg-white/5 border border-white/15 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#AAFF00] transition"
       />
     </div>
