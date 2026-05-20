@@ -28,4 +28,3 @@ function Index() {
     </div>
   );
 }
-}
