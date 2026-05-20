@@ -13,57 +13,34 @@ export function Contact() {
         <div className="blob absolute bottom-10 -right-32 h-[460px] w-[460px] rounded-full bg-white opacity-15 blur-3xl" style={{ animationDelay: "-3s" }} />
       </div>
 
-      <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-start">
+      <div className="mx-auto max-w-7xl grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16 items-stretch">
         {/* Left column */}
-        <div className="lg:col-span-2 lg:sticky lg:top-28">
-          <span className="pill reveal">
-            <span className="h-2 w-2 rounded-full bg-[#AAFF00] animate-pulse" />
-            Contact
-          </span>
-          <h2 className="mt-5 font-display text-[clamp(2.4rem,6vw,4.8rem)] font-bold leading-[0.95] tracking-[-0.03em] reveal reveal-delay-1">
-            Basically We <span className="italic font-medium grad-text">Understand</span> The Assignment.
-          </h2>
-          <p className="mt-6 text-lg text-white/70 max-w-md reveal reveal-delay-2">
-            Tell us yours.
-          </p>
-
-          <div className="mt-8 space-y-3 reveal reveal-delay-3">
-            <a
-              href="https://wa.me/910000000000"
-              target="_blank"
-              rel="noreferrer"
-              className="group flex items-center justify-between rounded-2xl glass px-5 py-4 hover:border-[#AAFF00] hover:bg-white/10 transition-all"
-            >
-              <span className="flex items-center gap-3">
-                <span className="h-9 w-9 rounded-full bg-[#AAFF00] text-[#0033FF] flex items-center justify-center font-bold">W</span>
-                <span className="text-white">Chat on WhatsApp</span>
-              </span>
-              <span className="text-white/60 group-hover:text-[#AAFF00] group-hover:translate-x-1 transition-transform">→</span>
-            </a>
-            <a
-              href="mailto:hello@basicsocials.in"
-              className="group flex items-center justify-between rounded-2xl glass px-5 py-4 hover:border-[#AAFF00] hover:bg-white/10 transition-all"
-            >
-              <span className="flex items-center gap-3">
-                <span className="h-9 w-9 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center">@</span>
-                <span className="text-white">hello@basicsocials.in</span>
-              </span>
-              <span className="text-white/60 group-hover:text-[#AAFF00] group-hover:translate-x-1 transition-transform">→</span>
-            </a>
-            <div className="flex items-center justify-between rounded-2xl glass px-5 py-4">
-              <span className="flex items-center gap-3">
-                <span className="h-9 w-9 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center">◎</span>
-                <span className="text-white">Hyderabad, India</span>
-              </span>
-              <span className="text-xs text-white/50">IST · GMT+5:30</span>
+        <div className="lg:col-span-2 flex flex-col justify-between">
+          <div>
+            <span className="pill reveal">
+              <span className="h-2 w-2 rounded-full bg-[#AAFF00] animate-pulse" />
+              Contact
+            </span>
+            <h2 className="mt-5 font-display text-[clamp(2.4rem,6vw,4.8rem)] font-bold leading-[0.95] tracking-[-0.03em] reveal reveal-delay-1">
+              Basically We <span className="italic font-medium grad-text">Understand</span> The Assignment.
+            </h2>
+            <p className="mt-6 text-lg text-white/70 max-w-md reveal reveal-delay-2">
+              Tell us yours.
+            </p>
+          </div>
+          <div className="mt-10 hidden lg:block reveal reveal-delay-3">
+            <div className="font-display text-[clamp(3rem,7vw,6rem)] leading-[0.9] tracking-[-0.04em] text-white/10">
+              Hyderabad
+              <br />
+              <span className="grad-text opacity-60">India.</span>
             </div>
           </div>
         </div>
 
         {/* Form card */}
-        <div className="lg:col-span-3 relative reveal reveal-delay-2">
+        <div className="lg:col-span-3 relative reveal reveal-delay-2 flex">
           <div aria-hidden className="absolute -inset-1 rounded-[2rem] bg-gradient-to-br from-[#AAFF00]/40 via-white/10 to-[#0033FF]/40 blur-xl opacity-60" />
-          <div className="relative rounded-[2rem] glass-strong p-8 md:p-10">
+          <div className="relative rounded-[2rem] glass-strong p-8 md:p-10 w-full flex flex-col">
             {sent ? (
               <div className="min-h-[460px] flex flex-col items-center justify-center text-center gap-5">
                 <span className="h-16 w-16 rounded-full bg-[#AAFF00] flex items-center justify-center text-[#0033FF] text-3xl shadow-[0_0_40px_#AAFF00]">✓</span>
