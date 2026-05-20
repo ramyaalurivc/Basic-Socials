@@ -6,6 +6,7 @@ import { WhoWeWorkWith } from "@/components/site/WhoWeWorkWith";
 import { Services } from "@/components/site/Services";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { Portfolio } from "@/components/site/Portfolio";
+import { AiSearch } from "@/components/site/AiSearch";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 
@@ -24,6 +25,7 @@ function Index() {
         <Services />
         <HowItWorks />
         <Portfolio />
+        <AiSearch />
         <Contact />
       </main>
       <Footer />
