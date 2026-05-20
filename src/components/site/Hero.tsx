@@ -31,7 +31,7 @@ export function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-base text-white/70 md:text-lg reveal reveal-delay-2">
-            One team. From the logo to the launch, the reels to the ad spend. Done.
+            Do your thing. We'll make it trend.
           </p>
 
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3 reveal reveal-delay-3">
@@ -39,7 +39,7 @@ export function Hero() {
               Start a project →
             </a>
             <a href="#services" className="btn-dark">
-              What we do
+              Enter Basic
             </a>
           </div>
         </div>
