@@ -72,10 +72,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Basic Socials — Creative Marketing & Consulting Agency, Hyderabad" },
-      { name: "description", content: "We basically handle your entire marketing — branding, social, performance, video & AI, talent and consulting. Based in Hyderabad." },
+      { title: "Basic Socials · Creative Marketing & Consulting Agency, Hyderabad" },
+      { name: "description", content: "Creative marketing & consulting agency in Hyderabad." },
       { name: "author", content: "Basic Socials" },
-      { property: "og:title", content: "Basic Socials — We Basically Handle Your Entire Marketing" },
+      { property: "og:title", content: "Basic Socials · We Basically Handle Your Entire Marketing" },
       { property: "og:description", content: "Creative marketing & consulting agency in Hyderabad. Branding, social, performance, video & AI." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },

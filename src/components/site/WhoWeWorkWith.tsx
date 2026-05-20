@@ -49,7 +49,7 @@ export function WhoWeWorkWith() {
         </div>
 
         <p className="mt-10 max-w-2xl text-base text-white/70 md:text-lg reveal">
-          If your industry isn't listed — reach out. We'll tell you if we're the right fit.
+          If your industry isn't listed, reach out. We'll tell you if we're the right fit.
         </p>
       </div>
     </section>
