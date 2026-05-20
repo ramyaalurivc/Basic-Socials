@@ -28,13 +28,6 @@ export function Contact() {
               Tell us yours.
             </p>
           </div>
-          <div className="mt-10 hidden lg:block reveal reveal-delay-3">
-            <div className="font-display text-[clamp(3rem,7vw,6rem)] leading-[0.9] tracking-[-0.04em] text-white/10">
-              Hyderabad
-              <br />
-              <span className="grad-text opacity-60">India.</span>
-            </div>
-          </div>
         </div>
 
         {/* Form card */}
@@ -57,8 +50,7 @@ export function Contact() {
                   setSent(true);
                 }}
               >
-                <div className="flex items-center justify-between mb-2">
-                  <span className="text-xs uppercase tracking-[0.2em] text-white/50">New brief · 01</span>
+                <div className="flex items-center justify-end mb-2">
                   <span className="flex gap-1">
                     <span className="h-1 w-6 rounded-full bg-[#AAFF00]" />
                     <span className="h-1 w-6 rounded-full bg-white/20" />

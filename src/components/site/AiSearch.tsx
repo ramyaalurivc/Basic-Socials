@@ -11,19 +11,36 @@ const queries = [
   "Where to launch my fashion label",
 ];
 
+const ROW = 64;
+const VISIBLE = 5;
+const CENTER = Math.floor(VISIBLE / 2);
+const DURATION = 1100;
+const INTERVAL = 2600;
+
 export function AiSearch() {
-  const [active, setActive] = useState(0);
+  const [step, setStep] = useState(0);
+  const [animate, setAnimate] = useState(true);
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setActive((a) => (a + 1) % queries.length);
-    }, 3200);
+    const id = setInterval(() => setStep((s) => s + 1), INTERVAL);
     return () => clearInterval(id);
   }, []);
 
-  const ROW = 64; // px row height
-  const VISIBLE = 5; // odd number so middle is centered
-  const CENTER = Math.floor(VISIBLE / 2);
+  // Seamless loop: once we pass the original length, snap back invisibly
+  useEffect(() => {
+    if (step === queries.length) {
+      const t = setTimeout(() => {
+        setAnimate(false);
+        setStep(0);
+        requestAnimationFrame(() =>
+          requestAnimationFrame(() => setAnimate(true)),
+        );
+      }, DURATION);
+      return () => clearTimeout(t);
+    }
+  }, [step]);
+
+  const list = [...queries, ...queries.slice(0, VISIBLE)];
   const containerH = ROW * VISIBLE;
 
   return (
@@ -49,7 +66,6 @@ export function AiSearch() {
 
         <div className="mt-12 mx-auto max-w-3xl reveal reveal-delay-3">
           <div className="relative rounded-[2rem] glass-strong p-5 md:p-7 text-left">
-            {/* Scrolling list viewport */}
             <div
               className="relative overflow-hidden"
               style={{
@@ -60,39 +76,42 @@ export function AiSearch() {
                   "linear-gradient(to bottom, transparent 0, #000 18%, #000 82%, transparent 100%)",
               }}
             >
-              {/* Fixed centered highlight strip (inside viewport, not masked because it sits on top) */}
               <div
                 aria-hidden
-                className="pointer-events-none absolute left-0 right-0 rounded-2xl bg-white/95 border border-[#AAFF00] shadow-[0_0_40px_rgba(170,255,0,0.55)] z-10"
+                className="pointer-events-none absolute left-0 right-0 rounded-2xl bg-white border border-[#AAFF00] shadow-[0_0_40px_rgba(170,255,0,0.55)]"
                 style={{
                   height: ROW - 8,
                   top: CENTER * ROW + 4,
+                  zIndex: 1,
                 }}
               />
               <div
-                className="will-change-transform"
+                className="relative will-change-transform"
                 style={{
-                  transform: `translateY(${(CENTER - active) * ROW}px)`,
-                  transition: "transform 1400ms cubic-bezier(0.65, 0, 0.35, 1)",
+                  zIndex: 2,
+                  transform: `translateY(${(CENTER - step) * ROW}px)`,
+                  transition: animate
+                    ? `transform ${DURATION}ms cubic-bezier(0.65, 0, 0.35, 1)`
+                    : "none",
                 }}
               >
-                {queries.map((q, i) => {
-                  const isActive = i === active;
+                {list.map((q, i) => {
+                  const isActive = i === step;
                   return (
                     <div
-                      key={q}
-                      className="relative flex items-center gap-3 px-4 md:px-5 z-20"
+                      key={i}
+                      className="relative flex items-center gap-3 px-4 md:px-5"
                       style={{ height: ROW }}
                     >
                       <span
-                        className={`h-7 w-7 shrink-0 rounded-full flex items-center justify-center text-sm transition-colors duration-700 ${
+                        className={`h-7 w-7 shrink-0 rounded-full flex items-center justify-center text-sm transition-colors duration-500 ${
                           isActive ? "bg-[#0033FF] text-[#AAFF00]" : "bg-white/10 text-white/50"
                         }`}
                       >
                         {isActive ? "✦" : "+"}
                       </span>
                       <span
-                        className={`flex-1 truncate font-medium leading-none transition-colors duration-700 ${
+                        className={`flex-1 truncate font-semibold leading-none transition-colors duration-500 ${
                           isActive ? "text-[#0033FF]" : "text-white/40"
                         }`}
                       >
