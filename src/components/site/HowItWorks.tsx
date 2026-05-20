@@ -1,6 +1,6 @@
 const steps = [
   { n: "01", title: "Tell us about your brand", body: "Quick form or a short call." },
-  { n: "02", title: "You get a proposal", body: "A clear plan with scope and cost — within 48 hours." },
+  { n: "02", title: "You get a proposal", body: "A clear plan with scope and cost, within 48 hours." },
   { n: "03", title: "We start working", body: "Onboarding is fast. Work begins in the first week." },
   { n: "04", title: "We keep going", body: "Monthly. Consistent. Adjusted as your brand grows." },
 ];
