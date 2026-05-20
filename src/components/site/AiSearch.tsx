@@ -17,7 +17,7 @@ export function AiSearch() {
   useEffect(() => {
     const id = setInterval(() => {
       setActive((a) => (a + 1) % queries.length);
-    }, 2600);
+    }, 3200);
     return () => clearInterval(id);
   }, []);
 
