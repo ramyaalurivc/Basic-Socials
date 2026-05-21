@@ -1,50 +1,47 @@
-import { useEffect, useState } from "react";
-
 const queries = [
-  "Best Cardiologist in Hyderabad",
-  "Best branding agency near me",
-  "Top social media agency in Hyderabad",
-  "Best performance marketing team for D2C",
-  "Best video production company in Hyderabad",
-  "Top talent & UGC creators in India",
-  "Best marketing consultant for startups",
-  "Where to launch my fashion label",
+  "Best cardiologist in Hyderabad",
+  "Top NEET coaching centres near Kukatpally",
+  "Top 5 wedding jewellery shops near me",
+  "Best playschool near Kondapur",
+  "Best cafe near Jubilee Hills",
+  "Top sweet shops near me",
+  "Best affordable apartments in Hyderabad",
+  "Top gyms and fitness centres near me in Hyderabad",
+  "Best skin clinic near Banjara Hills",
+  "Top saree shops in Hyderabad",
+  "Top interior designers in Hyderabad",
+  "Best chartered accountant near Madhapur",
+  "Top wedding photographers in Hyderabad",
+  "Best biryani place near Secunderabad",
 ];
 
 const ROW = 64;
 const VISIBLE = 5;
-const CENTER = Math.floor(VISIBLE / 2);
-const DURATION = 1100;
-const INTERVAL = 2600;
+const CENTER = Math.floor(VISIBLE / 2); // 2
+const SECONDS_PER_ITEM = 2.4;
+const TOTAL = queries.length;
+const DURATION = TOTAL * SECONDS_PER_ITEM;
 
 export function AiSearch() {
-  const [step, setStep] = useState(0);
-  const [animate, setAnimate] = useState(true);
-
-  useEffect(() => {
-    const id = setInterval(() => setStep((s) => s + 1), INTERVAL);
-    return () => clearInterval(id);
-  }, []);
-
-  // Seamless loop: once we pass the original length, snap back invisibly
-  useEffect(() => {
-    if (step === queries.length) {
-      const t = setTimeout(() => {
-        setAnimate(false);
-        setStep(0);
-        requestAnimationFrame(() =>
-          requestAnimationFrame(() => setAnimate(true)),
-        );
-      }, DURATION);
-      return () => clearTimeout(t);
-    }
-  }, [step]);
-
-  const list = [...queries, ...queries.slice(0, VISIBLE)];
   const containerH = ROW * VISIBLE;
+  // Render two copies for seamless loop
+  const list = [...queries, ...queries];
 
   return (
     <section id="ai" className="relative px-6 py-24 md:py-32 overflow-hidden">
+      <style>{`
+        @keyframes ai-scroll {
+          0% { transform: translateY(0); }
+          100% { transform: translateY(-${TOTAL * ROW}px); }
+        }
+        .ai-scroll-track {
+          animation: ai-scroll ${DURATION}s linear infinite;
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .ai-scroll-track { animation: none; }
+        }
+      `}</style>
+
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="blob absolute top-10 left-1/4 h-[420px] w-[420px] rounded-full bg-[#AAFF00] opacity-20 blur-3xl" />
         <div className="blob absolute bottom-0 right-1/4 h-[380px] w-[380px] rounded-full bg-white opacity-15 blur-3xl" style={{ animationDelay: "-6s" }} />
@@ -68,60 +65,40 @@ export function AiSearch() {
           <div className="relative rounded-[2rem] glass-strong p-5 md:p-7 text-left">
             <div
               className="relative overflow-hidden"
-              style={{
-                height: containerH,
-                maskImage:
-                  "linear-gradient(to bottom, transparent 0, #000 18%, #000 82%, transparent 100%)",
-                WebkitMaskImage:
-                  "linear-gradient(to bottom, transparent 0, #000 18%, #000 82%, transparent 100%)",
-              }}
+              style={{ height: containerH }}
             >
+              {/* Highlight box — tight acid-green border only */}
               <div
                 aria-hidden
-                className="pointer-events-none absolute left-0 right-0 rounded-2xl bg-white border border-[#AAFF00] shadow-[0_0_40px_rgba(170,255,0,0.55)]"
+                className="pointer-events-none absolute left-0 right-0 rounded-2xl"
                 style={{
                   height: ROW - 8,
                   top: CENTER * ROW + 4,
                   zIndex: 1,
+                  background: "rgba(255,255,255,0.06)",
+                  boxShadow: "0 0 0 2px #AAFF00",
                 }}
               />
               <div
-                className="relative will-change-transform"
-                style={{
-                  zIndex: 2,
-                  transform: `translateY(${(CENTER - step) * ROW}px)`,
-                  transition: animate
-                    ? `transform ${DURATION}ms cubic-bezier(0.65, 0, 0.35, 1)`
-                    : "none",
-                }}
+                className="ai-scroll-track relative will-change-transform"
+                style={{ zIndex: 2 }}
               >
                 {list.map((q, i) => {
-                  const isActive = i === step;
+                  // Active is whichever sits at CENTER row at any moment.
+                  // For visual styling, we mark items based on position within the visible window using JS isn't possible without state; instead we style all uniformly muted, and the highlight box marks the active one. To get the "active" look, we use a CSS approach: difficult without state.
+                  // Simpler: keep all items same style but ensure the centered one reads against the highlight box.
                   return (
                     <div
                       key={i}
                       className="relative flex items-center gap-3 px-4 md:px-5"
                       style={{ height: ROW }}
                     >
-                      <span
-                        className={`h-7 w-7 shrink-0 rounded-full flex items-center justify-center text-sm transition-colors duration-500 ${
-                          isActive ? "bg-[#0033FF] text-[#AAFF00]" : "bg-white/10 text-white/50"
-                        }`}
-                      >
-                        {isActive ? "✦" : "+"}
+                      <span className="h-7 w-7 shrink-0 rounded-full flex items-center justify-center text-sm bg-white/10 text-white/70">
+                        +
                       </span>
-                      <span
-                        className={`flex-1 truncate font-semibold leading-none transition-colors duration-500 ${
-                          isActive ? "text-[#0033FF]" : "text-white/40"
-                        }`}
-                      >
+                      <span className="flex-1 truncate font-semibold leading-none text-white/85">
                         {q}
                       </span>
-                      {isActive && (
-                        <span className="h-9 w-9 shrink-0 rounded-full bg-[#0033FF] text-[#AAFF00] flex items-center justify-center shadow-[0_0_20px_rgba(0,51,255,0.6)]">
-                          ↑
-                        </span>
-                      )}
                     </div>
                   );
                 })}
