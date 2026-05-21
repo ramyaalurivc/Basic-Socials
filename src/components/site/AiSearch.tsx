@@ -17,18 +17,16 @@ const queries = [
   "Best biryani place near Secunderabad",
 ];
 
-const ROW = 56;
+const ROW = 96;
 const VISIBLE = 5;
-const CENTER = 2; // center row index in visible window
-const DURATION = 18; // seconds for full loop
+const CENTER = 2;
 const TOTAL = queries.length;
-const PERIOD_MS = (DURATION * 1000) / TOTAL; // time per item
-// Start so question 4 (index 3) sits at the center row (index 2)
-const START_INDEX = 3;
-const NEG_DELAY = ((START_INDEX - CENTER) / TOTAL) * DURATION;
+const DURATION = 32; // slower, smoother
+const PERIOD_MS = (DURATION * 1000) / TOTAL;
+const START_INDEX = 1; // first centered active
+const NEG_DELAY = ((START_INDEX - CENTER + TOTAL) % TOTAL) * (DURATION / TOTAL);
 
 export function AiSearch() {
-  // Track which question is currently centered, for active styling
   const [active, setActive] = useState(START_INDEX);
 
   useEffect(() => {
@@ -39,19 +37,20 @@ export function AiSearch() {
   }, []);
 
   const containerH = ROW * VISIBLE;
-  const list = [...queries, ...queries]; // duplicate for seamless loop
+  const list = [...queries, ...queries];
 
   return (
     <section id="ai" className="relative px-6 py-24 md:py-32 overflow-hidden">
       <style>{`
         @keyframes ai-scroll {
-          0%   { transform: translateY(0); }
-          100% { transform: translateY(-50%); }
+          0%   { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(0, -50%, 0); }
         }
         .ai-track {
           animation: ai-scroll ${DURATION}s linear infinite;
           animation-delay: -${NEG_DELAY}s;
           will-change: transform;
+          backface-visibility: hidden;
         }
         @media (prefers-reduced-motion: reduce) {
           .ai-track { animation: none; }
@@ -80,75 +79,83 @@ export function AiSearch() {
           Your future customers are asking ChatGPT, Gemini, and Perplexity. We make sure your brand is the answer.
         </p>
 
-        <div className="mt-12 mx-auto max-w-3xl reveal reveal-delay-3">
+        <div className="mt-12 mx-auto max-w-4xl reveal reveal-delay-3">
           <div
-            className="relative overflow-hidden mx-auto"
-            style={{ height: containerH, maxWidth: 640 }}
+            className="relative rounded-[2rem] border border-white/25 bg-white/5 backdrop-blur-md overflow-hidden mx-auto"
+            style={{ height: containerH }}
           >
-            <div className="ai-track">
-              {list.map((q, i) => {
-                const isActive = i % TOTAL === active;
-                return (
+            {/* Scrolling muted list */}
+            <div className="absolute inset-0 overflow-hidden">
+              <div className="ai-track">
+                {list.map((q, i) => (
                   <div
                     key={i}
-                    className="flex items-center px-2"
-                    style={{ height: ROW }}
+                    className="flex items-center gap-4 px-6"
+                    style={{ height: ROW, opacity: 0.45 }}
                   >
-                    {isActive ? (
-                      <div
-                        className="flex w-full items-center gap-3 rounded-full bg-white pl-2 pr-2"
-                        style={{
-                          height: ROW - 8,
-                          border: "2px solid #AAFF00",
-                          boxShadow: "0 0 12px rgba(170,255,0,0.4)",
-                        }}
-                      >
-                        <span
-                          className="h-9 w-9 shrink-0 rounded-full flex items-center justify-center text-white"
-                          style={{ background: "#0033FF" }}
-                        >
-                          ✦
-                        </span>
-                        <span
-                          className="flex-1 truncate text-left text-[16px] leading-none"
-                          style={{ color: "#0033FF", fontWeight: 600 }}
-                        >
-                          {q}
-                        </span>
-                        <span
-                          className="h-9 w-9 shrink-0 rounded-full flex items-center justify-center text-white"
-                          style={{ background: "#0033FF" }}
-                        >
-                          ↑
-                        </span>
-                      </div>
-                    ) : (
-                      <div
-                        className="flex w-full items-center gap-3 px-2"
-                        style={{ opacity: 0.45 }}
-                      >
-                        <span className="h-9 w-9 shrink-0 rounded-full flex items-center justify-center bg-white/10 text-white/80">
-                          +
-                        </span>
-                        <span
-                          className="flex-1 truncate text-left text-white text-[16px] leading-none"
-                          style={{ fontWeight: 500 }}
-                        >
-                          {q}
-                        </span>
-                      </div>
-                    )}
+                    <span className="h-10 w-10 shrink-0 rounded-full flex items-center justify-center bg-white/10 text-white text-lg">
+                      +
+                    </span>
+                    <span
+                      className="flex-1 truncate text-left text-white text-[18px] leading-none"
+                      style={{ fontWeight: 500 }}
+                    >
+                      {q}
+                    </span>
                   </div>
-                );
-              })}
+                ))}
+              </div>
+            </div>
+
+            {/* Fixed centered active pill */}
+            <div
+              className="pointer-events-none absolute left-4 right-4 flex items-center"
+              style={{
+                top: "50%",
+                transform: "translateY(-50%)",
+                height: ROW - 14,
+              }}
+            >
+              <div
+                className="flex w-full items-center gap-4 rounded-full bg-white pl-2 pr-2"
+                style={{
+                  height: "100%",
+                  border: "2px solid #AAFF00",
+                  boxShadow: "0 0 16px rgba(170,255,0,0.45)",
+                }}
+              >
+                <span
+                  className="h-11 w-11 shrink-0 rounded-full flex items-center justify-center text-[#AAFF00] text-lg"
+                  style={{ background: "#0033FF" }}
+                >
+                  ✦
+                </span>
+                <span
+                  key={active}
+                  className="flex-1 truncate text-left text-[18px] md:text-[20px] leading-none"
+                  style={{
+                    color: "#0033FF",
+                    fontWeight: 600,
+                    animation: "fadeIn .35s ease",
+                  }}
+                >
+                  {queries[active]}
+                </span>
+                <span
+                  className="h-11 w-11 shrink-0 rounded-full flex items-center justify-center text-white text-lg"
+                  style={{ background: "#0033FF" }}
+                >
+                  ↑
+                </span>
+              </div>
             </div>
           </div>
 
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs text-white">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm text-white">
             {["ChatGPT", "Gemini", "Perplexity", "Claude", "Grok"].map((p) => (
               <span
                 key={p}
-                className="border border-white px-4 py-1.5"
+                className="border border-white/70 px-4 py-1.5"
                 style={{ borderRadius: 100 }}
               >
                 {p}
@@ -157,6 +164,10 @@ export function AiSearch() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(4px);} to { opacity: 1; transform: translateY(0);} }
+      `}</style>
     </section>
   );
 }
