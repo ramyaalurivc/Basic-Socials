@@ -1,68 +1,53 @@
 import { useEffect, useState } from "react";
 
 const queries = [
-  "Best cardiologist in Hyderabad",
-  "Top NEET coaching centres near Kukatpally",
-  "Top 5 wedding jewellery shops near me",
-  "Best playschool near Kondapur",
-  "Best cafe near Jubilee Hills",
-  "Top sweet shops near me",
-  "Best affordable apartments in Hyderabad",
-  "Top gyms and fitness centres near me in Hyderabad",
-  "Best skin clinic near Banjara Hills",
-  "Top saree shops in Hyderabad",
-  "Top interior designers in Hyderabad",
-  "Best chartered accountant near Madhapur",
-  "Top wedding photographers in Hyderabad",
-  "Best biryani place near Secunderabad",
+  "Best Cardiologist in Hyderabad",
+  "Best branding agency near me",
+  "Top social media agency in Hyderabad",
+  "Best performance marketing team for D2C",
+  "Best video production company in Hyderabad",
+  "Top talent & UGC creators in India",
+  "Best marketing consultant for startups",
+  "Where to launch my fashion label",
 ];
 
-const ROW = 96;
+const ROW = 64;
 const VISIBLE = 5;
-const CENTER = 2;
-const TOTAL = queries.length;
-const DURATION = 32; // slower, smoother
-const PERIOD_MS = (DURATION * 1000) / TOTAL;
-const START_INDEX = 1; // first centered active
-const NEG_DELAY = ((START_INDEX - CENTER + TOTAL) % TOTAL) * (DURATION / TOTAL);
+const CENTER = Math.floor(VISIBLE / 2);
+const DURATION = 1100;
+const INTERVAL = 2600;
 
 export function AiSearch() {
-  const [active, setActive] = useState(START_INDEX);
+  const [step, setStep] = useState(0);
+  const [animate, setAnimate] = useState(true);
 
   useEffect(() => {
-    const id = setInterval(() => {
-      setActive((a) => (a + 1) % TOTAL);
-    }, PERIOD_MS);
+    const id = setInterval(() => setStep((s) => s + 1), INTERVAL);
     return () => clearInterval(id);
   }, []);
 
+  // Seamless loop: once we pass the original length, snap back invisibly
+  useEffect(() => {
+    if (step === queries.length) {
+      const t = setTimeout(() => {
+        setAnimate(false);
+        setStep(0);
+        requestAnimationFrame(() =>
+          requestAnimationFrame(() => setAnimate(true)),
+        );
+      }, DURATION);
+      return () => clearTimeout(t);
+    }
+  }, [step]);
+
+  const list = [...queries, ...queries.slice(0, VISIBLE)];
   const containerH = ROW * VISIBLE;
-  const list = [...queries, ...queries];
 
   return (
     <section id="ai" className="relative px-6 py-24 md:py-32 overflow-hidden">
-      <style>{`
-        @keyframes ai-scroll {
-          0%   { transform: translate3d(0, 0, 0); }
-          100% { transform: translate3d(0, -50%, 0); }
-        }
-        .ai-track {
-          animation: ai-scroll ${DURATION}s linear infinite;
-          animation-delay: -${NEG_DELAY}s;
-          will-change: transform;
-          backface-visibility: hidden;
-        }
-        @media (prefers-reduced-motion: reduce) {
-          .ai-track { animation: none; }
-        }
-      `}</style>
-
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="blob absolute top-10 left-1/4 h-[420px] w-[420px] rounded-full bg-[#AAFF00] opacity-20 blur-3xl" />
-        <div
-          className="blob absolute bottom-0 right-1/4 h-[380px] w-[380px] rounded-full bg-white opacity-15 blur-3xl"
-          style={{ animationDelay: "-6s" }}
-        />
+        <div className="blob absolute bottom-0 right-1/4 h-[380px] w-[380px] rounded-full bg-white opacity-15 blur-3xl" style={{ animationDelay: "-6s" }} />
       </div>
 
       <div className="mx-auto max-w-5xl text-center">
@@ -79,95 +64,80 @@ export function AiSearch() {
           Your future customers are asking ChatGPT, Gemini, and Perplexity. We make sure your brand is the answer.
         </p>
 
-        <div className="mt-12 mx-auto max-w-4xl reveal reveal-delay-3">
-          <div
-            className="relative rounded-[2rem] border border-white/25 bg-white/5 backdrop-blur-md overflow-hidden mx-auto"
-            style={{ height: containerH }}
-          >
-            {/* Scrolling muted list */}
-            <div className="absolute inset-0 overflow-hidden">
-              <div className="ai-track">
-                {list.map((q, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center gap-4 px-6"
-                    style={{ height: ROW, opacity: 0.45 }}
-                  >
-                    <span className="h-10 w-10 shrink-0 rounded-full flex items-center justify-center bg-white/10 text-white text-lg">
-                      +
-                    </span>
-                    <span
-                      className="flex-1 truncate text-left text-white text-[18px] leading-none"
-                      style={{ fontWeight: 500 }}
-                    >
-                      {q}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Fixed centered active pill */}
+        <div className="mt-12 mx-auto max-w-3xl reveal reveal-delay-3">
+          <div className="relative rounded-[2rem] glass-strong p-5 md:p-7 text-left">
             <div
-              className="pointer-events-none absolute left-4 right-4 flex items-center"
+              className="relative overflow-hidden"
               style={{
-                top: "50%",
-                transform: "translateY(-50%)",
-                height: ROW - 14,
+                height: containerH,
+                maskImage:
+                  "linear-gradient(to bottom, transparent 0, #000 18%, #000 82%, transparent 100%)",
+                WebkitMaskImage:
+                  "linear-gradient(to bottom, transparent 0, #000 18%, #000 82%, transparent 100%)",
               }}
             >
               <div
-                className="flex w-full items-center gap-4 rounded-full bg-white pl-2 pr-2"
+                aria-hidden
+                className="pointer-events-none absolute left-0 right-0 rounded-2xl bg-white border border-[#AAFF00] shadow-[0_0_40px_rgba(170,255,0,0.55)]"
                 style={{
-                  height: "100%",
-                  border: "2px solid #AAFF00",
-                  boxShadow: "0 0 16px rgba(170,255,0,0.45)",
+                  height: ROW - 8,
+                  top: CENTER * ROW + 4,
+                  zIndex: 1,
+                }}
+              />
+              <div
+                className="relative will-change-transform"
+                style={{
+                  zIndex: 2,
+                  transform: `translateY(${(CENTER - step) * ROW}px)`,
+                  transition: animate
+                    ? `transform ${DURATION}ms cubic-bezier(0.65, 0, 0.35, 1)`
+                    : "none",
                 }}
               >
-                <span
-                  className="h-11 w-11 shrink-0 rounded-full flex items-center justify-center text-[#AAFF00] text-lg"
-                  style={{ background: "#0033FF" }}
-                >
-                  ✦
-                </span>
-                <span
-                  key={active}
-                  className="flex-1 truncate text-left text-[18px] md:text-[20px] leading-none"
-                  style={{
-                    color: "#0033FF",
-                    fontWeight: 600,
-                    animation: "fadeIn .35s ease",
-                  }}
-                >
-                  {queries[active]}
-                </span>
-                <span
-                  className="h-11 w-11 shrink-0 rounded-full flex items-center justify-center text-white text-lg"
-                  style={{ background: "#0033FF" }}
-                >
-                  ↑
-                </span>
+                {list.map((q, i) => {
+                  const isActive = i === step;
+                  return (
+                    <div
+                      key={i}
+                      className="relative flex items-center gap-3 px-4 md:px-5"
+                      style={{ height: ROW }}
+                    >
+                      <span
+                        className={`h-7 w-7 shrink-0 rounded-full flex items-center justify-center text-sm transition-colors duration-500 ${
+                          isActive ? "bg-[#0033FF] text-[#AAFF00]" : "bg-white/10 text-white/50"
+                        }`}
+                      >
+                        {isActive ? "✦" : "+"}
+                      </span>
+                      <span
+                        className={`flex-1 truncate font-semibold leading-none transition-colors duration-500 ${
+                          isActive ? "text-[#0033FF]" : "text-white/40"
+                        }`}
+                      >
+                        {q}
+                      </span>
+                      {isActive && (
+                        <span className="h-9 w-9 shrink-0 rounded-full bg-[#0033FF] text-[#AAFF00] flex items-center justify-center shadow-[0_0_20px_rgba(0,51,255,0.6)]">
+                          ↑
+                        </span>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
 
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 text-sm text-white">
-            {["ChatGPT", "Gemini", "Perplexity", "Claude", "Grok"].map((p) => (
-              <span
-                key={p}
-                className="border border-white/70 px-4 py-1.5"
-                style={{ borderRadius: 100 }}
-              >
-                {p}
-              </span>
-            ))}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs text-white/60">
+            <span className="rounded-full border border-white/15 px-3 py-1.5">ChatGPT</span>
+            <span className="rounded-full border border-white/15 px-3 py-1.5">Gemini</span>
+            <span className="rounded-full border border-white/15 px-3 py-1.5">Perplexity</span>
+            <span className="rounded-full border border-white/15 px-3 py-1.5">Claude</span>
+            <span className="rounded-full border border-white/15 px-3 py-1.5">Grok</span>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(4px);} to { opacity: 1; transform: translateY(0);} }
-      `}</style>
     </section>
   );
 }
