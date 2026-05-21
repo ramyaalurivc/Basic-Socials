@@ -72,15 +72,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Basic Socials Creative Marketing & Consulting Agency, Hyderabad" },
+      { title: "Basic Socials · Marketing & Consulting Agency, Hyderabad" },
       { name: "description", content: "We basically handle your entire marketing -branding, social, performance, video & AI, talent and consulting. Based in Hyderabad." },
       { name: "author", content: "Basic Socials" },
-      { property: "og:title", content: "Basic Socials Creative Marketing & Consulting Agency, Hyderabad" },
+      { property: "og:title", content: "Basic Socials · Marketing & Consulting Agency, Hyderabad" },
       { property: "og:description", content: "We basically handle your entire marketing -branding, social, performance, video & AI, talent and consulting. Based in Hyderabad." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Basic Socials Creative Marketing & Consulting Agency, Hyderabad" },
+      { name: "twitter:title", content: "Basic Socials · Marketing & Consulting Agency, Hyderabad" },
       { name: "twitter:description", content: "We basically handle your entire marketing -branding, social, performance, video & AI, talent and consulting. Based in Hyderabad." },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vdZwvarEtkanO4HtnKOv5jg8fLh2/social-images/social-1779293139405-Basic_Socials_Logo_Full.webp" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vdZwvarEtkanO4HtnKOv5jg8fLh2/social-images/social-1779293139405-Basic_Socials_Logo_Full.webp" },
@@ -89,6 +89,36 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      { rel: "canonical", href: "https://basicsocials.lovable.app/" },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": "https://basicsocials.lovable.app/#organization",
+              name: "Basic Socials",
+              url: "https://basicsocials.lovable.app/",
+              description: "Creative marketing and consulting agency in Hyderabad.",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Hyderabad",
+                addressCountry: "IN",
+              },
+            },
+            {
+              "@type": "WebSite",
+              "@id": "https://basicsocials.lovable.app/#website",
+              url: "https://basicsocials.lovable.app/",
+              name: "Basic Socials",
+              publisher: { "@id": "https://basicsocials.lovable.app/#organization" },
+            },
+          ],
+        }),
       },
     ],
   }),
