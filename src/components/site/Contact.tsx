@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useState } from "react";
 
 const needs = ["Full Marketing", "Consulting", "Talent & Shoots", "Not sure yet"];
 
@@ -64,12 +64,13 @@ export function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-xs uppercase tracking-wider text-white/60 mb-3">
+                  <label htmlFor="contact-need" className="block text-xs uppercase tracking-wider text-white/60 mb-3">
                     What do you need?
                   </label>
                   <div className="flex flex-wrap gap-2">
                     {needs.map((n) => (
                       <button
+                        id={n === needs[0] ? "contact-need" : undefined}
                         type="button"
                         key={n}
                         onClick={() => setNeed(n)}
@@ -85,15 +86,7 @@ export function Contact() {
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs uppercase tracking-wider text-white/60 mb-2">
-                    Anything else? (optional)
-                  </label>
-                  <textarea
-                    rows={4}
-                    className="w-full rounded-2xl bg-white/5 border border-white/15 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#AAFF00] transition"
-                  />
-                </div>
+                <TextareaField label="Anything else? (optional)" name="notes" />
 
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
                   <button type="submit" className="btn-green flex-1 justify-center">
@@ -126,14 +119,33 @@ function Field({
   name,
   required,
 }: { label: string; name: string; required?: boolean }) {
+  const id = useId();
   return (
     <div>
-      <label className="block text-xs uppercase tracking-wider text-white/60 mb-2">
+      <label htmlFor={id} className="block text-xs uppercase tracking-wider text-white/60 mb-2">
         {label}
       </label>
       <input
+        id={id}
         name={name}
         required={required}
+        className="w-full rounded-2xl bg-white/5 border border-white/15 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#AAFF00] transition"
+      />
+    </div>
+  );
+}
+
+function TextareaField({ label, name }: { label: string; name: string }) {
+  const id = useId();
+  return (
+    <div>
+      <label htmlFor={id} className="block text-xs uppercase tracking-wider text-white/60 mb-2">
+        {label}
+      </label>
+      <textarea
+        id={id}
+        name={name}
+        rows={4}
         className="w-full rounded-2xl bg-white/5 border border-white/15 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#AAFF00] transition"
       />
     </div>
