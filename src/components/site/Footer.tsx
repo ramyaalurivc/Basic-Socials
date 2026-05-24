@@ -9,7 +9,7 @@ export function Footer() {
 
       <div className="mx-auto max-w-7xl">
         {/* CTA strip */}
-        <div className="relative rounded-[2rem] glass-strong p-8 md:p-12 md:pr-[22rem] flex flex-col md:flex-row items-start md:items-center justify-between gap-8 reveal overflow-visible">
+        <div className="relative rounded-[2rem] glass-strong p-8 md:p-12 md:pr-[20rem] flex flex-col md:flex-row items-start md:items-center justify-between gap-8 reveal overflow-visible">
           <div className="relative z-10">
             <p className="text-xs uppercase tracking-[0.2em] text-white/60">Ready when you are</p>
             <h3 className="mt-3 font-display text-3xl md:text-5xl font-bold tracking-[-0.03em] text-white max-w-xl leading-[1]">
@@ -18,25 +18,38 @@ export function Footer() {
           </div>
 
           {/* Mascot + button cluster (desktop) */}
-          <div className="hidden md:block absolute right-6 lg:right-10 top-1/2 -translate-y-1/2 h-full w-[20rem] pointer-events-none group/mascot">
-            <img
-              src={mascot}
-              alt="Basic Socials mascot"
-              className="absolute right-0 bottom-0 h-[125%] w-auto select-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-transform duration-500 group-hover/mascot:-rotate-3 group-hover/mascot:-translate-y-1"
-              loading="lazy"
+          <div className="hidden md:block absolute right-8 lg:right-12 top-1/2 -translate-y-1/2 h-full w-[22rem] pointer-events-none group/mascot">
+            {/* soft ground shadow */}
+            <div
+              aria-hidden
+              className="absolute right-6 bottom-4 h-6 w-56 rounded-full bg-black/40 blur-2xl"
             />
             <a
               href="#contact"
-              className="btn-green text-base pointer-events-auto absolute right-24 top-1/2 translate-y-2 whitespace-nowrap"
+              className="btn-green text-base pointer-events-auto absolute right-20 top-1/2 -translate-y-1/2 whitespace-nowrap z-10"
             >
               Start a project →
             </a>
+            <img
+              src={mascot}
+              alt="Basic Socials mascot"
+              className="absolute right-0 bottom-0 h-[135%] w-auto select-none drop-shadow-[0_25px_35px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover/mascot:-rotate-3 group-hover/mascot:-translate-y-1 z-20"
+              loading="lazy"
+            />
           </div>
 
-          {/* Button (mobile) */}
-          <a href="#contact" className="btn-green text-base md:hidden">
-            Start a project →
-          </a>
+          {/* Mascot + button (mobile) */}
+          <div className="relative md:hidden w-full flex flex-col items-center">
+            <img
+              src={mascot}
+              alt="Basic Socials mascot"
+              className="h-40 w-auto select-none drop-shadow-[0_18px_25px_rgba(0,0,0,0.4)] -mb-6 translate-x-6"
+              loading="lazy"
+            />
+            <a href="#contact" className="btn-green text-base relative z-10">
+              Start a project →
+            </a>
+          </div>
         </div>
 
         {/* Big logo */}
