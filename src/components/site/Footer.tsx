@@ -26,14 +26,14 @@ export function Footer() {
             />
             <a
               href="#contact"
-              className="btn-green text-base pointer-events-auto absolute right-8 top-1/2 -translate-y-1/2 whitespace-nowrap z-10"
+              className="btn-green text-base pointer-events-auto absolute right-4 top-1/2 -translate-y-1/2 whitespace-nowrap z-10"
             >
               Start a project →
             </a>
             <img
               src={mascot}
               alt="Basic Socials mascot"
-              className="absolute left-8 -top-4 h-[110%] w-auto select-none drop-shadow-[0_14px_22px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover/mascot:-rotate-3 group-hover/mascot:-translate-y-1 z-20"
+              className="absolute -left-4 -top-4 h-[110%] w-auto select-none drop-shadow-[0_14px_22px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover/mascot:-rotate-3 group-hover/mascot:-translate-y-1 z-20"
               loading="lazy"
             />
           </div>
