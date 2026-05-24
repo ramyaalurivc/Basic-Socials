@@ -5,6 +5,8 @@ const needs = ["Full Marketing", "Consulting", "Talent & Shoots", "Not sure yet"
 export function Contact() {
   const [sent, setSent] = useState(false);
   const [need, setNeed] = useState<string | null>(null);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   return (
     <section id="contact" className="relative px-6 py-24 md:py-32 overflow-hidden">
@@ -45,10 +47,38 @@ export function Contact() {
             ) : (
               <form
                 className="space-y-5"
-                onSubmit={(e) => {
-                  e.preventDefault();
+              onSubmit={async (e) => {
+                e.preventDefault();
+                if (submitting) return;
+                setError(null);
+                const form = e.currentTarget;
+                const fd = new FormData(form);
+                const payload = {
+                  name: String(fd.get("name") || ""),
+                  brand: String(fd.get("brand") || ""),
+                  phone: String(fd.get("phone") || ""),
+                  need: need || "",
+                  notes: String(fd.get("notes") || ""),
+                };
+                if (!payload.name || !payload.brand || !payload.phone) {
+                  setError("Please fill name, brand and phone.");
+                  return;
+                }
+                setSubmitting(true);
+                try {
+                  const res = await fetch("/api/public/contact", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload),
+                  });
+                  if (!res.ok) throw new Error("Request failed");
                   setSent(true);
-                }}
+                } catch {
+                  setError("Something went wrong. Try WhatsApp instead.");
+                } finally {
+                  setSubmitting(false);
+                }
+              }}
               >
                 <div className="flex items-center justify-end mb-2">
                   <span className="flex gap-1">
@@ -62,6 +92,8 @@ export function Contact() {
                   <Field label="Your name" name="name" required />
                   <Field label="Brand / Company" name="brand" required />
                 </div>
+
+                <Field label="Phone number" name="phone" type="tel" required placeholder="+91 9xxxxxxxxx" />
 
                 <div>
                   <label htmlFor="contact-need" className="block text-xs uppercase tracking-wider text-white/60 mb-3">
@@ -88,9 +120,17 @@ export function Contact() {
 
                 <TextareaField label="Anything else? (optional)" name="notes" />
 
+                {error && (
+                  <p className="text-xs text-red-300">{error}</p>
+                )}
+
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
-                  <button type="submit" className="btn-green flex-1 justify-center">
-                    Send it →
+                  <button
+                    type="submit"
+                    disabled={submitting}
+                    className="btn-green flex-1 justify-center disabled:opacity-60"
+                  >
+                    {submitting ? "Sending..." : "Send it →"}
                   </button>
                   <a
                     href="https://wa.me/910000000000"
@@ -118,7 +158,9 @@ function Field({
   label,
   name,
   required,
-}: { label: string; name: string; required?: boolean }) {
+  type,
+  placeholder,
+}: { label: string; name: string; required?: boolean; type?: string; placeholder?: string }) {
   const id = useId();
   return (
     <div>
@@ -128,6 +170,8 @@ function Field({
       <input
         id={id}
         name={name}
+        type={type || "text"}
+        placeholder={placeholder}
         required={required}
         className="w-full rounded-2xl bg-white/5 border border-white/15 px-4 py-3 text-white placeholder:text-white/40 focus:outline-none focus:border-[#AAFF00] transition"
       />
