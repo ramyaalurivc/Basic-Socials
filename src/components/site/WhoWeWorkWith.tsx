@@ -51,6 +51,13 @@ export function WhoWeWorkWith() {
         <p className="mt-10 max-w-2xl text-base text-white/70 md:text-lg reveal">
           If your industry isn't listed, reach out. We'll tell you if we're the right fit.
         </p>
+        <a
+          href="#contact"
+          className="reveal mt-6 inline-flex items-center gap-2 rounded-full bg-[#AAFF00] px-4 py-1.5 text-sm font-medium text-[#0033FF] shadow-[0_0_20px_rgba(170,255,0,0.5)] hover:scale-105 transition w-fit"
+        >
+          <span className="h-1.5 w-1.5 rounded-full bg-[#0033FF] animate-pulse" />
+          Let's talk
+        </a>
       </div>
     </section>
   );
