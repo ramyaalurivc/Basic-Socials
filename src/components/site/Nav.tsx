@@ -24,12 +24,8 @@ export function Nav() {
           scrolled ? "bg-white/15 backdrop-blur-2xl shadow-[0_8px_32px_-12px_rgba(0,0,0,0.4)]" : "bg-white/10 backdrop-blur-xl"
         }`}
       >
-        <a href="#top" className="pl-2 pr-3 font-display text-base font-bold tracking-tight text-white flex items-center gap-2">
-          <img src={logo} alt="Basic Socials" className="h-7 w-7 object-contain" />
-          <span className="flex items-center gap-1.5">
-            Basic Socials
-            <span className="h-1.5 w-1.5 rounded-full bg-[#AAFF00] shadow-[0_0_8px_#AAFF00]" />
-          </span>
+        <a href="#top" className="pl-2 pr-4 font-display text-base font-bold tracking-tight text-white flex items-center gap-2">
+          <img src={logo} alt="Basic Socials" className="h-9 w-9 object-contain" />
         </a>
         <div className="hidden md:flex items-center gap-1 px-2">
           {links.map((l) => (
