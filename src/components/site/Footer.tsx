@@ -1,5 +1,6 @@
+import mascot from "@/assets/mascot.png";
+
 export function Footer() {
-  const mascot = new URL("../../assets/mascot.png", import.meta.url).href;
   return (
     <footer className="relative px-6 pt-24 pb-10 overflow-hidden border-t border-white/15">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
