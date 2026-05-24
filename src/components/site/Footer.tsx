@@ -1,5 +1,6 @@
+import mascot from "@/assets/mascot.png";
+
 export function Footer() {
-  const mascot = new URL("../../assets/mascot.png", import.meta.url).href;
   return (
     <footer className="relative px-6 pt-24 pb-10 overflow-hidden border-t border-white/15">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -9,7 +10,7 @@ export function Footer() {
 
       <div className="mx-auto max-w-7xl">
         {/* CTA strip */}
-        <div className="relative rounded-[2rem] glass-strong p-8 md:p-12 md:pr-[20rem] flex flex-col md:flex-row items-start md:items-center justify-between gap-8 reveal overflow-visible">
+        <div className="relative rounded-[2rem] glass-strong p-8 md:p-12 md:pr-[24rem] md:min-h-[20rem] flex flex-col md:flex-row items-start md:items-center justify-between gap-8 reveal overflow-visible">
           <div className="relative z-10">
             <p className="text-xs uppercase tracking-[0.2em] text-white/60">Ready when you are</p>
             <h3 className="mt-3 font-display text-3xl md:text-5xl font-bold tracking-[-0.03em] text-white max-w-xl leading-[1]">
@@ -18,24 +19,24 @@ export function Footer() {
           </div>
 
           {/* Mascot + button cluster (desktop) */}
-          <div className="hidden md:block absolute right-8 lg:right-12 top-1/2 -translate-y-1/2 h-full w-[26rem] pointer-events-none group/mascot">
-            {/* soft ground shadow under button */}
-            <div
-              aria-hidden
-              className="absolute right-8 bottom-6 h-4 w-64 rounded-full bg-black/20 blur-2xl"
-            />
-            <a
-              href="#contact"
-              className="btn-green text-base pointer-events-auto absolute right-4 top-1/2 -translate-y-1/2 whitespace-nowrap z-10"
-            >
-              Start a project →
-            </a>
+          <div className="hidden md:block absolute right-6 lg:right-10 inset-y-0 w-[28rem] pointer-events-none group/mascot">
             <img
               src={mascot}
               alt="Basic Socials mascot"
-              className="absolute -left-4 -top-4 h-[110%] w-auto select-none drop-shadow-[0_14px_22px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover/mascot:-rotate-3 group-hover/mascot:-translate-y-1 z-20"
+              className="absolute left-0 bottom-0 h-[115%] w-auto select-none drop-shadow-[0_18px_25px_rgba(0,0,0,0.22)] transition-transform duration-500 group-hover/mascot:-rotate-3 group-hover/mascot:-translate-y-1 z-20"
               loading="lazy"
             />
+            {/* soft ground shadow under button */}
+            <div
+              aria-hidden
+              className="absolute right-2 bottom-[26%] h-4 w-60 rounded-full bg-black/15 blur-2xl"
+            />
+            <a
+              href="#contact"
+              className="btn-green text-lg px-7 py-4 pointer-events-auto absolute right-2 bottom-[30%] whitespace-nowrap z-10"
+            >
+              Start a project →
+            </a>
           </div>
 
           {/* Mascot + button (mobile) */}
