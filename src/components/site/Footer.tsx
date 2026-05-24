@@ -64,6 +64,7 @@ export function Footer() {
             <p className="text-xs uppercase tracking-wider text-white/50 mb-4">Say hi</p>
             <ul className="space-y-2 text-sm">
               <li><a href="mailto:hello@basicsocials.in" className="ulink text-white/80 hover:text-white">hello@basicsocials.in</a></li>
+              <li><a href="tel:+917993557180" className="ulink text-white/80 hover:text-white">+91 79935 57180</a></li>
               <li><a href="https://wa.me/910000000000" className="ulink text-[#AAFF00]">WhatsApp →</a></li>
               <li className="text-white/60">Mon to Sat · 10am to 7pm IST</li>
             </ul>
