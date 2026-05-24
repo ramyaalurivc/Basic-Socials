@@ -18,22 +18,22 @@ export function Footer() {
           </div>
 
           {/* Mascot + button cluster (desktop) */}
-          <div className="hidden md:block absolute right-8 lg:right-12 top-1/2 -translate-y-1/2 h-full w-[22rem] pointer-events-none group/mascot">
-            {/* soft ground shadow */}
+          <div className="hidden md:block absolute right-8 lg:right-12 top-1/2 -translate-y-1/2 h-full w-[24rem] pointer-events-none group/mascot">
+            {/* soft ground shadow under button */}
             <div
               aria-hidden
-              className="absolute right-6 bottom-4 h-6 w-56 rounded-full bg-black/40 blur-2xl"
+              className="absolute right-10 bottom-6 h-5 w-60 rounded-full bg-black/40 blur-2xl"
             />
             <a
               href="#contact"
-              className="btn-green text-base pointer-events-auto absolute right-20 top-1/2 -translate-y-1/2 whitespace-nowrap z-10"
+              className="btn-green text-base pointer-events-auto absolute right-16 top-1/2 -translate-y-1/2 whitespace-nowrap z-20"
             >
               Start a project →
             </a>
             <img
               src={mascot}
               alt="Basic Socials mascot"
-              className="absolute right-0 bottom-0 h-[135%] w-auto select-none drop-shadow-[0_25px_35px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover/mascot:-rotate-3 group-hover/mascot:-translate-y-1 z-20"
+              className="absolute -right-4 -top-6 h-[115%] w-auto select-none drop-shadow-[0_22px_30px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover/mascot:-rotate-3 group-hover/mascot:-translate-y-1 z-10"
               loading="lazy"
             />
           </div>
