@@ -72,11 +72,6 @@ export function Footer() {
 
         <div className="mt-14 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 text-xs text-white/55">
           <span>© 2025 Basic Socials. All rights reserved.</span>
-          <span className="flex items-center gap-2">
-            Made with
-            <span className="inline-block h-2 w-2 rounded-full bg-[#AAFF00] shadow-[0_0_10px_#AAFF00]" />
-            in Hyderabad.
-          </span>
         </div>
       </div>
     </footer>

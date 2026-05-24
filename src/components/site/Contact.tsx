@@ -27,6 +27,13 @@ export function Contact() {
             <p className="mt-6 text-lg text-white/70 max-w-md reveal reveal-delay-2">
               Tell us yours.
             </p>
+            <a
+              href="#contact"
+              className="reveal reveal-delay-2 mt-6 inline-flex items-center gap-2 rounded-full bg-[#AAFF00] px-4 py-1.5 text-sm font-medium text-[#0033FF] shadow-[0_0_20px_rgba(170,255,0,0.5)] hover:scale-105 transition w-fit"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-[#0033FF] animate-pulse" />
+              Let's talk
+            </a>
           </div>
         </div>
 
