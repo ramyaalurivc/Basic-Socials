@@ -9,24 +9,34 @@ export function Footer() {
 
       <div className="mx-auto max-w-7xl">
         {/* CTA strip */}
-        <div className="relative rounded-[2rem] glass-strong p-8 md:p-12 pr-8 md:pr-56 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 reveal overflow-hidden">
-          <div>
+        <div className="relative rounded-[2rem] glass-strong p-8 md:p-12 md:pr-[22rem] flex flex-col md:flex-row items-start md:items-center justify-between gap-8 reveal overflow-visible">
+          <div className="relative z-10">
             <p className="text-xs uppercase tracking-[0.2em] text-white/60">Ready when you are</p>
             <h3 className="mt-3 font-display text-3xl md:text-5xl font-bold tracking-[-0.03em] text-white max-w-xl leading-[1]">
               Let's build something <span className="italic font-medium grad-text">basically</span> unforgettable.
             </h3>
           </div>
-          <div className="relative z-10 flex items-center gap-4 group/mascot">
+
+          {/* Mascot + button cluster (desktop) */}
+          <div className="hidden md:block absolute right-6 lg:right-10 top-1/2 -translate-y-1/2 h-full w-[20rem] pointer-events-none group/mascot">
             <img
               src={mascot}
               alt="Basic Socials mascot"
-              className="hidden md:block absolute right-32 -top-4 h-56 w-auto pointer-events-none select-none drop-shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-transform duration-500 group-hover/mascot:-rotate-6 group-hover/mascot:-translate-y-1"
+              className="absolute right-0 bottom-0 h-[125%] w-auto select-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-transform duration-500 group-hover/mascot:-rotate-3 group-hover/mascot:-translate-y-1"
               loading="lazy"
             />
-            <a href="#contact" className="btn-green text-base relative">
+            <a
+              href="#contact"
+              className="btn-green text-base pointer-events-auto absolute right-24 top-1/2 translate-y-2 whitespace-nowrap"
+            >
               Start a project →
             </a>
           </div>
+
+          {/* Button (mobile) */}
+          <a href="#contact" className="btn-green text-base md:hidden">
+            Start a project →
+          </a>
         </div>
 
         {/* Big logo */}
