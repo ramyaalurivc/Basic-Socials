@@ -1,4 +1,5 @@
 export function Footer() {
+  const mascot = new URL("../../assets/mascot.png", import.meta.url).href;
   return (
     <footer className="relative px-6 pt-24 pb-10 overflow-hidden border-t border-white/15">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
@@ -8,16 +9,24 @@ export function Footer() {
 
       <div className="mx-auto max-w-7xl">
         {/* CTA strip */}
-        <div className="rounded-[2rem] glass-strong p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 reveal">
+        <div className="relative rounded-[2rem] glass-strong p-8 md:p-12 pr-8 md:pr-56 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 reveal overflow-hidden">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-white/60">Ready when you are</p>
             <h3 className="mt-3 font-display text-3xl md:text-5xl font-bold tracking-[-0.03em] text-white max-w-xl leading-[1]">
               Let's build something <span className="italic font-medium grad-text">basically</span> unforgettable.
             </h3>
           </div>
-          <a href="#contact" className="btn-green text-base">
-            Start a project →
-          </a>
+          <div className="relative z-10 flex items-center gap-4 group/mascot">
+            <img
+              src={mascot}
+              alt="Basic Socials mascot"
+              className="hidden md:block absolute right-32 -top-4 h-56 w-auto pointer-events-none select-none drop-shadow-[0_10px_30px_rgba(0,0,0,0.35)] transition-transform duration-500 group-hover/mascot:-rotate-6 group-hover/mascot:-translate-y-1"
+              loading="lazy"
+            />
+            <a href="#contact" className="btn-green text-base relative">
+              Start a project →
+            </a>
+          </div>
         </div>
 
         {/* Big logo */}
