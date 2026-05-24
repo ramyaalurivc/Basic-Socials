@@ -1,5 +1,3 @@
-import mascot from "@/assets/mascot.png";
-
 export function Footer() {
   return (
     <footer className="relative px-6 pt-24 pb-10 overflow-hidden border-t border-white/15">
@@ -10,23 +8,16 @@ export function Footer() {
 
       <div className="mx-auto max-w-7xl">
         {/* CTA strip */}
-        <div className="relative rounded-[2rem] glass-strong p-8 md:p-12 pr-8 md:pr-56 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 reveal overflow-visible">
-          <div className="relative z-10">
+        <div className="rounded-[2rem] glass-strong p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 reveal">
+          <div>
             <p className="text-xs uppercase tracking-[0.2em] text-white/60">Ready when you are</p>
             <h3 className="mt-3 font-display text-3xl md:text-5xl font-bold tracking-[-0.03em] text-white max-w-xl leading-[1]">
               Let's build something <span className="italic font-medium grad-text">basically</span> unforgettable.
             </h3>
           </div>
-          <div className="relative z-10 flex items-center gap-4 group/mascot">
-            <img
-              src={mascot}
-              alt="Basic Socials mascot"
-              className="hidden md:block absolute right-32 -top-24 h-56 w-auto pointer-events-none select-none drop-shadow-[0_20px_40px_rgba(0,0,0,0.35)] transition-transform duration-500 group-hover/mascot:-translate-y-2 group-hover/mascot:-rotate-3"
-            />
-            <a href="#contact" className="btn-green text-base relative">
-              Start a project →
-            </a>
-          </div>
+          <a href="#contact" className="btn-green text-base">
+            Start a project →
+          </a>
         </div>
 
         {/* Big logo */}
