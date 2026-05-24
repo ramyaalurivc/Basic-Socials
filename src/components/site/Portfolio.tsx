@@ -1,13 +1,12 @@
-import { SectionLabel } from "./SectionLabel";
-
 export function Portfolio() {
   return (
     <section id="portfolio" className="px-6 py-24 md:py-32">
       <div className="mx-auto max-w-7xl">
-        <SectionLabel
-          label="Our Portfolio"
-          headline={<>We let our <span className="italic font-medium grad-text">work</span> speak.</>}
-        />
+        <div className="mb-12 md:mb-16 text-center">
+          <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-bold leading-[1] tracking-[-0.03em] reveal">
+            Our <span className="italic font-medium grad-text">Portfolio</span>
+          </h2>
+        </div>
 
         <div className="reveal reveal-delay-1 mt-12 flex items-center justify-center">
           <div className="relative w-full max-w-2xl overflow-hidden rounded-3xl glass p-12 md:p-16 text-center">

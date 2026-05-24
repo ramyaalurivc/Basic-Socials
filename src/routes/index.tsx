@@ -23,9 +23,9 @@ function Index() {
         <Hero />
         <WhoWeWorkWith />
         <Services />
+        <AiSearch />
         <HowItWorks />
         <Portfolio />
-        <AiSearch />
         <Contact />
       </main>
       <Footer />
