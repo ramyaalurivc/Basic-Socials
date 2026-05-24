@@ -1,5 +1,3 @@
-import mascot from "@/assets/mascot.png";
-
 export function Footer() {
   return (
     <footer className="relative px-6 pt-24 pb-10 overflow-hidden border-t border-white/15">
@@ -17,17 +15,9 @@ export function Footer() {
               Let's build something <span className="italic font-medium grad-text">basically</span> unforgettable.
             </h3>
           </div>
-          <div className="flex items-center gap-4 group/mascot">
-            <img
-              src={mascot}
-              alt="Basic Socials mascot waving hi"
-              className="mascot h-24 md:h-32 w-auto select-none origin-bottom transition-transform"
-              draggable={false}
-            />
-            <a href="#contact" className="btn-green text-base">
-              Start a project →
-            </a>
-          </div>
+          <a href="#contact" className="btn-green text-base">
+            Start a project →
+          </a>
         </div>
 
         {/* Big logo */}
