@@ -18,24 +18,24 @@ export function Footer() {
           </div>
 
           {/* Mascot + button cluster (desktop) */}
-          <div className="hidden md:block absolute right-8 lg:right-12 top-1/2 -translate-y-1/2 h-full w-[26rem] pointer-events-none group/mascot">
-            {/* soft ground shadow under button */}
-            <div
-              aria-hidden
-              className="absolute right-8 bottom-6 h-4 w-64 rounded-full bg-black/20 blur-2xl"
-            />
-            <a
-              href="#contact"
-              className="btn-green text-base pointer-events-auto absolute right-4 top-1/2 -translate-y-1/2 whitespace-nowrap z-10"
-            >
-              Start a project →
-            </a>
+          <div className="hidden md:block absolute right-6 lg:right-10 bottom-0 h-[180%] w-[28rem] pointer-events-none group/mascot">
             <img
               src={mascot}
               alt="Basic Socials mascot"
-              className="absolute -left-4 -top-4 h-[110%] w-auto select-none drop-shadow-[0_14px_22px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover/mascot:-rotate-3 group-hover/mascot:-translate-y-1 z-20"
+              className="absolute left-0 bottom-0 h-full w-auto select-none drop-shadow-[0_18px_25px_rgba(0,0,0,0.25)] transition-transform duration-500 group-hover/mascot:-rotate-3 group-hover/mascot:-translate-y-1 z-20"
               loading="lazy"
             />
+            {/* soft ground shadow under button */}
+            <div
+              aria-hidden
+              className="absolute right-2 bottom-[34%] h-4 w-56 rounded-full bg-black/20 blur-2xl"
+            />
+            <a
+              href="#contact"
+              className="btn-green text-lg px-7 py-4 pointer-events-auto absolute right-2 bottom-[36%] whitespace-nowrap z-10"
+            >
+              Start a project →
+            </a>
           </div>
 
           {/* Mascot + button (mobile) */}
