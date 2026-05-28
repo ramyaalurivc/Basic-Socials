@@ -66,7 +66,7 @@ export function Faq() {
             return (
               <div
                 key={i}
-                className={`reveal reveal-delay-${Math.min(i + 1, 5)} rounded-3xl glass overflow-hidden transition-all duration-500 ${
+                className={`rounded-3xl glass overflow-hidden transition-colors duration-500 ${
                   isOpen ? "border-[#AAFF00]/40 shadow-[0_0_40px_-10px_rgba(170,255,0,0.2)]" : "border-white/18"
                 }`}
               >
@@ -90,11 +90,11 @@ export function Faq() {
                   </span>
                 </button>
                 <div
-                  className={`grid transition-all duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${
+                  className={`grid transition-[grid-template-rows,opacity] duration-500 ease-[cubic-bezier(0.2,0.8,0.2,1)] ${
                     isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                   }`}
                 >
-                  <div className="overflow-hidden">
+                  <div className="overflow-hidden min-h-0">
                     <div className="px-6 md:px-8 pb-6 text-white/80 text-sm md:text-base leading-relaxed">
                       {item.a}
                     </div>
