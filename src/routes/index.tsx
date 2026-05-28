@@ -7,6 +7,7 @@ import { Services } from "@/components/site/Services";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { Portfolio } from "@/components/site/Portfolio";
 import { AiSearch } from "@/components/site/AiSearch";
+import { Faq } from "@/components/site/Faq";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 
@@ -26,6 +27,7 @@ function Index() {
         <AiSearch />
         <HowItWorks />
         <Portfolio />
+        <Faq />
         <Contact />
       </main>
       <Footer />
