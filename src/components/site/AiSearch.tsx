@@ -85,6 +85,19 @@ export function AiSearch() {
                   zIndex: 1,
                 }}
               />
+              {/* Fixed icons that stay at the center row while text scrolls */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute left-0 right-0 flex items-center justify-between px-4 md:px-5"
+                style={{ height: ROW, top: CENTER * ROW, zIndex: 3 }}
+              >
+                <span className="h-7 w-7 shrink-0 rounded-full flex items-center justify-center text-sm bg-[#0033FF] text-[#AAFF00]">
+                  ✦
+                </span>
+                <span className="h-9 w-9 shrink-0 rounded-full bg-[#0033FF] text-[#AAFF00] flex items-center justify-center shadow-[0_0_20px_rgba(0,51,255,0.6)]">
+                  ↑
+                </span>
+              </div>
               <div
                 className="relative will-change-transform"
                 style={{
@@ -100,28 +113,16 @@ export function AiSearch() {
                   return (
                     <div
                       key={i}
-                      className="relative flex items-center gap-3 px-4 md:px-5"
+                      className="relative flex items-center px-4 md:px-5"
                       style={{ height: ROW }}
                     >
                       <span
-                        className={`h-7 w-7 shrink-0 rounded-full flex items-center justify-center text-sm transition-colors duration-500 ${
-                          isActive ? "bg-[#0033FF] text-[#AAFF00]" : "bg-white/10 text-white/50"
-                        }`}
-                      >
-                        {isActive ? "✦" : "+"}
-                      </span>
-                      <span
-                        className={`flex-1 truncate font-semibold leading-none transition-colors duration-500 ${
+                        className={`flex-1 truncate font-semibold leading-none pl-10 md:pl-11 pr-12 md:pr-14 transition-colors duration-500 ${
                           isActive ? "text-[#0033FF]" : "text-white/40"
                         }`}
                       >
                         {q}
                       </span>
-                      {isActive && (
-                        <span className="h-9 w-9 shrink-0 rounded-full bg-[#0033FF] text-[#AAFF00] flex items-center justify-center shadow-[0_0_20px_rgba(0,51,255,0.6)]">
-                          ↑
-                        </span>
-                      )}
                     </div>
                   );
                 })}
