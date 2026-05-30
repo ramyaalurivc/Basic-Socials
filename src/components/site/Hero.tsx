@@ -38,7 +38,7 @@ export function Hero() {
             <a href="#contact" className="btn-green">
               Start a project →
             </a>
-            <a href="#services" className="btn-dark">
+            <a href="#services" className="btn-dark" data-sfx="enter">
               Enter Basic
             </a>
           </div>

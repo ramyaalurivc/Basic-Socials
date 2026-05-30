@@ -148,13 +148,18 @@ function RootComponent() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const audio = new Audio("/sfx/click.mp3");
-    audio.volume = 0.4;
-    audio.preload = "auto";
+    const enterAudio = new Audio("/sfx/click.mp3");
+    enterAudio.volume = 0.4;
+    enterAudio.preload = "auto";
+    const clickAudio = new Audio("/sfx/click2.mp3");
+    clickAudio.volume = 0.4;
+    clickAudio.preload = "auto";
     const onClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
       if (!target) return;
-      if (!target.closest("button, a, [role='button']")) return;
+      const el = target.closest("button, a, [role='button']") as HTMLElement | null;
+      if (!el) return;
+      const audio = el.closest("[data-sfx='enter']") ? enterAudio : clickAudio;
       try {
         audio.currentTime = 0;
         void audio.play();
