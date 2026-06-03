@@ -94,7 +94,7 @@ function BlogPost() {
           </Link>
 
           <div className="mt-6 flex flex-wrap items-center gap-2 text-xs text-white/60">
-            {post.tags.map((t) => (
+            {post.tags.map((t: string) => (
               <span key={t} className="uppercase tracking-wider border border-white/15 rounded-full px-2.5 py-1">
                 {t}
               </span>
