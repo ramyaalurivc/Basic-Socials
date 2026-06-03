@@ -5,7 +5,7 @@ import { posts } from "@/content/posts";
 import { useReveal } from "@/hooks/use-reveal";
 import { useLenis } from "@/hooks/use-lenis";
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   head: () => ({
     meta: [
       { title: "Blog · Basic Socials — Marketing, AI & LinkedIn insights" },
