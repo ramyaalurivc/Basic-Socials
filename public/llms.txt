@@ -5,3 +5,4 @@
 ## Pages
 
 - [Home](/): Services, who we work with, how it works, AI visibility, and contact.
+- [Blog](/blog): Articles on AI search, LinkedIn content, performance marketing and video.

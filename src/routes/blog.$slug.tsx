@@ -143,9 +143,9 @@ function BlogPost() {
               <a href={linkedInShare} target="_blank" rel="noopener noreferrer" className="btn-green !py-2.5 !px-4 text-sm">
                 Post to LinkedIn
               </a>
-              <Link to="/" hash="contact" className="btn-dark !py-2.5 !px-4 text-sm">
+              <a href="/#contact" className="btn-dark !py-2.5 !px-4 text-sm">
                 Start a project
-              </Link>
+              </a>
             </div>
           </div>
 
