@@ -55,7 +55,7 @@ function BlogIndex() {
                 className={`glass rounded-3xl p-7 reveal reveal-delay-${Math.min(i + 1, 5)} group block transition-transform hover:-translate-y-1`}
               >
                 <div className="flex items-center gap-2 text-xs text-white/60">
-                  <time>{new Date(p.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</time>
+                  <time>{new Date(p.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}</time>
                   <span>·</span>
                   <span>{p.readMinutes} min read</span>
                 </div>

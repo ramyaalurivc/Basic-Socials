@@ -100,7 +100,7 @@ function BlogPost() {
               </span>
             ))}
             <span>·</span>
-            <time>{new Date(post.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}</time>
+            <time>{new Date(post.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })}</time>
             <span>·</span>
             <span>{post.readMinutes} min read</span>
           </div>
