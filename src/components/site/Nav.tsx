@@ -35,7 +35,7 @@ export function Nav() {
             l.href.startsWith("/") ? (
               <Link
                 key={l.href}
-                to={l.href}
+                to={l.href as "/blog"}
                 className="rounded-full px-3 py-1.5 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
               >
                 {l.label}
