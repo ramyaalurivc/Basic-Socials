@@ -105,12 +105,12 @@ function BlogPost() {
             <span>{post.readMinutes} min read</span>
           </div>
 
-          <h1 className="mt-5 font-display text-[clamp(2.2rem,5.5vw,4rem)] font-bold leading-[1.02] tracking-[-0.03em] reveal">
+          <h1 className="mt-5 font-display text-[clamp(2.2rem,5.5vw,4rem)] font-bold leading-[1.02] tracking-[-0.03em]">
             {post.title}
           </h1>
-          <p className="mt-5 text-white/75 text-lg leading-relaxed reveal reveal-delay-1">{post.excerpt}</p>
+          <p className="mt-5 text-white/75 text-lg leading-relaxed">{post.excerpt}</p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-2 reveal reveal-delay-2">
+          <div className="mt-8 flex flex-wrap items-center gap-2">
             <a
               href={linkedInShare}
               target="_blank"
@@ -134,7 +134,7 @@ function BlogPost() {
 
           <div className="mt-10 border-t border-white/10" />
 
-          <div className="mt-2 reveal reveal-delay-3">{post.body}</div>
+          <div className="mt-2">{post.body}</div>
 
           <div className="mt-16 glass rounded-3xl p-8 text-center">
             <h3 className="font-display text-2xl font-bold text-white">Found this useful?</h3>
