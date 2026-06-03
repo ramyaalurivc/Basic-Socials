@@ -36,6 +36,7 @@ export function Footer() {
               <li><a href="#who" className="ulink text-white/80 hover:text-white">Who we work with</a></li>
               <li><a href="#how" className="ulink text-white/80 hover:text-white">How it works</a></li>
               <li><a href="#ai" className="ulink text-white/80 hover:text-white">AI Visibility</a></li>
+              <li><a href="/blog" className="ulink text-white/80 hover:text-white">Blog</a></li>
               <li><a href="#faq" className="ulink text-white/80 hover:text-white">FAQ</a></li>
             </ul>
           </div>

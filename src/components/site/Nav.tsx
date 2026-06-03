@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "@tanstack/react-router";
 import logo from "@/assets/logo.png";
 
 const links = [
@@ -6,6 +7,7 @@ const links = [
   { label: "Who we work with", href: "#who" },
   { label: "How it works", href: "#how" },
   { label: "Portfolio", href: "#portfolio" },
+  { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
 ];
@@ -25,21 +27,31 @@ export function Nav() {
           scrolled ? "bg-white/15 backdrop-blur-2xl shadow-[0_8px_32px_-12px_rgba(0,0,0,0.4)]" : "bg-white/10 backdrop-blur-xl"
         }`}
       >
-        <a href="#top" className="pl-2 pr-4 font-display text-base font-bold tracking-tight text-white flex items-center gap-2">
+        <Link to="/" className="pl-2 pr-4 font-display text-base font-bold tracking-tight text-white flex items-center gap-2">
           <img src={logo} alt="Basic Socials" className="h-9 w-9 object-contain" />
-        </a>
+        </Link>
         <div className="hidden md:flex items-center gap-1 px-2">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="rounded-full px-3 py-1.5 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
-            >
-              {l.label}
-            </a>
-          ))}
+          {links.map((l) =>
+            l.href.startsWith("/") ? (
+              <Link
+                key={l.href}
+                to={l.href as "/blog"}
+                className="rounded-full px-3 py-1.5 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.href}
+                href={`/${l.href}`}
+                className="rounded-full px-3 py-1.5 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                {l.label}
+              </a>
+            ),
+          )}
         </div>
-        <a href="#contact" className="btn-green !py-2 !px-4 text-sm">
+        <a href="/#contact" className="btn-green !py-2 !px-4 text-sm">
           Let's talk
         </a>
       </nav>
