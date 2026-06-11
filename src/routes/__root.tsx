@@ -155,10 +155,10 @@ function RootComponent() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const enterAudio = new Audio("/sfx/click.mp3");
-    enterAudio.volume = 0.4;
+    enterAudio.volume = 1.0;
     enterAudio.preload = "auto";
     const clickAudio = new Audio("/sfx/click2.mp3");
-    clickAudio.volume = 0.4;
+    clickAudio.volume = 1.0;
     clickAudio.preload = "auto";
     const onClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
