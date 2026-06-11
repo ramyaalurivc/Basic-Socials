@@ -1,5 +1,6 @@
 name = "basic-socials"
 compatibility_date = "2025-09-24"
 compatibility_flags = ["nodejs_compat"]
-main = "src/server.ts"
+main = "dist/server/index.js"
 pages_build_output_dir = "dist/client"
+
