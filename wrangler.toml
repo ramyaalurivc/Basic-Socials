@@ -2,8 +2,8 @@ name = "basic-socials"
 compatibility_date = "2024-09-24"
 compatibility_flags = ["nodejs_compat"]
 
-main = "dist/_worker.js/index.js"
+main = ".output/server/index.mjs"
 
 [assets]
-directory = "./dist"
+directory = ".output/public"
 not_found_handling = "single-page-application"

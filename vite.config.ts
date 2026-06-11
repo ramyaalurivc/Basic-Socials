@@ -15,6 +15,7 @@ export default defineConfig({
     },
   },
   nitro: {
-    preset: "cloudflare-pages",
+    preset: "cloudflare_module",
   },
 });
+
