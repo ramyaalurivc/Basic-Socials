@@ -1,7 +1,8 @@
 name = "basic-socials"
-compatibility_date = "2024-09-23"
+compatibility_date = "2024-09-24"
 compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = "dist"
 
-[build]
-command = "npm run build"
+main = "dist/_worker.js/index.js"
+
+[assets]
+directory = "./dist"
