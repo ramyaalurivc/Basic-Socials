@@ -7,21 +7,8 @@ export function Footer() {
       </div>
 
       <div className="mx-auto max-w-7xl">
-        {/* CTA strip */}
-        <div className="rounded-[2rem] glass-strong p-8 md:p-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 reveal">
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-white/60">Ready when you are</p>
-            <h3 className="mt-3 font-display text-3xl md:text-5xl font-bold tracking-[-0.03em] text-white max-w-xl leading-[1]">
-              Let's build something <span className="italic font-medium grad-text">basically</span> unforgettable.
-            </h3>
-          </div>
-          <a href="#contact" className="btn-green text-base">
-            Start a project →
-          </a>
-        </div>
-
         {/* Big logo */}
-        <div className="mt-20 reveal reveal-delay-1">
+        <div className="reveal reveal-delay-1">
           <div className="relative flex items-end justify-between gap-6 flex-wrap">
             <h2 className="font-display font-bold leading-[0.85] tracking-[-0.05em] text-white text-[clamp(3.5rem,16vw,15rem)]">
               Basic <span className="grad-text">Socials</span>
@@ -49,6 +36,8 @@ export function Footer() {
               <li><a href="#who" className="ulink text-white/80 hover:text-white">Who we work with</a></li>
               <li><a href="#how" className="ulink text-white/80 hover:text-white">How it works</a></li>
               <li><a href="#ai" className="ulink text-white/80 hover:text-white">AI Visibility</a></li>
+              <li><a href="/blog" className="ulink text-white/80 hover:text-white">Blog</a></li>
+              <li><a href="#faq" className="ulink text-white/80 hover:text-white">FAQ</a></li>
             </ul>
           </div>
           <div>

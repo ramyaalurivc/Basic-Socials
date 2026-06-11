@@ -35,10 +35,10 @@ export function Hero() {
           </p>
 
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3 reveal reveal-delay-3">
-            <a href="#contact" className="btn-green">
+            <a href="#contact" className="btn-green magnetic" data-magnetic data-magnetic-strength="0.4">
               Start a project →
             </a>
-            <a href="#services" className="btn-dark">
+            <a href="#services" className="btn-dark magnetic" data-magnetic data-magnetic-strength="0.3" data-sfx="enter">
               Enter Basic
             </a>
           </div>

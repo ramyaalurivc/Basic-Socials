@@ -51,7 +51,7 @@ export function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((s, i) => (
-            <div key={s.n} className={`flip h-[320px] reveal reveal-delay-${(i % 5) + 1}`}>
+            <div key={s.n} className={`flip spotlight rounded-3xl h-[320px] reveal reveal-delay-${(i % 5) + 1}`}>
               <div className="flip-inner">
                 <div className="flip-face glass">
                   <div className="flex items-start justify-between">
