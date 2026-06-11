@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "We basically handle your entire marketing -branding, social, performance, video & AI, talent and consulting. Based in Hyderabad." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:site", content: "@basicsocials" },
       { name: "twitter:title", content: "Basic Socials · Marketing & Consulting Agency, Hyderabad" },
       { name: "twitter:description", content: "We basically handle your entire marketing -branding, social, performance, video & AI, talent and consulting. Based in Hyderabad." },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vdZwvarEtkanO4HtnKOv5jg8fLh2/social-images/social-1779293139405-Basic_Socials_Logo_Full.webp" },
@@ -90,7 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "canonical", href: "https://basicsocials.lovable.app/" },
+      { rel: "canonical", href: "https://basicsocials.in/" },
     ],
     scripts: [
       {
@@ -100,9 +100,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@graph": [
             {
               "@type": "Organization",
-              "@id": "https://basicsocials.lovable.app/#organization",
+              "@id": "https://basicsocials.in/#organization",
               name: "Basic Socials",
-              url: "https://basicsocials.lovable.app/",
+              url: "https://basicsocials.in/",
               description: "Creative marketing and consulting agency in Hyderabad.",
               address: {
                 "@type": "PostalAddress",
@@ -112,10 +112,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             },
             {
               "@type": "WebSite",
-              "@id": "https://basicsocials.lovable.app/#website",
-              url: "https://basicsocials.lovable.app/",
+              "@id": "https://basicsocials.in/#website",
+              url: "https://basicsocials.in/",
               name: "Basic Socials",
-              publisher: { "@id": "https://basicsocials.lovable.app/#organization" },
+              publisher: { "@id": "https://basicsocials.in/#organization" },
             },
           ],
         }),
