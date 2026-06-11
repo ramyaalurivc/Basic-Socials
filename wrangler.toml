@@ -1,9 +1,13 @@
 name = "basic-socials"
 compatibility_date = "2025-09-24"
 compatibility_flags = ["nodejs_compat"]
-main = "dist/server/index.js"
+main = "dist/server/server.js"
+
+[build]
+command = "npm run build"
 
 [assets]
 directory = "dist/client"
+
 
 
