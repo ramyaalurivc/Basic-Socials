@@ -52,6 +52,7 @@ const services = [
       "Models for product shoots",
       "Creators for social content & UGC",
       "Talent for ad films",
+      "Spokespeople & on-screen talent",
     ],
     tag: "Everything a brand needs on set.",
   },

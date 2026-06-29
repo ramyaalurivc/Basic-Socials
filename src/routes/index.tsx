@@ -14,6 +14,47 @@ import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Basic Socials · Creative Marketing & Consulting Agency, Hyderabad" },
+      {
+        name: "description",
+        content:
+          "We basically handle your entire marketing — branding, social, performance, video & AI, talent, and consulting. Based in Hyderabad.",
+      },
+      {
+        property: "og:title",
+        content: "Basic Socials · Creative Marketing & Consulting Agency, Hyderabad",
+      },
+      {
+        property: "og:description",
+        content:
+          "We basically handle your entire marketing — branding, social, performance, video & AI, talent, and consulting. Based in Hyderabad.",
+      },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://www.basicsocials.com/" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:site", content: "@basicsocials" },
+      {
+        name: "twitter:title",
+        content: "Basic Socials · Creative Marketing & Consulting Agency, Hyderabad",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "We basically handle your entire marketing — branding, social, performance, video & AI, talent, and consulting. Based in Hyderabad.",
+      },
+      {
+        property: "og:image",
+        content: "https://www.basicsocials.com/og-image.webp",
+      },
+      {
+        name: "twitter:image",
+        content: "https://www.basicsocials.com/og-image.webp",
+      },
+    ],
+    links: [{ rel: "canonical", href: "https://www.basicsocials.com/" }],
+  }),
   component: Index,
 });
 
