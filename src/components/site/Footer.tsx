@@ -92,7 +92,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="https://linkedin.com/company/basicsocials"
+                  href="https://www.linkedin.com/company/basic-socials/?viewAsMember=true"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="ulink text-white/80 hover:text-white"
