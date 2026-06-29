@@ -75,10 +75,20 @@ export function Contact() {
                   }
                   setSubmitting(true);
                   try {
-                    const res = await fetch("/api/public/contact", {
+                    const res = await fetch("https://formsubmit.co/ajax/socials@basicsocials.com", {
                       method: "POST",
-                      headers: { "Content-Type": "application/json" },
-                      body: JSON.stringify(payload),
+                      headers: { 
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                      },
+                      body: JSON.stringify({
+                        Name: payload.name,
+                        Brand: payload.brand,
+                        Phone: payload.phone,
+                        Need: payload.need,
+                        Notes: payload.notes,
+                        _subject: `New Lead Enquiry — ${payload.name} (${payload.brand})`
+                      }),
                     });
                     if (!res.ok) throw new Error("Request failed");
                     setSent(true);

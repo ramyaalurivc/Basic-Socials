@@ -14,7 +14,6 @@ import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
-import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -41,11 +40,6 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
-  id: '/api/public/contact',
-  path: '/api/public/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -53,7 +47,6 @@ export interface FileRoutesByFullPath {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
-  '/api/public/contact': typeof ApiPublicContactRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -61,7 +54,6 @@ export interface FileRoutesByTo {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog': typeof BlogIndexRoute
-  '/api/public/contact': typeof ApiPublicContactRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -70,33 +62,13 @@ export interface FileRoutesById {
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
-  '/api/public/contact': typeof ApiPublicContactRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/privacy'
-    | '/sitemap.xml'
-    | '/blog/$slug'
-    | '/blog/'
-    | '/api/public/contact'
+  fullPaths: '/' | '/privacy' | '/sitemap.xml' | '/blog/$slug' | '/blog/'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/privacy'
-    | '/sitemap.xml'
-    | '/blog/$slug'
-    | '/blog'
-    | '/api/public/contact'
-  id:
-    | '__root__'
-    | '/'
-    | '/privacy'
-    | '/sitemap.xml'
-    | '/blog/$slug'
-    | '/blog/'
-    | '/api/public/contact'
+  to: '/' | '/privacy' | '/sitemap.xml' | '/blog/$slug' | '/blog'
+  id: '__root__' | '/' | '/privacy' | '/sitemap.xml' | '/blog/$slug' | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -105,7 +77,6 @@ export interface RootRouteChildren {
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   BlogSlugRoute: typeof BlogSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
-  ApiPublicContactRoute: typeof ApiPublicContactRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -145,13 +116,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/public/contact': {
-      id: '/api/public/contact'
-      path: '/api/public/contact'
-      fullPath: '/api/public/contact'
-      preLoaderRoute: typeof ApiPublicContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -161,7 +125,6 @@ const rootRouteChildren: RootRouteChildren = {
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   BlogSlugRoute: BlogSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
-  ApiPublicContactRoute: ApiPublicContactRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
