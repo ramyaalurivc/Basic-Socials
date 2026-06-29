@@ -72,7 +72,7 @@ export function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <a
-                  href="https://instagram.com/basicsocials"
+                  href="https://www.instagram.com/basicsocials_official?igsh=OWdxd3RubXJzNTQw&utm_source=qr"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="ulink text-white/80 hover:text-white"
