@@ -27,7 +27,6 @@ export function Footer() {
         {/* Links grid */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-10 reveal reveal-delay-2">
           <div>
-            <p className="text-xs uppercase tracking-wider text-white/50 mb-4">Studio</p>
             <p className="text-white/80 text-sm leading-relaxed">
               Creative marketing & consulting agency in Hyderabad.
             </p>

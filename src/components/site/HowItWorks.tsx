@@ -18,7 +18,7 @@ export function HowItWorks() {
     <section id="how" className="px-6 py-24 md:py-32">
       <div className="mx-auto max-w-7xl">
         <h2 className="font-display text-[clamp(2rem,5vw,4rem)] font-bold leading-[1] tracking-[-0.03em] max-w-3xl mb-14 reveal">
-          How <span className="italic font-medium grad-text">it</span> works.
+          How <span className="italic font-medium grad-text">it</span> works
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">

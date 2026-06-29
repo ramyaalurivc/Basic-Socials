@@ -90,7 +90,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "We basically handle your entire marketing — branding, social, performance, video & AI, talent, and consulting. Based in Hyderabad.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@basicsocials" },
       {
         name: "twitter:title",
@@ -103,13 +103,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       {
         property: "og:image",
-        content:
-          "https://storage.googleapis.com/gpt-engineer-file-uploads/vdZwvarEtkanO4HtnKOv5jg8fLh2/social-images/social-1779293139405-Basic_Socials_Logo_Full.webp",
+        content: "https://www.basicsocials.com/og-image.webp",
       },
       {
         name: "twitter:image",
-        content:
-          "https://storage.googleapis.com/gpt-engineer-file-uploads/vdZwvarEtkanO4HtnKOv5jg8fLh2/social-images/social-1779293139405-Basic_Socials_Logo_Full.webp",
+        content: "https://www.basicsocials.com/og-image.webp",
       },
     ],
     links: [
