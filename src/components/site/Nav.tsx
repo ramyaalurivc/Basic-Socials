@@ -24,10 +24,15 @@ export function Nav() {
     <header className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4">
       <nav
         className={`flex items-center gap-2 rounded-full border border-white/20 px-2 py-2 transition-all duration-300 ${
-          scrolled ? "bg-white/15 backdrop-blur-2xl shadow-[0_8px_32px_-12px_rgba(0,0,0,0.4)]" : "bg-white/10 backdrop-blur-xl"
+          scrolled
+            ? "bg-white/15 backdrop-blur-2xl shadow-[0_8px_32px_-12px_rgba(0,0,0,0.4)]"
+            : "bg-white/10 backdrop-blur-xl"
         }`}
       >
-        <Link to="/" className="pl-2 pr-4 font-display text-base font-bold tracking-tight text-white flex items-center gap-2">
+        <Link
+          to="/"
+          className="pl-2 pr-4 font-display text-base font-bold tracking-tight text-white flex items-center gap-2"
+        >
           <img src={logo} alt="Basic Socials" className="h-9 w-9 object-contain" />
         </Link>
         <div className="hidden md:flex items-center gap-1 px-2">

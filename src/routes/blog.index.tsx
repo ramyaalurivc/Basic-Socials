@@ -20,10 +20,10 @@ export const Route = createFileRoute("/blog/")({
         content:
           "Tactics and frameworks on AI search, LinkedIn content, performance marketing and video.",
       },
-      { property: "og:url", content: "https://basicsocials.lovable.app/blog" },
+      { property: "og:url", content: "https://www.basicsocials.com/blog" },
       { property: "og:type", content: "website" },
     ],
-    links: [{ rel: "canonical", href: "https://basicsocials.lovable.app/blog" }],
+    links: [{ rel: "canonical", href: "https://www.basicsocials.com/blog" }],
   }),
   component: BlogIndex,
 });
@@ -42,8 +42,8 @@ function BlogIndex() {
             Notes from the <span className="grad-text">studio</span>.
           </h1>
           <p className="mt-5 max-w-2xl text-white/70 text-lg reveal reveal-delay-2">
-            Frameworks, opinions and case notes on AI search, LinkedIn growth, performance
-            marketing and video.
+            Frameworks, opinions and case notes on AI search, LinkedIn growth, performance marketing
+            and video.
           </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-2">
@@ -55,7 +55,14 @@ function BlogIndex() {
                 className={`glass rounded-3xl p-7 reveal reveal-delay-${Math.min(i + 1, 5)} group block transition-transform hover:-translate-y-1`}
               >
                 <div className="flex items-center gap-2 text-xs text-white/60">
-                  <time>{new Date(p.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" })}</time>
+                  <time>
+                    {new Date(p.date).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                      timeZone: "UTC",
+                    })}
+                  </time>
                   <span>·</span>
                   <span>{p.readMinutes} min read</span>
                 </div>
@@ -65,7 +72,10 @@ function BlogIndex() {
                 <p className="mt-3 text-white/70 text-[0.98rem] leading-relaxed">{p.excerpt}</p>
                 <div className="mt-5 flex flex-wrap gap-2">
                   {p.tags.map((t) => (
-                    <span key={t} className="text-[0.7rem] uppercase tracking-wider text-white/60 border border-white/15 rounded-full px-2.5 py-1">
+                    <span
+                      key={t}
+                      className="text-[0.7rem] uppercase tracking-wider text-white/60 border border-white/15 rounded-full px-2.5 py-1"
+                    >
                       {t}
                     </span>
                   ))}

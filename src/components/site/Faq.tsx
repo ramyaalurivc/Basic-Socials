@@ -2,46 +2,54 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "What are the services provided by Basic Socials?",
-    a: "We offer Branding, Personal Brand Management, Social Media, Performance Marketing, Video & AI Content, Podcast Production, Influencer Campaigns, PR, LinkedIn Management, Talent Management, and Consulting. Basically your entire marketing — under one roof.",
+    q: "What services does Basic Socials offer?",
+    a: "Branding, social media management, performance marketing, video & AI content, podcast production, influencer campaigns, PR, LinkedIn management, talent management, and consulting. Basically your entire marketing — under one roof.",
   },
   {
-    q: "Does Basic Socials handle personal brands for professionals?",
-    a: "Yes. Doctors, CAs, Lawyers, Architects, Teachers, Real Estate Agents, Brand Owners — you name the field, we handle your entire brand portfolio end to end.",
+    q: "Do you work with personal brands?",
+    a: "Yes. Doctors, CAs, lawyers, architects, teachers, real estate agents, brand owners — we handle your full brand portfolio end to end.",
   },
   {
     q: "What does a personal brand actually include?",
-    a: "Everything that represents you online — all built around you and your expertise. We create, manage, and grow your entire online presence so when someone searches your name, your profession, or your city — you show up, you stand out, and they reach out.",
+    a: "Everything that represents you online — built around you and your expertise. We create, manage, and grow your entire online presence so that when someone searches your name, your profession, or your city — you show up, you stand out, and they reach out.",
   },
   {
     q: "Do I need to be on camera?",
-    a: "Your call. We do original on-camera production and AI avatars both. Real shoots with real people — or fully AI-generated. Either way, the content gets made.",
+    a: "Your call. We do original on-camera production and AI avatars both. Real shoots with real people, or fully AI-generated. Either way, the content gets made.",
   },
   {
-    q: "Do Basic Socials produce podcasts?",
+    q: "Do you produce podcasts?",
     a: "Yes. We handle everything — concept, recording, editing, and distribution.",
   },
   {
-    q: "Does Basic Socials handle influencer campaigns and PR?",
-    a: "Both. Influencer campaigns handled from sourcing to reporting. PR puts your name in news articles, podcasts, and media — not just your own feed.",
+    q: "Do you handle influencer campaigns and PR?",
+    a: "Both. Influencer campaigns from sourcing to reporting. PR puts your name in news articles, podcasts, and media — not just your own feed.",
   },
   {
     q: "Can you manage my LinkedIn?",
     a: "Yes — your personal profile and company page both. Posts in your voice, thought leadership, audience growth. You run your business. We make sure you're always in the conversation.",
   },
   {
-    q: "How do I contact Basic Socials?",
+    q: "How do I get in touch?",
     a: (
       <>
         Drop us a mail at{" "}
-        <a href="mailto:connect@basicsocials.com" className="ulink text-[#AAFF00] hover:text-white transition-colors">
-          connect@basicsocials.com
+        <a
+          href="mailto:socials@basicsocials.com"
+          className="ulink text-[#AAFF00] hover:text-white transition-colors"
+        >
+          socials@basicsocials.com
+        </a>{" "}
+        or WhatsApp us at{" "}
+        <a
+          href="https://wa.me/919866472562"
+          target="_blank"
+          rel="noreferrer"
+          className="ulink text-[#AAFF00] hover:text-white transition-colors"
+        >
+          +91 9866472562
         </a>
-        {" "}— or just{" "}
-        <a href="https://wa.me/910000000000" target="_blank" rel="noreferrer" className="ulink text-[#AAFF00] hover:text-white transition-colors">
-          say hi
-        </a>
-        . We'll take it from there. Either way, we find you.
+        . We'll take it from there.
       </>
     ),
   },
@@ -55,9 +63,7 @@ export function Faq() {
       <div className="mx-auto max-w-7xl">
         <span className="pill reveal">FAQ</span>
         <h2 className="mt-5 font-display text-[clamp(2rem,5vw,4rem)] font-bold leading-[1] tracking-[-0.03em] max-w-3xl reveal reveal-delay-1">
-          Questions?{" "}
-          <span className="italic font-medium grad-text">Basically</span>{" "}
-          answered.
+          Questions? <span className="italic font-medium grad-text">Basically</span> answered.
         </h2>
 
         <div className="mt-14 max-w-4xl space-y-4">
@@ -67,7 +73,9 @@ export function Faq() {
               <div
                 key={i}
                 className={`rounded-3xl glass overflow-hidden transition-colors duration-500 ${
-                  isOpen ? "border-[#AAFF00]/40 shadow-[0_0_40px_-10px_rgba(170,255,0,0.2)]" : "border-white/18"
+                  isOpen
+                    ? "border-[#AAFF00]/40 shadow-[0_0_40px_-10px_rgba(170,255,0,0.2)]"
+                    : "border-white/18"
                 }`}
               >
                 <button
@@ -85,7 +93,12 @@ export function Faq() {
                     }`}
                   >
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                      <path d="M7 1V13M1 7H13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                      <path
+                        d="M7 1V13M1 7H13"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                      />
                     </svg>
                   </span>
                 </button>

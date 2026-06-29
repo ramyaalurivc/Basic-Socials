@@ -7,9 +7,7 @@ export function useMagnetic() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
     // Magnetic CTAs
-    const magnets = Array.from(
-      document.querySelectorAll<HTMLElement>("[data-magnetic]"),
-    );
+    const magnets = Array.from(document.querySelectorAll<HTMLElement>("[data-magnetic]"));
     const cleanups: Array<() => void> = [];
 
     magnets.forEach((el) => {
@@ -28,7 +26,9 @@ export function useMagnetic() {
           el.style.transform = "";
         }
       };
-      const onLeave = () => { el.style.transform = ""; };
+      const onLeave = () => {
+        el.style.transform = "";
+      };
       window.addEventListener("mousemove", onMove);
       el.addEventListener("mouseleave", onLeave);
       cleanups.push(() => {
@@ -38,9 +38,7 @@ export function useMagnetic() {
     });
 
     // Spotlight cards
-    const spots = Array.from(
-      document.querySelectorAll<HTMLElement>(".spotlight"),
-    );
+    const spots = Array.from(document.querySelectorAll<HTMLElement>(".spotlight"));
     spots.forEach((el) => {
       const onMove = (e: MouseEvent) => {
         const r = el.getBoundingClientRect();

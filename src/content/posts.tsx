@@ -73,14 +73,21 @@ export const posts: Post[] = [
     body: (
       <>
         <P>
-          LinkedIn rewards specificity. The accounts that grow aren't the loudest — they're the
-          ones who pick a single audience and speak to it like a friend, every week, for a year.
+          LinkedIn rewards specificity. The accounts that grow aren't the loudest — they're the ones
+          who pick a single audience and speak to it like a friend, every week, for a year.
         </P>
         <H2>The 3-post weekly rhythm</H2>
         <UL>
-          <li><strong>Insight:</strong> a sharp opinion the rest of your industry won't say out loud.</li>
-          <li><strong>Proof:</strong> a real story, client win, or behind-the-scenes case study.</li>
-          <li><strong>Invitation:</strong> something the reader can act on — a checklist, audit, or DM prompt.</li>
+          <li>
+            <strong>Insight:</strong> a sharp opinion the rest of your industry won't say out loud.
+          </li>
+          <li>
+            <strong>Proof:</strong> a real story, client win, or behind-the-scenes case study.
+          </li>
+          <li>
+            <strong>Invitation:</strong> something the reader can act on — a checklist, audit, or DM
+            prompt.
+          </li>
         </UL>
         <H2>Stop chasing virality</H2>
         <P>

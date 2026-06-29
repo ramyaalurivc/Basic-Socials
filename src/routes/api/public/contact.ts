@@ -8,7 +8,12 @@ const GATEWAY = "https://connector-gateway.lovable.dev";
 const ContactSchema = z.object({
   name: z.string().trim().min(1).max(120),
   brand: z.string().trim().min(1).max(160),
-  phone: z.string().trim().min(4).max(32).regex(/^[+0-9()\-\s]+$/),
+  phone: z
+    .string()
+    .trim()
+    .min(4)
+    .max(32)
+    .regex(/^[+0-9()\-\s]+$/),
   need: z.string().trim().max(80).optional().nullable(),
   notes: z.string().trim().max(2000).optional().nullable(),
 });
@@ -100,14 +105,7 @@ export const Route = createFileRoute("/api/public/contact")({
         const d = parsed.data;
         const timestamp = new Date().toISOString();
         try {
-          await appendToSheet([
-            timestamp,
-            d.name,
-            d.brand,
-            d.phone,
-            d.need || "",
-            d.notes || "",
-          ]);
+          await appendToSheet([timestamp, d.name, d.brand, d.phone, d.need || "", d.notes || ""]);
         } catch (err) {
           console.error(err);
           return Response.json({ error: "Could not save submission" }, { status: 502 });

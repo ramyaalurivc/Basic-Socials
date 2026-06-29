@@ -2,7 +2,7 @@ const tickerItems = [
   "Branding",
   "Social Media",
   "AI Production",
-  "High End Video Production",
+  "High End Video",
   "Performance Marketing",
   "Talent Management",
   "UGC",
@@ -14,7 +14,10 @@ export function Hero() {
       {/* Decorative blobs */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="blob absolute -top-32 -left-24 h-[420px] w-[420px] rounded-full bg-[#AAFF00] opacity-30 blur-3xl" />
-        <div className="blob absolute top-40 -right-24 h-[480px] w-[480px] rounded-full bg-white opacity-20 blur-3xl" style={{ animationDelay: "-4s" }} />
+        <div
+          className="blob absolute top-40 -right-24 h-[480px] w-[480px] rounded-full bg-white opacity-20 blur-3xl"
+          style={{ animationDelay: "-4s" }}
+        />
       </div>
 
       <div className="mx-auto max-w-7xl px-6">
@@ -25,8 +28,7 @@ export function Hero() {
           </span>
 
           <h1 className="mt-8 max-w-5xl font-display text-[clamp(2.6rem,7.2vw,6.4rem)] font-bold leading-[0.95] tracking-[-0.04em] reveal reveal-delay-1">
-            We Basically Handle{" "}
-            <span className="italic font-medium grad-text">Your Entire</span>{" "}
+            We Basically Handle <span className="italic font-medium grad-text">Your Entire</span>{" "}
             Marketing.
           </h1>
 
@@ -35,10 +37,21 @@ export function Hero() {
           </p>
 
           <div className="mt-9 flex flex-wrap items-center justify-center gap-3 reveal reveal-delay-3">
-            <a href="#contact" className="btn-green magnetic" data-magnetic data-magnetic-strength="0.4">
+            <a
+              href="#contact"
+              className="btn-green magnetic"
+              data-magnetic
+              data-magnetic-strength="0.4"
+            >
               Start a project →
             </a>
-            <a href="#services" className="btn-dark magnetic" data-magnetic data-magnetic-strength="0.3" data-sfx="enter">
+            <a
+              href="#services"
+              className="btn-dark magnetic"
+              data-magnetic
+              data-magnetic-strength="0.3"
+              data-sfx="enter"
+            >
               Enter Basic
             </a>
           </div>

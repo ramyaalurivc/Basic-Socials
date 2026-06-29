@@ -4,37 +4,67 @@ const services = [
   {
     n: "01",
     title: "Branding",
-    points: ["Logo & visual identity", "Brand guidelines", "Stationery & assets", "Company profile"],
+    points: [
+      "Logo & visual identity",
+      "Brand guidelines",
+      "Stationery & assets",
+      "Company profile",
+    ],
     tag: "Look credible from day one.",
   },
   {
     n: "02",
     title: "Social Media",
-    points: ["Handle creation & setup", "Content, creatives, reels", "Community management", "Online Reputation Management"],
+    points: [
+      "Handle creation & setup",
+      "Content, creatives, reels",
+      "Community management",
+      "Online Reputation Management",
+    ],
     tag: "Full platform presence, handled.",
   },
   {
     n: "03",
     title: "Performance Marketing",
-    points: ["Meta, Google, YouTube, LinkedIn ads", "WhatsApp & SMS marketing", "Email marketing", "Funnels & retargeting"],
+    points: [
+      "Meta, Google, YouTube, LinkedIn ads",
+      "WhatsApp & SMS marketing",
+      "Email marketing",
+      "Funnels & retargeting",
+    ],
     tag: "Your audience, always in the loop.",
   },
   {
     n: "04",
     title: "Video & AI Content",
-    points: ["Reels & short-form video", "Full-length ad films", "AI-produced videos & product shoots", "AI avatars"],
+    points: [
+      "Reels & short-form video",
+      "Full-length ad films",
+      "AI-produced videos & product shoots",
+      "AI avatars",
+    ],
     tag: "Real camera and AI. We nail them both.",
   },
   {
     n: "05",
     title: "Talent Management",
-    points: ["Models for product shoots", "Creators for social content & UGC", "Talent for ad films", "AI avatars"],
-    tag: "Everything a brand needs.",
+    points: [
+      "Models for product shoots",
+      "Creators for social content & UGC",
+      "Talent for ad films",
+      "AI avatars",
+    ],
+    tag: "Everything a brand needs on set.",
   },
   {
     n: "06",
     title: "Consulting",
-    points: ["Train your in-house team", "Provide our human resources", "Manage your brand end-to-end", "Regular audits"],
+    points: [
+      "Train your in-house team",
+      "Provide our human resources",
+      "Manage your brand end-to-end",
+      "Regular audits",
+    ],
     tag: "So you can focus on your business.",
   },
 ];
@@ -42,16 +72,26 @@ const services = [
 export function Services() {
   return (
     <section id="services" className="relative px-6 py-24 md:py-32 overflow-hidden">
-      <div aria-hidden className="absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[500px] rounded-full bg-[#AAFF00] opacity-10 blur-3xl" />
+      <div
+        aria-hidden
+        className="absolute -top-40 left-1/2 -translate-x-1/2 h-[500px] w-[500px] rounded-full bg-[#AAFF00] opacity-10 blur-3xl"
+      />
       <div className="mx-auto max-w-7xl">
         <SectionLabel
           label="Services"
-          headline={<>What <span className="italic font-medium grad-text">we</span> do.</>}
+          headline={
+            <>
+              What <span className="italic font-medium grad-text">we</span> do.
+            </>
+          }
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {services.map((s, i) => (
-            <div key={s.n} className={`flip spotlight rounded-3xl h-[320px] reveal reveal-delay-${(i % 5) + 1}`}>
+            <div
+              key={s.n}
+              className={`flip spotlight rounded-3xl h-[320px] reveal reveal-delay-${(i % 5) + 1}`}
+            >
               <div className="flip-inner">
                 <div className="flip-face glass">
                   <div className="flex items-start justify-between">

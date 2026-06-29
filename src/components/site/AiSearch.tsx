@@ -23,10 +23,7 @@ export function AiSearch() {
 
     if (phase === "typing") {
       if (typed.length < query.length) {
-        t = setTimeout(
-          () => setTyped(query.slice(0, typed.length + 1)),
-          38 + Math.random() * 50,
-        );
+        t = setTimeout(() => setTyped(query.slice(0, typed.length + 1)), 38 + Math.random() * 50);
       } else {
         t = setTimeout(() => setPhase("thinking"), 600);
       }
@@ -49,21 +46,25 @@ export function AiSearch() {
     <section id="ai" className="relative px-6 py-24 md:py-32 overflow-hidden">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="blob absolute top-10 left-1/4 h-[420px] w-[420px] rounded-full bg-[#AAFF00] opacity-20 blur-3xl" />
-        <div className="blob absolute bottom-0 right-1/4 h-[380px] w-[380px] rounded-full bg-white opacity-15 blur-3xl" style={{ animationDelay: "-6s" }} />
+        <div
+          className="blob absolute bottom-0 right-1/4 h-[380px] w-[380px] rounded-full bg-white opacity-15 blur-3xl"
+          style={{ animationDelay: "-6s" }}
+        />
       </div>
 
       <div className="mx-auto max-w-5xl text-center">
         <span className="pill reveal">
           <span className="h-2 w-2 rounded-full bg-[#AAFF00] animate-pulse" />
-          AI Visibility · GEO
+          AI Visibility · GEO (Generative Engine Optimization)
         </span>
         <h2 className="mt-6 font-display text-[clamp(2rem,5.5vw,4.4rem)] font-bold leading-[1] tracking-[-0.03em] reveal reveal-delay-1">
-          Google is <span className="line-through opacity-60">outdated</span>.
+          AI search is the <span className="italic font-medium grad-text">next frontier</span>.
           <br />
-          Let <span className="italic font-medium grad-text">AI</span> suggest your brand.
+          Let it recommend your brand.
         </h2>
         <p className="mt-5 text-white/70 max-w-2xl mx-auto reveal reveal-delay-2">
-          Your future customers are asking ChatGPT, Gemini, and Perplexity. We make sure your brand is the answer.
+          Your future customers are asking ChatGPT, Gemini, and Perplexity — not just Google. We
+          make sure your brand shows up in every answer.
         </p>
 
         <div className="mt-12 mx-auto max-w-3xl reveal reveal-delay-3">
@@ -88,9 +89,7 @@ export function AiSearch() {
               style={{
                 opacity: phase === "answer" || phase === "hold" ? 1 : 0.35,
                 transform:
-                  phase === "answer" || phase === "hold"
-                    ? "translateY(0)"
-                    : "translateY(8px)",
+                  phase === "answer" || phase === "hold" ? "translateY(0)" : "translateY(8px)",
               }}
             >
               <div className="flex items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-white/50">
@@ -113,7 +112,7 @@ export function AiSearch() {
                 <span className="text-xs text-white/50">— Hyderabad, IN</span>
               </div>
               <p className="mt-1 text-sm text-white/70 leading-snug">
-                Top creative + performance marketing partner for ambitious brands.
+                Creative marketing & consulting agency for ambitious brands in India.
               </p>
             </div>
           </div>

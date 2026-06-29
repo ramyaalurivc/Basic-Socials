@@ -1,7 +1,15 @@
 const steps = [
   { n: "01", title: "Tell us about your brand", body: "Quick form or a short call." },
-  { n: "02", title: "You get a proposal", body: "A clear plan with scope and cost, within 48 hours." },
-  { n: "03", title: "We start working", body: "Onboarding is fast. Work begins in the first week." },
+  {
+    n: "02",
+    title: "You get a proposal",
+    body: "A clear plan with scope and cost, within 48 hours.",
+  },
+  {
+    n: "03",
+    title: "We start working",
+    body: "Onboarding is fast. Work begins in the first week.",
+  },
   { n: "04", title: "We keep going", body: "Monthly. Consistent. Adjusted as your brand grows." },
 ];
 
@@ -25,7 +33,9 @@ export function HowItWorks() {
               />
               <div className="flex items-center justify-between">
                 <span className="font-display text-xs text-white/60">STEP {s.n}</span>
-                <span className={`h-2 w-2 rounded-full bg-[#AAFF00] transition-shadow ${i === steps.length - 1 ? "shadow-[0_0_12px_#AAFF00]" : "opacity-50 group-hover:opacity-100 group-hover:shadow-[0_0_12px_#AAFF00]"}`} />
+                <span
+                  className={`h-2 w-2 rounded-full bg-[#AAFF00] transition-shadow ${i === steps.length - 1 ? "shadow-[0_0_12px_#AAFF00]" : "opacity-50 group-hover:opacity-100 group-hover:shadow-[0_0_12px_#AAFF00]"}`}
+                />
               </div>
               <div className="relative">
                 <h3 className="font-display text-2xl font-semibold tracking-tight mb-3 text-white transition-transform duration-500 group-hover:-translate-y-0.5">

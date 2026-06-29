@@ -14,7 +14,7 @@ export const Route = createFileRoute("/blog/$slug")({
   },
   head: ({ params, loaderData }) => {
     const post = loaderData?.post;
-    const url = `https://basicsocials.lovable.app/blog/${params.slug}`;
+    const url = `https://www.basicsocials.com/blog/${params.slug}`;
     if (!post) {
       return { meta: [{ title: "Post not found · Basic Socials" }] };
     }
@@ -46,7 +46,7 @@ export const Route = createFileRoute("/blog/$slug")({
             publisher: {
               "@type": "Organization",
               name: "Basic Socials",
-              url: "https://basicsocials.lovable.app/",
+              url: "https://www.basicsocials.com/",
             },
             mainEntityOfPage: url,
           }),
@@ -59,7 +59,9 @@ export const Route = createFileRoute("/blog/$slug")({
     <div className="min-h-screen flex items-center justify-center text-white">
       <div className="text-center">
         <p className="text-white/70">Post not found.</p>
-        <Link to="/blog" className="btn-green mt-6 inline-flex">Back to blog</Link>
+        <Link to="/blog" className="btn-green mt-6 inline-flex">
+          Back to blog
+        </Link>
       </div>
     </div>
   ),
@@ -69,7 +71,7 @@ function BlogPost() {
   useLenis();
   useReveal();
   const { post } = Route.useLoaderData();
-  const url = `https://basicsocials.lovable.app/blog/${post.slug}`;
+  const url = `https://www.basicsocials.com/blog/${post.slug}`;
   const linkedInShare = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
   const twitterShare = `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(url)}`;
   const [copied, setCopied] = useState(false);
@@ -79,7 +81,9 @@ function BlogPost() {
       await navigator.clipboard.writeText(url);
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
-    } catch {}
+    } catch (e) {
+      // Clipboard copy failed
+    }
   };
 
   const related = posts.filter((p) => p.slug !== post.slug).slice(0, 2);
@@ -95,12 +99,22 @@ function BlogPost() {
 
           <div className="mt-6 flex flex-wrap items-center gap-2 text-xs text-white/60">
             {post.tags.map((t: string) => (
-              <span key={t} className="uppercase tracking-wider border border-white/15 rounded-full px-2.5 py-1">
+              <span
+                key={t}
+                className="uppercase tracking-wider border border-white/15 rounded-full px-2.5 py-1"
+              >
                 {t}
               </span>
             ))}
             <span>·</span>
-            <time>{new Date(post.date).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" })}</time>
+            <time>
+              {new Date(post.date).toLocaleDateString("en-US", {
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+                timeZone: "UTC",
+              })}
+            </time>
             <span>·</span>
             <span>{post.readMinutes} min read</span>
           </div>
@@ -138,9 +152,16 @@ function BlogPost() {
 
           <div className="mt-16 glass rounded-3xl p-8 text-center">
             <h3 className="font-display text-2xl font-bold text-white">Found this useful?</h3>
-            <p className="mt-2 text-white/70 text-sm">Share it with your network — or talk to us about your brand.</p>
+            <p className="mt-2 text-white/70 text-sm">
+              Share it with your network — or talk to us about your brand.
+            </p>
             <div className="mt-5 flex flex-wrap items-center justify-center gap-2">
-              <a href={linkedInShare} target="_blank" rel="noopener noreferrer" className="btn-green !py-2.5 !px-4 text-sm">
+              <a
+                href={linkedInShare}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-green !py-2.5 !px-4 text-sm"
+              >
                 Post to LinkedIn
               </a>
               <a href="/#contact" className="btn-dark !py-2.5 !px-4 text-sm">

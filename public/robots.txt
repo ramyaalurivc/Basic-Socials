@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://basicsocials.in/sitemap.xml
+Sitemap: https://www.basicsocials.com/sitemap.xml
