@@ -120,6 +120,14 @@ interface ReelItem {
 
 const reelItems: ReelItem[] = [
   {
+    id: "dr-maniteja-reel",
+    client: "Dr. Maniteja Guntupalli",
+    categoryTag: "Educational Reel",
+    gradient: "from-blue-900/70 via-indigo-950/80 to-[#0033FF]/70",
+    metrics: "1.8M Reel Views",
+    videoUrl: "/work/videos/Maniteja.mp4",
+  },
+  {
     id: "hoppy-reel",
     client: "Hoppy",
     categoryTag: "Product Campaign",
