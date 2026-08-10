@@ -4,9 +4,9 @@ import logo from "@/assets/logo.png";
 
 const links = [
   { label: "Services", href: "#services" },
+  { label: "Our Work", href: "/our-work" },
   { label: "Who we work with", href: "#who" },
   { label: "How it works", href: "#how" },
-  { label: "Portfolio", href: "#portfolio" },
   { label: "Blog", href: "/blog" },
   { label: "FAQ", href: "#faq" },
   { label: "Contact", href: "#contact" },
@@ -40,7 +40,7 @@ export function Nav() {
             l.href.startsWith("/") ? (
               <Link
                 key={l.href}
-                to={l.href as "/blog"}
+                to={l.href as "/blog" | "/our-work"}
                 className="rounded-full px-3 py-1.5 text-sm text-white/70 transition-colors hover:bg-white/10 hover:text-white"
               >
                 {l.label}

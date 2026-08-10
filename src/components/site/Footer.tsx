@@ -55,6 +55,11 @@ export function Footer() {
                 </a>
               </li>
               <li>
+                <a href="/our-work" className="ulink text-white/80 hover:text-white">
+                  Our Work
+                </a>
+              </li>
+              <li>
                 <a href="/blog" className="ulink text-white/80 hover:text-white">
                   Blog
                 </a>

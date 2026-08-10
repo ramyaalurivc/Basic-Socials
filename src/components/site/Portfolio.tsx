@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { SectionLabel } from "./SectionLabel";
 
 export function Portfolio() {
@@ -45,12 +46,21 @@ export function Portfolio() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-64 w-96 rounded-full bg-gradient-to-br from-[#AAFF00]/20 to-[#0033FF]/20 blur-3xl" />
           </div>
           <div className="relative">
-            <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/80 leading-relaxed">
-              Case studies coming soon — or just hire us and become the next one.
+            <h3 className="font-display text-3xl font-bold text-white mb-3">
+              Explore Our Case Studies & Results
+            </h3>
+            <p className="max-w-2xl mx-auto text-lg text-white/80 leading-relaxed">
+              Discover how we deliver high-impact branding, performance ad funnels, AI video campaigns, and organic social growth.
             </p>
-            <div className="mt-8 flex justify-center">
-              <a href="#contact" className="btn-green inline-flex items-center gap-2">
-                Start a project →
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Link to="/our-work" className="btn-green inline-flex items-center gap-2">
+                View all our work →
+              </Link>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-white/20"
+              >
+                Start a project
               </a>
             </div>
           </div>
