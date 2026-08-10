@@ -27,13 +27,9 @@ export function Hero() {
             <span>Creative Marketing & Consulting Agency · Hyderabad</span>
           </div>
 
-          <h1 className="mt-4 max-w-5xl font-display text-[clamp(3rem,8vw,6.8rem)] font-extrabold leading-[0.92] tracking-[-0.04em] text-[#F7F7F2] reveal reveal-delay-1">
-            We build brands <br />
-            <span className="text-[#B7FF00] italic font-normal text-[1.12em] my-1 inline-block drop-shadow-[0_0_20px_rgba(183,255,0,0.35)]">
-              PEOPLE
-            </span>{" "}
-            <br />
-            remember.
+          <h1 className="mt-4 max-w-5xl font-display text-[clamp(3rem,8vw,6.8rem)] font-extrabold leading-[0.93] tracking-[-0.04em] text-[#F7F7F2] reveal reveal-delay-1">
+            We build brands people <br />
+            <span className="text-[#B7FF00] italic font-normal">remember.</span>
           </h1>
 
           <p className="mt-8 max-w-2xl text-[#F7F7F2]/90 text-lg md:text-2xl leading-relaxed reveal reveal-delay-2">
