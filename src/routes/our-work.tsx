@@ -407,164 +407,153 @@ function OurWorkPage() {
       : socialGrid.filter((s) => s.category === activeFilter);
 
   return (
-    <div className="min-h-screen text-foreground bg-background">
+    <div className="min-h-screen text-[#F7F7F2] bg-[#2929FF] font-sans selection:bg-[#B7FF00] selection:text-[#0B0B0D]">
       <Nav />
-      <main className="pt-32 md:pt-40 pb-24">
-        {/* ============================================================ */}
-        {/* 01. HERO */}
-        {/* ============================================================ */}
-        <section className="px-6 pb-20 md:pb-28">
-          <div className="mx-auto max-w-7xl">
-            <span className="pill reveal">
-              <span className="h-2 w-2 rounded-full bg-[#AAFF00] animate-pulse" />
-              SELECTED WORK
-            </span>
 
-            <h1 className="mt-6 font-display text-[clamp(2.8rem,7vw,6rem)] font-bold leading-[0.93] tracking-[-0.04em] max-w-5xl reveal reveal-delay-1">
-              We build brands <span className="italic font-medium grad-text">people remember</span>.
+      <main className="pt-28 md:pt-36">
+        {/* ============================================================ */}
+        {/* 01. HERO — NEON BLUE (#2929FF) */}
+        {/* ============================================================ */}
+        <section className="px-6 pt-8 pb-24 md:pb-36 bg-[#2929FF]">
+          <div className="mx-auto max-w-7xl">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#B7FF00]/30 bg-black/20 px-4 py-1.5 text-xs uppercase tracking-widest text-[#B7FF00] font-semibold mb-8 reveal">
+              <span className="h-2 w-2 rounded-full bg-[#B7FF00] animate-pulse" />
+              <span>SELECTED WORK</span>
+            </div>
+
+            <h1 className="font-display text-[clamp(3.2rem,8.5vw,7rem)] font-extrabold leading-[0.92] tracking-[-0.04em] text-[#F7F7F2] max-w-5xl reveal reveal-delay-1">
+              We build brands <br />
+              <span className="text-[#B7FF00] italic text-[1.12em] font-normal my-1 inline-block drop-shadow-[0_0_20px_rgba(183,255,0,0.3)]">
+                PEOPLE
+              </span>{" "}
+              <br />
+              remember.
             </h1>
 
-            <p className="mt-6 max-w-2xl text-white/75 text-lg md:text-xl leading-relaxed reveal reveal-delay-2">
-              From personal brands and healthcare to hospitality, lifestyle and technology — we create the strategy, content and digital presence behind brands that want to be seen differently.
+            <p className="mt-8 max-w-2xl text-[#F7F7F2]/85 text-lg md:text-2xl leading-relaxed font-normal reveal reveal-delay-2">
+              From personal brands and healthcare to technology, hospitality and lifestyle — we build organic social reels, UGC ads, and digital brand engines people care about.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4 reveal reveal-delay-3">
+            <div className="mt-10 flex flex-wrap items-center gap-4 reveal reveal-delay-3">
               <a
                 href="#reels"
-                className="btn-green inline-flex items-center gap-2 text-sm font-semibold tracking-tight"
+                className="rounded-full bg-[#B7FF00] px-7 py-4 text-sm font-bold text-[#0B0B0D] transition-all duration-300 hover:scale-105 shadow-[0_0_30px_rgba(183,255,0,0.4)] flex items-center gap-2"
               >
-                <span>Explore Reel Showcase</span>
-                <span className="text-base">↓</span>
+                <span>EXPLORE REEL SHOWCASE</span>
+                <span className="text-base font-bold">↓</span>
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-6 py-3.5 text-sm font-medium text-white transition-all hover:bg-white/20 hover:border-white/40"
+                className="rounded-full border border-[#F7F7F2]/30 bg-transparent px-7 py-4 text-sm font-semibold text-[#F7F7F2] transition-all duration-300 hover:border-[#B7FF00] hover:text-[#B7FF00] hover:scale-105 flex items-center gap-2"
               >
-                Start a Conversation →
+                <span>START A CONVERSATION</span>
+                <span className="text-base font-bold">↗</span>
               </a>
             </div>
-
-            {/* Hero Visual Banner */}
-            <div className="mt-14 relative overflow-hidden rounded-[2.5rem] glass border border-white/15 p-2 md:p-3 reveal reveal-delay-4">
-              <div className="relative aspect-[16/7] md:aspect-[21/8] w-full overflow-hidden rounded-[2rem] bg-gradient-to-r from-[#0033FF]/80 via-indigo-950 to-black flex items-center justify-center text-center">
-                <div
-                  aria-hidden
-                  className="absolute inset-0 opacity-30"
-                  style={{
-                    backgroundImage:
-                      "radial-gradient(circle at 50% 50%, rgba(170,255,0,0.3), transparent 70%)",
-                  }}
-                />
-                <div className="relative z-10 px-6 max-w-3xl space-y-3">
-                  <span className="text-xs uppercase tracking-widest text-[#AAFF00] font-semibold">
-                    REAL CLIENTS · REAL REELS · REAL RESULTS
-                  </span>
-                  <p className="font-display text-2xl md:text-4xl font-bold text-white tracking-tight leading-snug">
-                    Strategy, Creative Direction & Social Engines
-                  </p>
-                  <div className="pt-2 flex flex-wrap justify-center gap-2">
-                    {clientsList.map((c) => (
-                      <span
-                        key={c.name}
-                        className="text-xs text-white/80 bg-white/10 border border-white/15 rounded-full px-3 py-1 font-medium"
-                      >
-                        {c.name}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
         {/* ============================================================ */}
-        {/* 02. CLIENTS (Social Proof) */}
+        {/* 02. REAL CLIENTS — OFF-WHITE (#F7F7F2) EDITORIAL TYPOGRAPHY */}
         {/* ============================================================ */}
-        <section id="clients" className="px-6 py-20 border-t border-white/10 bg-black/20">
+        <section id="clients" className="px-6 py-24 md:py-32 bg-[#F7F7F2] text-[#0B0B0D]">
           <div className="mx-auto max-w-7xl">
-            <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="text-xs uppercase tracking-widest text-[#AAFF00] font-semibold">
-                CLIENTS WE WORK WITH
-              </span>
-              <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold tracking-tight text-white">
-                People. Businesses. Brands.
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
-              {clientsList.map((c, i) => (
-                <div
-                  key={c.name}
-                  className={`glass rounded-2xl p-6 text-center hover:border-[#AAFF00]/40 transition-all duration-300 hover:-translate-y-1 reveal reveal-delay-${(i % 3) + 1
-                    }`}
-                >
-                  <span className="block font-display text-lg md:text-xl font-bold text-white tracking-tight">
-                    {c.name}
-                  </span>
-                  <span className="block mt-1 text-xs text-white/50 font-medium">
-                    {c.industry}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ============================================================ */}
-        {/* 03. FEATURED WORK (4 Flagship Projects) */}
-        {/* ============================================================ */}
-        <section id="featured" className="px-6 py-24 md:py-32">
-          <div className="mx-auto max-w-7xl">
-            <div className="flex items-end justify-between gap-6 flex-wrap mb-16">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 border-b border-[#0B0B0D]/10 pb-8">
               <div>
-                <span className="text-xs uppercase tracking-widest text-[#AAFF00] font-semibold">
-                  FEATURED WORK
+                <span className="text-xs uppercase tracking-widest text-[#2929FF] font-bold block mb-2">
+                  02 / CLIENT ROSTER
                 </span>
-                <h2 className="mt-3 font-display text-4xl md:text-6xl font-bold tracking-tight text-white">
-                  Selected projects
+                <h2 className="font-display text-4xl md:text-6xl font-extrabold tracking-tight text-[#0B0B0D]">
+                  REAL CLIENTS. <br />
+                  REAL REELS. REAL RESULTS.
                 </h2>
               </div>
-              <p className="text-white/60 text-sm max-w-xs">
-                Deep-dive into four flagship brand systems we built from the ground up.
+              <p className="text-[#0B0B0D]/70 text-base md:text-lg max-w-md font-medium">
+                High-impact brand systems and digital presence built across diverse industries.
               </p>
             </div>
 
-            <div className="space-y-12">
+            {/* Editorial Client List - Big Bold Typography */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-12">
+              {clientsList.map((c, idx) => {
+                const colorClass =
+                  idx % 3 === 0
+                    ? "text-[#0B0B0D] hover:text-[#2929FF]"
+                    : idx % 3 === 1
+                    ? "text-[#2929FF] hover:text-[#0B0B0D]"
+                    : "text-[#0B0B0D] hover:text-[#2929FF]";
+
+                return (
+                  <div
+                    key={c.name}
+                    className="border-b border-[#0B0B0D]/15 pb-8 transition-all duration-300 group cursor-pointer"
+                  >
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <span className="text-xs font-bold uppercase tracking-wider text-[#2929FF] block mb-1">
+                          0{idx + 1}
+                        </span>
+                        <h3
+                          className={`font-display text-3xl md:text-5xl font-extrabold tracking-tight transition-colors ${colorClass}`}
+                        >
+                          {c.name}
+                        </h3>
+                      </div>
+                      <span className="text-xs font-semibold text-[#0B0B0D]/60 bg-[#0B0B0D]/5 border border-[#0B0B0D]/10 rounded-full px-3.5 py-1 mt-2">
+                        {c.industry}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================================ */}
+        {/* 03. FEATURED WORK — NEON BLUE (#2929FF) */}
+        {/* ============================================================ */}
+        <section id="featured" className="px-6 py-24 md:py-36 bg-[#2929FF] text-[#F7F7F2]">
+          <div className="mx-auto max-w-7xl">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-20">
+              <div>
+                <span className="text-xs uppercase tracking-widest text-[#B7FF00] font-bold block mb-2">
+                  03 / FEATURED CASE STUDIES
+                </span>
+                <h2 className="font-display text-4xl md:text-7xl font-extrabold tracking-tight text-[#F7F7F2]">
+                  Selected projects.
+                </h2>
+              </div>
+              <p className="text-[#F7F7F2]/80 text-base md:text-xl max-w-md">
+                Deep-dive into flagship brand communications and performance growth models.
+              </p>
+            </div>
+
+            <div className="space-y-16">
               {flagshipProjects.map((project, idx) => (
                 <div
                   key={project.id}
-                  className={`group relative overflow-hidden rounded-[2.5rem] glass p-8 md:p-14 border border-white/15 transition-all duration-500 hover:border-white/30 reveal reveal-delay-${idx + 1
-                    }`}
+                  className="rounded-[2.5rem] bg-black/30 border border-white/20 p-8 md:p-14 transition-all duration-500 hover:border-[#B7FF00]/60 relative overflow-hidden group shadow-2xl"
                 >
-                  <div
-                    aria-hidden
-                    className={`pointer-events-none absolute -inset-full opacity-30 group-hover:opacity-50 transition-opacity duration-700 bg-gradient-to-r ${project.gradient} blur-3xl`}
-                  />
-
-                  <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                     <div className="lg:col-span-7 space-y-6">
-                      <div className="flex items-center gap-3">
-                        <span
-                          className="font-display text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full border"
-                          style={{
-                            color: project.accentColor,
-                            borderColor: `${project.accentColor}40`,
-                            backgroundColor: `${project.accentColor}10`,
-                          }}
-                        >
+                      <div className="flex items-center gap-4">
+                        <span className="font-display text-2xl md:text-3xl font-extrabold text-[#B7FF00]">
+                          0{idx + 1}
+                        </span>
+                        <span className="text-xs font-bold uppercase tracking-wider text-[#B7FF00] bg-[#B7FF00]/10 border border-[#B7FF00]/30 rounded-full px-3.5 py-1">
                           {project.client}
                         </span>
-                        <span className="text-xs text-white/50 font-medium">
+                        <span className="text-xs text-[#F7F7F2]/60 font-medium">
                           {project.category}
                         </span>
                       </div>
 
-                      <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
+                      <h3 className="font-display text-3xl md:text-5xl font-extrabold text-[#F7F7F2] leading-tight">
                         "{project.headline}"
                       </h3>
 
-                      <p className="text-white/75 text-base md:text-lg leading-relaxed">
+                      <p className="text-[#F7F7F2]/85 text-base md:text-lg leading-relaxed">
                         {project.description}
                       </p>
 
@@ -572,7 +561,7 @@ function OurWorkPage() {
                         {project.services.map((s) => (
                           <span
                             key={s}
-                            className="text-xs text-white/80 bg-white/10 border border-white/15 rounded-full px-3.5 py-1.5 font-medium"
+                            className="text-xs text-[#F7F7F2] bg-white/10 border border-white/20 rounded-full px-4 py-1.5 font-medium"
                           >
                             {s}
                           </span>
@@ -582,23 +571,23 @@ function OurWorkPage() {
                       <div className="pt-4">
                         <button
                           onClick={() => setSelectedCaseStudy(project)}
-                          className="btn-green inline-flex items-center gap-2 text-sm"
+                          className="rounded-full bg-[#B7FF00] px-6 py-3 text-xs md:text-sm font-bold text-[#0B0B0D] transition-transform hover:scale-105 flex items-center gap-2"
                         >
-                          <span>View Case Study</span>
+                          <span>VIEW CASE STUDY</span>
                           <span>→</span>
                         </button>
                       </div>
                     </div>
 
                     <div className="lg:col-span-5 flex flex-col justify-center">
-                      <div className="rounded-2xl glass-strong p-6 border border-white/20 space-y-4">
-                        <span className="text-xs uppercase tracking-wider text-white/50 font-semibold block border-b border-white/10 pb-2">
+                      <div className="rounded-2xl bg-[#0B0B0D]/80 p-7 border border-[#B7FF00]/30 space-y-5">
+                        <span className="text-xs uppercase tracking-wider text-[#B7FF00] font-bold block border-b border-white/10 pb-3">
                           Key Performance Metrics
                         </span>
-                        <ul className="space-y-3">
+                        <ul className="space-y-4">
                           {project.results.map((res) => (
-                            <li key={res} className="flex items-center gap-3 text-sm text-white font-medium">
-                              <span className="h-2 w-2 rounded-full bg-[#AAFF00]" />
+                            <li key={res} className="flex items-center gap-3 text-base text-[#F7F7F2] font-bold">
+                              <span className="h-2.5 w-2.5 rounded-full bg-[#B7FF00] shadow-[0_0_8px_#B7FF00]" />
                               <span>{res}</span>
                             </li>
                           ))}
@@ -615,45 +604,45 @@ function OurWorkPage() {
         {/* Case Study Modal */}
         {selectedCaseStudy && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-in fade-in duration-300"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0B0B0D]/90 backdrop-blur-xl animate-in fade-in duration-300"
             onClick={() => setSelectedCaseStudy(null)}
           >
             <div
-              className="relative w-full max-w-2xl rounded-[2.5rem] glass-strong p-8 md:p-12 text-white border border-white/30 shadow-2xl overflow-y-auto max-h-[90vh]"
+              className="relative w-full max-w-2xl rounded-[2.5rem] bg-[#2929FF] p-8 md:p-12 text-[#F7F7F2] border border-[#B7FF00]/40 shadow-2xl overflow-y-auto max-h-[90vh]"
               onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setSelectedCaseStudy(null)}
-                className="absolute top-6 right-6 h-10 w-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white/70 hover:text-white transition-colors"
+                className="absolute top-6 right-6 h-10 w-10 rounded-full bg-black/40 hover:bg-black/60 flex items-center justify-center text-[#F7F7F2] transition-colors"
               >
                 ✕
               </button>
 
-              <span className="text-xs uppercase tracking-wider font-semibold text-[#AAFF00]">
+              <span className="text-xs uppercase tracking-wider font-bold text-[#B7FF00]">
                 {selectedCaseStudy.category}
               </span>
 
-              <h2 className="mt-2 font-display text-3xl md:text-4xl font-bold tracking-tight">
+              <h2 className="mt-2 font-display text-3xl md:text-5xl font-extrabold tracking-tight">
                 {selectedCaseStudy.client}
               </h2>
 
-              <p className="mt-4 text-xl text-[#AAFF00] font-semibold">
+              <p className="mt-4 text-xl text-[#B7FF00] font-bold">
                 "{selectedCaseStudy.headline}"
               </p>
 
-              <p className="mt-6 text-white/80 text-base md:text-lg leading-relaxed">
+              <p className="mt-6 text-[#F7F7F2]/90 text-base md:text-lg leading-relaxed">
                 {selectedCaseStudy.description}
               </p>
 
-              <div className="mt-8 pt-6 border-t border-white/15 space-y-3">
-                <h4 className="text-xs uppercase tracking-wider text-white/50 font-semibold">
+              <div className="mt-8 pt-6 border-t border-white/20 space-y-3">
+                <h4 className="text-xs uppercase tracking-wider text-[#F7F7F2]/60 font-bold">
                   Services Provided
                 </h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedCaseStudy.services.map((s) => (
                     <span
                       key={s}
-                      className="text-xs text-white bg-white/10 border border-white/20 rounded-full px-4 py-1.5"
+                      className="text-xs text-[#F7F7F2] bg-white/10 border border-white/20 rounded-full px-4 py-1.5 font-medium"
                     >
                       ✓ {s}
                     </span>
@@ -661,14 +650,14 @@ function OurWorkPage() {
                 </div>
               </div>
 
-              <div className="mt-8 pt-6 border-t border-white/15 space-y-3">
-                <h4 className="text-xs uppercase tracking-wider text-white/50 font-semibold">
+              <div className="mt-8 pt-6 border-t border-white/20 space-y-3">
+                <h4 className="text-xs uppercase tracking-wider text-[#B7FF00] font-bold">
                   Measurable Impact
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                   {selectedCaseStudy.results.map((r) => (
-                    <div key={r} className="bg-white/10 rounded-xl p-4 text-center border border-white/15">
-                      <span className="block text-sm font-bold text-white">{r}</span>
+                    <div key={r} className="bg-black/40 rounded-xl p-4 text-center border border-[#B7FF00]/30">
+                      <span className="block text-sm font-bold text-[#B7FF00]">{r}</span>
                     </div>
                   ))}
                 </div>
@@ -678,7 +667,7 @@ function OurWorkPage() {
                 <a
                   href="#contact"
                   onClick={() => setSelectedCaseStudy(null)}
-                  className="btn-green text-sm"
+                  className="rounded-full bg-[#B7FF00] px-6 py-3 text-xs md:text-sm font-bold text-[#0B0B0D]"
                 >
                   Build a system like this →
                 </a>
@@ -688,19 +677,19 @@ function OurWorkPage() {
         )}
 
         {/* ============================================================ */}
-        {/* 04. WORK IN MOTION — 9:16 VERTICAL REEL CAROUSEL */}
+        {/* 04. REEL GALLERY — OFF-WHITE (#F7F7F2) */}
         {/* ============================================================ */}
-        <section id="reels" className="px-6 py-24 border-t border-white/10 bg-black/30">
+        <section id="reels" className="px-6 py-24 md:py-36 bg-[#F7F7F2] text-[#0B0B0D]">
           <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
               <div>
-                <span className="text-xs uppercase tracking-widest text-[#AAFF00] font-semibold border border-[#AAFF00]/30 rounded-full px-4 py-1.5 bg-[#AAFF00]/10 inline-block mb-3">
-                  WORK IN MOTION
+                <span className="text-xs uppercase tracking-widest text-[#2929FF] font-bold block mb-2">
+                  04 / REEL SHOWCASE (9:16)
                 </span>
-                <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-white">
-                  Real work. Real brands.
+                <h2 className="font-display text-4xl md:text-7xl font-extrabold tracking-tight text-[#0B0B0D]">
+                  Work in motion.
                 </h2>
-                <p className="mt-2 text-white/70 text-base md:text-lg">
+                <p className="mt-3 text-[#0B0B0D]/70 text-lg md:text-xl max-w-xl">
                   Vertical 9:16 Reels & campaign motion designed to stop scrolling hands.
                 </p>
               </div>
@@ -709,14 +698,14 @@ function OurWorkPage() {
               <div className="flex items-center gap-3">
                 <button
                   onClick={() => scrollCarousel("left")}
-                  className="h-12 w-12 rounded-full glass border border-white/20 hover:border-[#AAFF00] text-white flex items-center justify-center transition-all hover:scale-105"
+                  className="h-12 w-12 rounded-full border border-[#0B0B0D]/20 hover:border-[#2929FF] text-[#0B0B0D] flex items-center justify-center transition-all hover:bg-[#2929FF] hover:text-[#F7F7F2]"
                   aria-label="Scroll Left"
                 >
                   ←
                 </button>
                 <button
                   onClick={() => scrollCarousel("right")}
-                  className="h-12 w-12 rounded-full glass border border-white/20 hover:border-[#AAFF00] text-white flex items-center justify-center transition-all hover:scale-105"
+                  className="h-12 w-12 rounded-full border border-[#0B0B0D]/20 hover:border-[#2929FF] text-[#0B0B0D] flex items-center justify-center transition-all hover:bg-[#2929FF] hover:text-[#F7F7F2]"
                   aria-label="Scroll Right"
                 >
                   →
@@ -724,19 +713,19 @@ function OurWorkPage() {
               </div>
             </div>
 
-            {/* 9:16 Reel Cards Carousel */}
+            {/* 9:16 Reel Carousel */}
             <div
               ref={carouselRef}
               className="flex overflow-x-auto gap-6 snap-x snap-mandatory scrollbar-none py-4 px-1"
             >
               {reelItems.map((reel, idx) => {
                 const isPlayingThis = activeReelId === reel.id;
+                const numberColor = idx % 2 === 0 ? "text-[#2929FF]" : "text-[#B7FF00]";
 
                 return (
                   <div
                     key={reel.id}
-                    className={`snap-start shrink-0 w-[280px] sm:w-[320px] md:w-[360px] aspect-[9/16] relative rounded-[2.2rem] overflow-hidden glass-strong border border-white/20 hover:border-[#AAFF00]/60 transition-all duration-500 group shadow-2xl reveal reveal-delay-${(idx % 3) + 1
-                      }`}
+                    className="snap-start shrink-0 w-[290px] sm:w-[330px] md:w-[360px] aspect-[9/16] relative rounded-[2.2rem] overflow-hidden bg-[#0B0B0D] border-2 border-[#0B0B0D]/10 hover:border-[#2929FF] transition-all duration-500 group shadow-xl"
                   >
                     {isPlayingThis ? (
                       <div className="w-full h-full bg-black relative">
@@ -749,15 +738,13 @@ function OurWorkPage() {
                         />
                         <button
                           onClick={() => setActiveReelId(null)}
-                          className="absolute top-4 right-4 z-20 h-8 w-8 rounded-full bg-black/60 text-white/80 hover:text-white flex items-center justify-center text-xs"
+                          className="absolute top-4 right-4 z-20 h-8 w-8 rounded-full bg-black/70 text-white flex items-center justify-center text-xs"
                         >
                           ✕
                         </button>
                       </div>
                     ) : (
-                      <div
-                        className={`w-full h-full bg-gradient-to-b ${reel.gradient} flex flex-col justify-between p-6 relative`}
-                      >
+                      <div className="w-full h-full flex flex-col justify-between p-6 relative">
                         {/* Background Video Preview */}
                         <video
                           src={reel.videoUrl}
@@ -766,40 +753,41 @@ function OurWorkPage() {
                           autoPlay
                           playsInline
                           preload="metadata"
-                          className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-75 transition-opacity duration-500 pointer-events-none"
+                          className="absolute inset-0 w-full h-full object-cover opacity-50 group-hover:opacity-80 transition-opacity duration-500 pointer-events-none"
                         />
+
                         {/* Top Category Badge */}
                         <div className="flex items-center justify-between z-10">
-                          <span className="text-[0.7rem] uppercase tracking-wider font-semibold text-[#AAFF00] bg-black/40 backdrop-blur-md border border-[#AAFF00]/30 rounded-full px-3 py-1 flex items-center gap-1.5">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#AAFF00] animate-pulse" />
+                          <span className="text-xs font-extrabold uppercase tracking-wider text-[#0B0B0D] bg-[#B7FF00] rounded-full px-3 py-1 flex items-center gap-1.5 shadow-md">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#0B0B0D] animate-pulse" />
                             <span>{reel.categoryTag}</span>
                           </span>
-                          <span className="text-[0.7rem] text-white/60 bg-black/30 backdrop-blur-md rounded-full px-2.5 py-1">
-                            9:16 Reel
+                          <span className={`text-xs font-extrabold font-display ${numberColor}`}>
+                            0{idx + 1} / {reel.client.split(" ")[0].toUpperCase()}
                           </span>
                         </div>
 
-                        {/* Center Big Play Button */}
+                        {/* Play Button */}
                         <div className="absolute inset-0 flex items-center justify-center z-10">
                           <button
                             onClick={() => setActiveReelId(reel.id)}
-                            className="h-16 w-16 md:h-20 md:w-20 rounded-full bg-[#AAFF00] text-[#0033FF] flex items-center justify-center shadow-[0_0_35px_rgba(170,255,0,0.6)] group-hover:scale-110 transition-transform duration-300"
-                            aria-label={`Play ${reel.client} ${reel.categoryTag}`}
+                            className="h-18 w-18 md:h-20 md:w-20 rounded-full bg-[#B7FF00] text-[#0B0B0D] flex items-center justify-center shadow-[0_0_30px_rgba(183,255,0,0.6)] group-hover:scale-110 transition-transform duration-300"
+                            aria-label={`Play ${reel.client}`}
                           >
-                            <span className="font-display text-2xl md:text-3xl ml-1 font-bold">
+                            <span className="font-display text-2xl md:text-3xl ml-1 font-extrabold">
                               ▶
                             </span>
                           </button>
                         </div>
 
                         {/* Bottom Info Overlay */}
-                        <div className="relative z-10 pt-6 space-y-1.5 bg-gradient-to-t from-black/80 via-black/40 to-transparent -mx-6 -mb-6 p-6 rounded-b-[2.2rem]">
-                          <h3 className="font-display text-2xl font-bold text-white tracking-tight group-hover:text-[#AAFF00] transition-colors">
+                        <div className="relative z-10 pt-8 space-y-1.5 bg-gradient-to-t from-black/90 via-black/50 to-transparent -mx-6 -mb-6 p-6 rounded-b-[2.2rem]">
+                          <h3 className="font-display text-2xl font-extrabold text-[#F7F7F2] tracking-tight group-hover:text-[#B7FF00] transition-colors">
                             {reel.client}
                           </h3>
-                          <div className="flex items-center justify-between text-xs text-white/70">
+                          <div className="flex items-center justify-between text-xs text-[#F7F7F2]/80">
                             <span className="font-medium">{reel.categoryTag}</span>
-                            <span className="text-[#AAFF00] font-semibold">{reel.metrics}</span>
+                            <span className="text-[#B7FF00] font-bold">{reel.metrics}</span>
                           </div>
                         </div>
                       </div>
@@ -812,321 +800,69 @@ function OurWorkPage() {
         </section>
 
         {/* ============================================================ */}
-        {/* UGC ADS SECTION ("UGC THAT FEELS REAL.") */}
+        {/* 05. BIG STATEMENT — DEEP BLACK (#0B0B0D) */}
         {/* ============================================================ */}
-        <section className="px-6 py-24 border-t border-white/10 bg-gradient-to-b from-black/40 to-background">
-          <div className="mx-auto max-w-7xl">
-            <div className="text-center max-w-3xl mx-auto mb-14 space-y-4">
-              <span className="text-xs uppercase tracking-widest text-[#AAFF00] font-semibold border border-[#AAFF00]/30 rounded-full px-4 py-1.5 bg-[#AAFF00]/10 inline-block">
-                UGC THAT FEELS REAL.
+        <section className="px-6 py-28 md:py-40 bg-[#0B0B0D] text-[#F7F7F2] border-t border-white/10">
+          <div className="mx-auto max-w-5xl text-center">
+            <h2 className="font-display text-4xl md:text-7xl lg:text-8xl font-extrabold tracking-tight text-[#F7F7F2] leading-[1.02]">
+              WE DON'T MAKE CONTENT. <br />
+              WE MAKE{" "}
+              <span className="text-[#B7FF00] underline decoration-[#2929FF] underline-offset-8">
+                PEOPLE CARE.
               </span>
-              <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-white leading-tight">
-                We create UGC-style ads that don't feel like ads.
-              </h2>
-              <p className="text-white/75 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-                From creator-led product demonstrations to testimonials, hooks, problem-solution videos and conversion-focused creatives — we produce UGC content designed for paid social.
-              </p>
+            </h2>
+          </div>
+        </section>
 
-              {/* Process pipeline */}
-              <div className="pt-6 flex flex-wrap items-center justify-center gap-2 text-xs font-semibold text-[#AAFF00]">
-                <span>Concept</span>
-                <span>→</span>
-                <span>Script</span>
-                <span>→</span>
-                <span>Creator</span>
-                <span>→</span>
-                <span>Production</span>
-                <span>→</span>
-                <span className="text-white bg-white/10 px-3 py-1 rounded-full border border-white/20">
-                  Ad Creative
-                </span>
-              </div>
-            </div>
-
-            {/* 4 UGC Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {ugcCards.map((card, idx) => (
-                <div
-                  key={card.id}
-                  className={`group relative overflow-hidden rounded-[2.2rem] glass p-7 border border-white/15 flex flex-col justify-between hover:border-[#AAFF00]/40 transition-all duration-500 hover:-translate-y-2 reveal reveal-delay-${idx + 1
-                    }`}
-                >
-                  <div
-                    aria-hidden
-                    className={`pointer-events-none absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700 bg-gradient-to-br ${card.gradient}`}
-                  />
-
-                  <div className="relative z-10 space-y-4">
-                    <span className="text-[0.7rem] uppercase tracking-wider font-semibold text-[#AAFF00] bg-[#AAFF00]/10 border border-[#AAFF00]/20 rounded-full px-3 py-1 inline-block">
-                      {card.format}
-                    </span>
-
-                    <p className="font-display text-lg font-bold text-white leading-snug group-hover:text-[#AAFF00] transition-colors">
-                      {card.hook}
-                    </p>
-                  </div>
-
-                  <div className="relative z-10 mt-8 pt-4 border-t border-white/10 space-y-2">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-white/50">Product</span>
-                      <span className="text-white font-medium">{card.product}</span>
-                    </div>
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-white/50">Creator</span>
-                      <span className="text-white/80">{card.creator}</span>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-14 text-center">
-              <a
-                href="#contact"
-                className="btn-green inline-flex items-center gap-2 text-sm font-semibold"
-              >
-                <span>See UGC Work</span>
-                <span>→</span>
-              </a>
+        {/* ============================================================ */}
+        {/* 06. SURPRISE INTERMISSION — PARROT GREEN (#B7FF00) */}
+        {/* ============================================================ */}
+        <section className="px-6 py-20 md:py-28 bg-[#B7FF00] text-[#0B0B0D]">
+          <div className="mx-auto max-w-5xl text-center space-y-6">
+            <h3 className="font-display text-3xl md:text-6xl font-extrabold tracking-tight text-[#0B0B0D]">
+              KEEP SCROLLING. THERE'S MORE.
+            </h3>
+            <div className="flex justify-center pt-2">
+              <span className="text-6xl md:text-8xl text-[#2929FF] animate-bounce">↓</span>
             </div>
           </div>
         </section>
 
         {/* ============================================================ */}
-        {/* 05. SELECTED SOCIAL WORK (Static Work Grid) */}
+        {/* 07. FINAL CTA — NEON BLUE (#2929FF) */}
         {/* ============================================================ */}
-        <section className="px-6 py-24 md:py-32">
-          <div className="mx-auto max-w-7xl">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-              <div>
-                <span className="text-xs uppercase tracking-widest text-[#AAFF00] font-semibold">
-                  STATIC & CREATIVE PORTFOLIO
-                </span>
-                <h2 className="mt-3 font-display text-4xl md:text-6xl font-bold tracking-tight text-white">
-                  A closer look.
-                </h2>
-              </div>
+        <section id="contact" className="px-6 py-28 md:py-40 bg-[#2929FF] text-[#F7F7F2]">
+          <div className="mx-auto max-w-5xl text-center space-y-8">
+            <span className="text-xs uppercase tracking-widest text-[#B7FF00] font-bold block">
+              07 / LET'S WORK TOGETHER
+            </span>
 
-              {/* Category Filters */}
-              <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-                {(
-                  [
-                    "All",
-                    "Healthcare",
-                    "Hospitality",
-                    "Lifestyle",
-                    "Technology",
-                    "Personal Brand",
-                    "Real Estate",
-                  ] as FilterCategory[]
-                ).map((cat) => (
-                  <button
-                    key={cat}
-                    onClick={() => setActiveFilter(cat)}
-                    className={`rounded-full px-4 py-2 text-xs font-semibold whitespace-nowrap transition-all duration-300 ${activeFilter === cat
-                        ? "bg-[#AAFF00] text-[#0033FF] font-bold shadow-[0_0_15px_rgba(170,255,0,0.3)]"
-                        : "bg-white/10 text-white/60 hover:bg-white/20 hover:text-white"
-                      }`}
-                  >
-                    {cat}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* 3 Columns Desktop Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredSocialGrid.map((piece, i) => (
-                <div
-                  key={piece.id}
-                  className={`group relative overflow-hidden rounded-[2rem] glass p-7 border border-white/15 flex flex-col justify-between hover:border-white/40 hover:-translate-y-1.5 transition-all duration-500 reveal reveal-delay-${(i % 3) + 1
-                    }`}
-                >
-                  <div
-                    aria-hidden
-                    className={`pointer-events-none absolute inset-0 opacity-20 group-hover:opacity-40 transition-opacity duration-700 bg-gradient-to-br ${piece.gradient}`}
-                  />
-
-                  <div className="relative z-10 space-y-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs uppercase tracking-wider font-semibold text-[#AAFF00] bg-[#AAFF00]/10 border border-[#AAFF00]/20 rounded-full px-3 py-1">
-                        {piece.type}
-                      </span>
-                      <span className="text-xs text-white/50">{piece.category}</span>
-                    </div>
-
-                    <div className="pt-2">
-                      <h4 className="font-display text-xl font-bold text-white group-hover:text-[#AAFF00] transition-colors">
-                        {piece.client}
-                      </h4>
-                      <p className="mt-1 text-sm text-white/80 font-medium">{piece.title}</p>
-                    </div>
-                  </div>
-
-                  <div className="relative z-10 mt-8 pt-4 border-t border-white/10 flex items-center justify-between text-xs text-white/60">
-                    <span>{piece.highlight}</span>
-                    <span className="text-[#AAFF00] font-semibold group-hover:translate-x-1 transition-transform">
-                      →
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ============================================================ */}
-        {/* 06. WHAT WE ACTUALLY DO (Capabilities Framework) */}
-        {/* ============================================================ */}
-        <section className="px-6 py-24 border-t border-white/10 bg-black/20">
-          <div className="mx-auto max-w-7xl">
-            <div className="max-w-3xl mb-16 space-y-3">
-              <span className="text-xs uppercase tracking-widest text-[#AAFF00] font-semibold">
-                WHAT WE DO
-              </span>
-              <h2 className="font-display text-4xl md:text-6xl font-bold tracking-tight text-white leading-tight">
-                Strategy → Content → Distribution → Growth
-              </h2>
-              <p className="text-white/70 text-lg">
-                We build the brand organically, create content, produce UGC, and use paid distribution to scale what works.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {whatWeDoCapabilities.map((cap, idx) => (
-                <div
-                  key={cap.title}
-                  className={`glass rounded-3xl p-8 border border-white/15 hover:border-[#AAFF00]/40 transition-all duration-300 hover:-translate-y-1 space-y-4 reveal reveal-delay-${(idx % 3) + 1
-                    }`}
-                >
-                  <div className="text-3xl">{cap.icon}</div>
-                  <h3 className="font-display text-2xl font-bold text-white">
-                    {cap.title}
-                  </h3>
-                  <p className="text-sm text-white/70 leading-relaxed">
-                    {cap.desc}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ============================================================ */}
-        {/* 07. CLIENT RANGE (Industry Matrix) */}
-        {/* ============================================================ */}
-        <section className="px-6 py-24">
-          <div className="mx-auto max-w-7xl">
-            <div className="text-center max-w-2xl mx-auto mb-16">
-              <span className="text-xs uppercase tracking-widest text-[#AAFF00] font-semibold">
-                INDUSTRY VERSATILITY
-              </span>
-              <h2 className="mt-3 font-display text-4xl md:text-6xl font-bold tracking-tight text-white">
-                Different industries. One approach.
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {industryRange.map((ind, idx) => (
-                <div
-                  key={ind.category}
-                  className={`rounded-[2rem] glass p-8 border ${ind.borderColor} space-y-6 reveal reveal-delay-${(idx % 4) + 1
-                    }`}
-                >
-                  <h3 className="font-display text-xl font-bold text-[#AAFF00]">
-                    {ind.category}
-                  </h3>
-
-                  <ul className="space-y-3">
-                    {ind.clients.map((cli) => (
-                      <li
-                        key={cli}
-                        className="flex items-center gap-2 text-sm text-white/90 font-medium"
-                      >
-                        <span className="h-1.5 w-1.5 rounded-full bg-[#AAFF00]" />
-                        <span>{cli}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            {/* Subtitle statement */}
-            <div className="mt-14 text-center">
-              <p className="font-display text-xl md:text-2xl italic text-white/80 font-medium max-w-xl mx-auto">
-                "We understand brands, not just industries."
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ============================================================ */}
-        {/* 08. TESTIMONIALS */}
-        {/* ============================================================ */}
-        <section className="px-6 py-20 border-t border-white/10 bg-black/30">
-          <div className="mx-auto max-w-7xl">
-            <div className="text-center max-w-2xl mx-auto mb-14">
-              <span className="text-xs uppercase tracking-widest text-[#AAFF00] font-semibold">
-                CLIENT TRUST
-              </span>
-              <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold tracking-tight text-white">
-                What our clients say.
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {testimonials.map((t, idx) => (
-                <div
-                  key={t.author}
-                  className={`glass rounded-[2.5rem] p-8 border border-white/15 flex flex-col justify-between space-y-6 reveal reveal-delay-${idx + 1
-                    }`}
-                >
-                  <p className="text-white/85 text-base md:text-lg leading-relaxed italic">
-                    "{t.quote}"
-                  </p>
-                  <div>
-                    <span className="block font-display text-base font-bold text-[#AAFF00]">
-                      {t.author}
-                    </span>
-                    <span className="block text-xs text-white/50 font-medium">{t.role}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ============================================================ */}
-        {/* 09. FINAL CTA */}
-        {/* ============================================================ */}
-        <section id="contact" className="px-6 py-28 md:py-36">
-          <div className="mx-auto max-w-5xl text-center space-y-8 reveal">
-            <h2 className="font-display text-4xl md:text-7xl font-bold tracking-tight text-white leading-tight">
+            <h2 className="font-display text-4xl md:text-7xl font-extrabold tracking-tight text-[#F7F7F2] leading-tight">
               Your brand could be our next piece of work.
             </h2>
-            <p className="text-white/70 text-xl max-w-xl mx-auto">
+            <p className="text-[#F7F7F2]/90 text-xl md:text-2xl max-w-xl mx-auto font-normal">
               Tell us what you're building.
             </p>
 
-            <div className="pt-4 flex flex-wrap justify-center gap-4">
+            <div className="pt-6 flex flex-wrap justify-center gap-4">
               <a
                 href="https://wa.me/919866472562"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-green text-base px-8 py-4 inline-flex items-center gap-2 font-bold shadow-[0_0_30px_rgba(170,255,0,0.5)]"
+                className="rounded-full bg-[#B7FF00] px-8 py-4 text-base font-extrabold text-[#0B0B0D] transition-transform hover:scale-105 shadow-[0_0_35px_rgba(183,255,0,0.5)] flex items-center gap-2"
               >
-                <span>Start a Conversation</span>
-                <span>→</span>
+                <span>START A CONVERSATION</span>
+                <span className="text-xl">↗</span>
               </a>
             </div>
 
-            <p className="pt-6 text-xs md:text-sm text-white/50 tracking-wider uppercase font-semibold">
+            <p className="pt-8 text-xs md:text-sm text-[#F7F7F2]/60 tracking-wider uppercase font-bold">
               Personal Branding · Social Media · Content Strategy · Creative Direction · UGC Ads
             </p>
           </div>
         </section>
       </main>
+
       <Footer />
     </div>
   );

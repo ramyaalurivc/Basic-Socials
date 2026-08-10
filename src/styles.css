@@ -63,37 +63,40 @@
 
 :root {
   --radius: 0.625rem;
-  /* Brand */
-  --brand-blue: #0033ff;
-  --brand-blue-deep: #0020a8;
-  --brand-lime: #aaff00;
+  /* Neon Editorial Brand Palette */
+  --brand-blue: #2929FF;
+  --brand-lime: #B7FF00;
+  --brand-parrot-green: #B7FF00;
+  --brand-soft-white: #F7F7F2;
+  --brand-deep-black: #0B0B0D;
+  --brand-soft-blue: #D9DAFF;
   --white: #ffffff;
-  --glass: rgba(255, 255, 255, 0.18);
-  --glass-soft: rgba(255, 255, 255, 0.08);
-  --glass-strong: rgba(255, 255, 255, 0.28);
+  --glass: rgba(255, 255, 255, 0.14);
+  --glass-soft: rgba(255, 255, 255, 0.06);
+  --glass-strong: rgba(255, 255, 255, 0.22);
 
-  --background: oklch(0.32 0.28 264);
-  /* #0033FF-ish base */
-  --foreground: oklch(1 0 0);
-  /* white */
+  --background: oklch(0.35 0.30 264);
+  /* #2929FF-ish base */
+  --foreground: oklch(0.98 0.005 100);
+  /* soft white #F7F7F2 */
   --card: oklch(1 0 0 / 6%);
-  --card-foreground: oklch(1 0 0);
-  --popover: oklch(0.32 0.28 264);
-  --popover-foreground: oklch(1 0 0);
+  --card-foreground: oklch(0.98 0.005 100);
+  --popover: oklch(0.35 0.30 264);
+  --popover-foreground: oklch(0.98 0.005 100);
   --primary: oklch(0.95 0.24 125);
-  /* lime */
-  --primary-foreground: oklch(0.18 0.15 265);
+  /* parrot green #B7FF00 */
+  --primary-foreground: oklch(0.12 0.02 265);
   --secondary: oklch(1 0 0 / 8%);
-  --secondary-foreground: oklch(1 0 0);
+  --secondary-foreground: oklch(0.98 0.005 100);
   --muted: oklch(1 0 0 / 8%);
   --muted-foreground: oklch(0.92 0.04 250);
   --accent: oklch(0.95 0.24 125);
-  /* lime */
-  --accent-foreground: oklch(0.18 0.15 265);
+  /* parrot green */
+  --accent-foreground: oklch(0.12 0.02 265);
   --destructive: oklch(0.6 0.25 25);
   --destructive-foreground: oklch(1 0 0);
-  --border: rgba(255, 255, 255, 0.18);
-  --input: rgba(255, 255, 255, 0.18);
+  --border: rgba(247, 247, 242, 0.18);
+  --input: rgba(247, 247, 242, 0.18);
   --ring: oklch(0.95 0.24 125);
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
