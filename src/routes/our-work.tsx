@@ -125,7 +125,7 @@ const reelItems: ReelItem[] = [
     categoryTag: "Product Campaign",
     gradient: "from-cyan-900/70 via-blue-950/80 to-indigo-950/90",
     metrics: "1.2M Reel Views",
-    videoUrl: "/work/videos/hoppy.mp4",
+    videoUrl: "/work/videos/Video-7607.mp4",
   },
   {
     id: "kanchi-reel",
@@ -133,7 +133,7 @@ const reelItems: ReelItem[] = [
     categoryTag: "Food & Lifestyle",
     gradient: "from-amber-900/70 via-orange-950/80 to-[#0033FF]/50",
     metrics: "940K Local Reach",
-    videoUrl: "/work/videos/kanchi-cafe.mp4",
+    videoUrl: "/work/videos/Video-31369.mp4",
   },
   {
     id: "aamara-reel",
@@ -141,7 +141,7 @@ const reelItems: ReelItem[] = [
     categoryTag: "Property Reel",
     gradient: "from-emerald-900/70 via-teal-950/80 to-[#AAFF00]/20",
     metrics: "1.5M Reel Views",
-    videoUrl: "/work/videos/aamara-retreat.mp4",
+    videoUrl: "/work/videos/Video-72057.mp4",
   },
   {
     id: "dr-maniteja-reel",
@@ -149,7 +149,7 @@ const reelItems: ReelItem[] = [
     categoryTag: "Educational Reel",
     gradient: "from-blue-900/70 via-indigo-950/80 to-[#0033FF]/70",
     metrics: "850K Impressions",
-    videoUrl: "/work/videos/dr-maniteja.mp4",
+    videoUrl: "/work/videos/Video-73113.mp4",
   },
   {
     id: "icon-luxe-reel",
@@ -157,7 +157,7 @@ const reelItems: ReelItem[] = [
     categoryTag: "UGC / Beauty",
     gradient: "from-pink-900/70 via-purple-950/80 to-indigo-950/90",
     metrics: "620K Views",
-    videoUrl: "/work/videos/the-icon-salon.mp4",
+    videoUrl: "/work/videos/Video-83376.mp4",
   },
   {
     id: "shiva-hosp-reel",
@@ -165,23 +165,7 @@ const reelItems: ReelItem[] = [
     categoryTag: "Healthcare Awareness",
     gradient: "from-blue-950/80 via-cyan-950/80 to-indigo-900/70",
     metrics: "780K Views",
-    videoUrl: "/work/videos/shiva-hospitals.mp4",
-  },
-  {
-    id: "shiva-dental-reel",
-    client: "Shiva Dental",
-    categoryTag: "Dental Education",
-    gradient: "from-teal-900/70 via-blue-950/80 to-emerald-950/80",
-    metrics: "490K Views",
-    videoUrl: "/work/videos/shiva-dental.mp4",
-  },
-  {
-    id: "lunar-loft-reel",
-    client: "Lunar Loft",
-    categoryTag: "Brand & Lifestyle",
-    gradient: "from-purple-900/70 via-slate-950/80 to-indigo-950/90",
-    metrics: "540K Views",
-    videoUrl: "/work/videos/lunar-loft.mp4",
+    videoUrl: "/work/videos/Video-7879.mp4",
   },
 ];
 
@@ -766,6 +750,16 @@ function OurWorkPage() {
                       <div
                         className={`w-full h-full bg-gradient-to-b ${reel.gradient} flex flex-col justify-between p-6 relative`}
                       >
+                        {/* Background Video Preview */}
+                        <video
+                          src={reel.videoUrl}
+                          muted
+                          loop
+                          autoPlay
+                          playsInline
+                          preload="metadata"
+                          className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:opacity-75 transition-opacity duration-500 pointer-events-none"
+                        />
                         {/* Top Category Badge */}
                         <div className="flex items-center justify-between z-10">
                           <span className="text-[0.7rem] uppercase tracking-wider font-semibold text-[#AAFF00] bg-black/40 backdrop-blur-md border border-[#AAFF00]/30 rounded-full px-3 py-1 flex items-center gap-1.5">
