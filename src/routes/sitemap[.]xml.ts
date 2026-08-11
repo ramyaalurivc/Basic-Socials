@@ -1,19 +1,28 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { posts } from "@/content/posts";
+import { listSitemapSlugs } from "@/lib/content.functions";
 
-const BASE_URL = "https://www.basicsocials.com";
+const BASE_URL = "https://basicsocials.lovable.app";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
+        const { posts, caseStudies } = await listSitemapSlugs();
         const entries = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
-          { path: "/our-work", changefreq: "weekly", priority: "0.9" },
           { path: "/blog", changefreq: "weekly", priority: "0.8" },
-          ...posts.map((p) => ({
-            path: `/blog/${p.slug}`,
+          { path: "/ai-systems", changefreq: "monthly", priority: "0.9" },
+          { path: "/careers", changefreq: "monthly", priority: "0.7" },
+          { path: "/faq", changefreq: "monthly", priority: "0.7" },
+          { path: "/case-studies", changefreq: "monthly", priority: "0.8" },
+          ...posts.map((slug) => ({
+            path: `/blog/${slug}`,
+            changefreq: "monthly",
+            priority: "0.7",
+          })),
+          ...caseStudies.map((slug) => ({
+            path: `/case-studies/${slug}`,
             changefreq: "monthly",
             priority: "0.7",
           })),

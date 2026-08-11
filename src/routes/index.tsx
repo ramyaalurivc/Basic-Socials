@@ -9,52 +9,27 @@ import { Services } from "@/components/site/Services";
 import { HowItWorks } from "@/components/site/HowItWorks";
 import { Portfolio } from "@/components/site/Portfolio";
 import { AiSearch } from "@/components/site/AiSearch";
-import { Faq } from "@/components/site/Faq";
+import { Automations } from "@/components/site/Automations";
+import { BlogPreview } from "@/components/site/BlogPreview";
 import { Contact } from "@/components/site/Contact";
 import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Basic Socials · Creative Marketing & Consulting Agency, Hyderabad" },
-      {
-        name: "description",
-        content:
-          "We basically handle your entire marketing — branding, social, performance, video & AI, talent, and consulting. Based in Hyderabad.",
-      },
-      {
-        property: "og:title",
-        content: "Basic Socials · Creative Marketing & Consulting Agency, Hyderabad",
-      },
-      {
-        property: "og:description",
-        content:
-          "We basically handle your entire marketing — branding, social, performance, video & AI, talent, and consulting. Based in Hyderabad.",
-      },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://www.basicsocials.com/" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@basicsocials" },
-      {
-        name: "twitter:title",
-        content: "Basic Socials · Creative Marketing & Consulting Agency, Hyderabad",
-      },
-      {
-        name: "twitter:description",
-        content:
-          "We basically handle your entire marketing — branding, social, performance, video & AI, talent, and consulting. Based in Hyderabad.",
-      },
-      {
-        property: "og:image",
-        content: "https://www.basicsocials.com/og-image.webp",
-      },
-      {
-        name: "twitter:image",
-        content: "https://www.basicsocials.com/og-image.webp",
-      },
-    ],
-    links: [{ rel: "canonical", href: "https://www.basicsocials.com/" }],
-  }),
+  head: () => {
+    const title = "Basic Socials · Grow with Content + AI";
+    const description =
+      "A content and AI studio in Hyderabad. Content that gets your business noticed, AI systems that keep it running.";
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "website" },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+    };
+  },
   component: Index,
 });
 
@@ -70,9 +45,10 @@ function Index() {
         <WhoWeWorkWith />
         <Services />
         <AiSearch />
+        <Automations />
         <HowItWorks />
         <Portfolio />
-        <Faq />
+        <BlogPreview />
         <Contact />
       </main>
       <Footer />

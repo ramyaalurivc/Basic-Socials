@@ -1,8 +1,11 @@
 # Basic Socials
 
-> Creative marketing and consulting agency in Hyderabad. We handle branding, social media, performance marketing, video, AI production, and talent.
+> Content and AI growth studio in Hyderabad. We help businesses grow with content production, AI content, AI systems and consulting. Contact: socials@basicsocials.com
 
 ## Pages
 
-- [Home](/): Services, who we work with, how it works, AI visibility, and contact.
+- [Home](/): What we do, who we work with, AI automations, how it works, and contact.
+- [AI Systems](/ai-systems): Automations, agents and integrations that run your business.
+- [Careers](/careers): Open roles and what it's like to work here.
+- [FAQ](/faq): Answers about services, working together and contact.
 - [Blog](/blog): Articles on AI search, LinkedIn content, performance marketing and video.

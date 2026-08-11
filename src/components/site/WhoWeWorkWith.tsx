@@ -6,7 +6,7 @@ const tiles = [
   "Health & Wellness",
   "Clothing & Fashion",
   "Real Estate",
-  "Professionals & Personal Brands",
+  "Logistics",
 ];
 
 export function WhoWeWorkWith() {
@@ -15,11 +15,7 @@ export function WhoWeWorkWith() {
       <div className="mx-auto max-w-7xl">
         <SectionLabel
           label="Who we work with"
-          headline={
-            <>
-              Built for <span className="italic font-medium grad-text">these</span> businesses.
-            </>
-          }
+          headline={<>Built for <span className="italic font-medium grad-text">these</span> businesses.</>}
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -32,15 +28,12 @@ export function WhoWeWorkWith() {
                 <span
                   aria-hidden
                   className="pointer-events-none absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{
-                    background:
-                      "radial-gradient(400px 200px at var(--mx,50%) var(--my,0%), rgba(170,255,0,0.25), transparent 60%)",
-                  }}
+                  style={{ background: "radial-gradient(400px 200px at var(--mx,50%) var(--my,0%), rgba(170,255,0,0.25), transparent 60%)" }}
                 />
                 <span className="relative font-display text-xs text-white/60">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="relative font-display text-2xl md:text-[1.7rem] font-semibold tracking-tight transition-transform duration-500 group-hover:translate-x-1 text-white">
+                <h3 className="relative font-display text-2xl md:text-[1.7rem] font-semibold tracking-tight text-white transition-transform duration-500 group-hover:translate-x-1">
                   {t}
                 </h3>
               </div>
@@ -49,7 +42,7 @@ export function WhoWeWorkWith() {
         </div>
 
         <p className="mt-10 max-w-2xl text-base text-white/70 md:text-lg reveal">
-          Your industry isn't on the list? Reach out. We'll tell you if we're the right fit.
+          If your industry isn't listed, reach out. We'll tell you if we're the right fit.
         </p>
         <a
           href="#contact"
