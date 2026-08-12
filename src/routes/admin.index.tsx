@@ -29,12 +29,10 @@ function AdminHome() {
 function ContentList({
   table,
   label,
-  newTo,
   editBase,
 }: {
   table: "posts" | "case_studies";
   label: string;
-  newTo: "/admin/posts/new" | "/admin/case-studies/new";
   editBase: "/admin/posts/$id" | "/admin/case-studies/$id";
 }) {
   const [rows, setRows] = useState<Row[]>([]);
@@ -66,7 +64,8 @@ function ContentList({
       <div className="flex items-center justify-between">
         <h2 className="font-display text-xl font-bold tracking-tight">{label}</h2>
         <Link
-          to={newTo}
+          to={editBase}
+          params={{ id: "new" }}
           className="rounded-full bg-[#0033FF] px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90"
         >
           New
