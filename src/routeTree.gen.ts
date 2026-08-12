@@ -9,39 +9,29 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as AiSystemsRouteImport } from './routes/ai-systems'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
-import { Route as CareersIndexRouteImport } from './routes/careers.index'
-import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AiSystemsRouteImport } from './routes/ai-systems'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as AdminIndexRouteImport } from './routes/admin.index'
-import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
-import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
-import { Route as CareersRoleIndexRouteImport } from './routes/careers.$role.index'
-import { Route as CareersRoleSubmittedRouteImport } from './routes/careers.$role.submitted'
-import { Route as CareersRoleApplyRouteImport } from './routes/careers.$role.apply'
-import { Route as ApiPublicJobApplicationRouteImport } from './routes/api/public/job-application'
-import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
-import { Route as AdminPostsIdRouteImport } from './routes/admin.posts.$id'
+import { Route as BlogIndexRouteImport } from './routes/blog.index'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as CareersIndexRouteImport } from './routes/careers.index'
+import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
+import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
 import { Route as AdminCaseStudiesIdRouteImport } from './routes/admin.case-studies.$id'
+import { Route as AdminPostsIdRouteImport } from './routes/admin.posts.$id'
+import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
+import { Route as ApiPublicJobApplicationRouteImport } from './routes/api/public/job-application'
+import { Route as CareersRoleIndexRouteImport } from './routes/careers.$role.index'
+import { Route as CareersRoleApplyRouteImport } from './routes/careers.$role.apply'
+import { Route as CareersRoleSubmittedRouteImport } from './routes/careers.$role.submitted'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AiSystemsRoute = AiSystemsRouteImport.update({
-  id: '/ai-systems',
-  path: '/ai-systems',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -49,24 +39,19 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AiSystemsRoute = AiSystemsRouteImport.update({
+  id: '/ai-systems',
+  path: '/ai-systems',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
-  id: '/case-studies/',
-  path: '/case-studies/',
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CareersIndexRoute = CareersIndexRouteImport.update({
-  id: '/careers/',
-  path: '/careers/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogIndexRoute = BlogIndexRouteImport.update({
-  id: '/blog/',
-  path: '/blog/',
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminIndexRoute = AdminIndexRouteImport.update({
@@ -74,9 +59,14 @@ const AdminIndexRoute = AdminIndexRouteImport.update({
   path: '/admin/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
-  id: '/case-studies/$slug',
-  path: '/case-studies/$slug',
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
@@ -84,34 +74,24 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminLoginRoute = AdminLoginRouteImport.update({
-  id: '/admin/login',
-  path: '/admin/login',
+const CareersIndexRoute = CareersIndexRouteImport.update({
+  id: '/careers/',
+  path: '/careers/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CareersRoleIndexRoute = CareersRoleIndexRouteImport.update({
-  id: '/careers/$role/',
-  path: '/careers/$role/',
+const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
+  id: '/case-studies/',
+  path: '/case-studies/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CareersRoleSubmittedRoute = CareersRoleSubmittedRouteImport.update({
-  id: '/careers/$role/submitted',
-  path: '/careers/$role/submitted',
+const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
+  id: '/case-studies/$slug',
+  path: '/case-studies/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CareersRoleApplyRoute = CareersRoleApplyRouteImport.update({
-  id: '/careers/$role/apply',
-  path: '/careers/$role/apply',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPublicJobApplicationRoute = ApiPublicJobApplicationRouteImport.update({
-  id: '/api/public/job-application',
-  path: '/api/public/job-application',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
-  id: '/api/public/contact',
-  path: '/api/public/contact',
+const AdminCaseStudiesIdRoute = AdminCaseStudiesIdRouteImport.update({
+  id: '/admin/case-studies/$id',
+  path: '/admin/case-studies/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminPostsIdRoute = AdminPostsIdRouteImport.update({
@@ -119,9 +99,29 @@ const AdminPostsIdRoute = AdminPostsIdRouteImport.update({
   path: '/admin/posts/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminCaseStudiesIdRoute = AdminCaseStudiesIdRouteImport.update({
-  id: '/admin/case-studies/$id',
-  path: '/admin/case-studies/$id',
+const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
+  id: '/api/public/contact',
+  path: '/api/public/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicJobApplicationRoute = ApiPublicJobApplicationRouteImport.update({
+  id: '/api/public/job-application',
+  path: '/api/public/job-application',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoleIndexRoute = CareersRoleIndexRouteImport.update({
+  id: '/careers/$role/',
+  path: '/careers/$role/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoleApplyRoute = CareersRoleApplyRouteImport.update({
+  id: '/careers/$role/apply',
+  path: '/careers/$role/apply',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoleSubmittedRoute = CareersRoleSubmittedRouteImport.update({
+  id: '/careers/$role/submitted',
+  path: '/careers/$role/submitted',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -279,25 +279,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/ai-systems': {
-      id: '/ai-systems'
-      path: '/ai-systems'
-      fullPath: '/ai-systems'
-      preLoaderRoute: typeof AiSystemsRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -307,32 +293,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/ai-systems': {
+      id: '/ai-systems'
+      path: '/ai-systems'
+      fullPath: '/ai-systems'
+      preLoaderRoute: typeof AiSystemsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/case-studies/': {
-      id: '/case-studies/'
-      path: '/case-studies'
-      fullPath: '/case-studies/'
-      preLoaderRoute: typeof CaseStudiesIndexRouteImport
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/careers/': {
-      id: '/careers/'
-      path: '/careers'
-      fullPath: '/careers/'
-      preLoaderRoute: typeof CareersIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog/': {
-      id: '/blog/'
-      path: '/blog'
-      fullPath: '/blog/'
-      preLoaderRoute: typeof BlogIndexRouteImport
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/': {
@@ -342,11 +321,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/case-studies/$slug': {
-      id: '/case-studies/$slug'
-      path: '/case-studies/$slug'
-      fullPath: '/case-studies/$slug'
-      preLoaderRoute: typeof CaseStudiesSlugRouteImport
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/$slug': {
@@ -356,46 +342,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/login': {
-      id: '/admin/login'
-      path: '/admin/login'
-      fullPath: '/admin/login'
-      preLoaderRoute: typeof AdminLoginRouteImport
+    '/careers/': {
+      id: '/careers/'
+      path: '/careers'
+      fullPath: '/careers/'
+      preLoaderRoute: typeof CareersIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/careers/$role/': {
-      id: '/careers/$role/'
-      path: '/careers/$role'
-      fullPath: '/careers/$role/'
-      preLoaderRoute: typeof CareersRoleIndexRouteImport
+    '/case-studies/': {
+      id: '/case-studies/'
+      path: '/case-studies'
+      fullPath: '/case-studies/'
+      preLoaderRoute: typeof CaseStudiesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/careers/$role/submitted': {
-      id: '/careers/$role/submitted'
-      path: '/careers/$role/submitted'
-      fullPath: '/careers/$role/submitted'
-      preLoaderRoute: typeof CareersRoleSubmittedRouteImport
+    '/case-studies/$slug': {
+      id: '/case-studies/$slug'
+      path: '/case-studies/$slug'
+      fullPath: '/case-studies/$slug'
+      preLoaderRoute: typeof CaseStudiesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/careers/$role/apply': {
-      id: '/careers/$role/apply'
-      path: '/careers/$role/apply'
-      fullPath: '/careers/$role/apply'
-      preLoaderRoute: typeof CareersRoleApplyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/job-application': {
-      id: '/api/public/job-application'
-      path: '/api/public/job-application'
-      fullPath: '/api/public/job-application'
-      preLoaderRoute: typeof ApiPublicJobApplicationRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/api/public/contact': {
-      id: '/api/public/contact'
-      path: '/api/public/contact'
-      fullPath: '/api/public/contact'
-      preLoaderRoute: typeof ApiPublicContactRouteImport
+    '/admin/case-studies/$id': {
+      id: '/admin/case-studies/$id'
+      path: '/admin/case-studies/$id'
+      fullPath: '/admin/case-studies/$id'
+      preLoaderRoute: typeof AdminCaseStudiesIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/posts/$id': {
@@ -405,11 +377,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminPostsIdRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/case-studies/$id': {
-      id: '/admin/case-studies/$id'
-      path: '/admin/case-studies/$id'
-      fullPath: '/admin/case-studies/$id'
-      preLoaderRoute: typeof AdminCaseStudiesIdRouteImport
+    '/api/public/contact': {
+      id: '/api/public/contact'
+      path: '/api/public/contact'
+      fullPath: '/api/public/contact'
+      preLoaderRoute: typeof ApiPublicContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/job-application': {
+      id: '/api/public/job-application'
+      path: '/api/public/job-application'
+      fullPath: '/api/public/job-application'
+      preLoaderRoute: typeof ApiPublicJobApplicationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers/$role/': {
+      id: '/careers/$role/'
+      path: '/careers/$role'
+      fullPath: '/careers/$role/'
+      preLoaderRoute: typeof CareersRoleIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers/$role/apply': {
+      id: '/careers/$role/apply'
+      path: '/careers/$role/apply'
+      fullPath: '/careers/$role/apply'
+      preLoaderRoute: typeof CareersRoleApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers/$role/submitted': {
+      id: '/careers/$role/submitted'
+      path: '/careers/$role/submitted'
+      fullPath: '/careers/$role/submitted'
+      preLoaderRoute: typeof CareersRoleSubmittedRouteImport
       parentRoute: typeof rootRouteImport
     }
   }

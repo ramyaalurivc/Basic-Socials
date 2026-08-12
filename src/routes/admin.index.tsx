@@ -15,11 +15,10 @@ function AdminHome() {
   return (
     <AdminShell title="Content">
       <div className="grid gap-8 lg:grid-cols-2">
-        <ContentList table="posts" label="Blog posts" newTo="/admin/posts/new" editBase="/admin/posts/$id" />
+        <ContentList table="posts" label="Blog posts" editBase="/admin/posts/$id" />
         <ContentList
           table="case_studies"
           label="Case studies"
-          newTo="/admin/case-studies/new"
           editBase="/admin/case-studies/$id"
         />
       </div>
@@ -30,12 +29,10 @@ function AdminHome() {
 function ContentList({
   table,
   label,
-  newTo,
   editBase,
 }: {
   table: "posts" | "case_studies";
   label: string;
-  newTo: "/admin/posts/new" | "/admin/case-studies/new";
   editBase: "/admin/posts/$id" | "/admin/case-studies/$id";
 }) {
   const [rows, setRows] = useState<Row[]>([]);
@@ -67,7 +64,8 @@ function ContentList({
       <div className="flex items-center justify-between">
         <h2 className="font-display text-xl font-bold tracking-tight">{label}</h2>
         <Link
-          to={newTo}
+          to={editBase}
+          params={{ id: "new" }}
           className="rounded-full bg-[#0033FF] px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90"
         >
           New
