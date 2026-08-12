@@ -1,30 +1,39 @@
-# Set up the admin login for socials@basicsocials.com
+# Fix "Admin access required" after the security hardening
 
-An account with that email already exists in the backend and already holds the admin role, but its password is unknown, so sign-in fails and the dashboard shows "Admin access required". The fix is to set a known password on that existing account (not create a duplicate) and make sure the email is confirmed so login works immediately.
+Your password is fine. The sign-in logs show `socials@basicsocials.com` successfully logging in several times in the last few minutes (the one rejected attempt was a single mistyped entry). The problem happens *after* login: the dashboard's admin check fails, so it shows "Admin access required".
 
-## What will happen
+## What actually broke
 
-1. Add a temporary, secret-protected setup endpoint that runs once on the server with privileged access.
-2. Call it once to:
-   - set the password on `socials@basicsocials.com` to the one you provided,
-   - mark the email as confirmed,
-   - re-assert the admin role for that account.
-3. Verify sign-in at `/admin/login` works and the dashboard loads.
-4. Delete the temporary endpoint in the same change set so it never ships publicly.
+The recent security change moved the `is_admin()` helper into a locked-down `private` area of the database and rewrote every access rule to call it. Those rules run as the signed-in user — and signed-in users were deliberately given no access to that private area. So every admin query (roles, posts, case studies, media, applications) now errors out instead of returning data, which the dashboard reads as "not an admin".
 
-## Login page cleanup
+Confirmed state:
+- The account exists and holds the `admin` role (user `74768007…`).
+- The role row is intact; only the access rules are unreachable.
 
-- Remove the "Need to create the first admin account?" sign-up toggle from `/admin/login`. Now that the admin exists, a public sign-up form on the admin page is an unnecessary exposure — the page becomes sign-in only, with a "forgot password" reset link instead.
+## The fix
 
-## Result
+Rewrite the access rules so they no longer depend on a private helper function at all. Each admin rule becomes a direct check against the roles table:
 
-- Email: `socials@basicsocials.com`
-- Password: the one you supplied
-- Signing in at `/admin/login` lands on the admin dashboard with full access to blog posts, case studies and media.
+```text
+EXISTS (select 1 from public.user_roles
+        where user_id = auth.uid() and role = 'admin')
+```
+
+This keeps the same behaviour, keeps the security scanner clean (no privileged function callable by signed-in users), and removes the broken dependency.
+
+Rules to update: profiles, user_roles, posts, case_studies, media, site_settings, job_applications, and the storage rules for the `media` and `resumes` buckets.
+
+For the roles table itself the rule becomes simply "you can read your own role rows", which avoids any circular lookup.
+
+## Password
+
+No password change is needed — your existing one works. If you still want it set to a specific value, say so and it can be reset separately.
+
+## Verification
+
+After the change: sign in at `/admin/login`, confirm the dashboard loads with blog posts and case studies listed, and re-run the security scan to confirm no new warnings.
 
 ## Technical notes
 
-- New file `src/routes/api/public/setup-admin.ts`: POST handler that compares a `x-setup-token` header against a one-off value using a constant-time check, then uses the service-role client (loaded inside the handler via `await import("@/integrations/supabase/client.server")`) with `auth.admin.listUsers` / `auth.admin.updateUserById` to set `password` and `email_confirm: true`, and upserts the `admin` row in `user_roles`.
-- The route is invoked once against the running dev server, then removed. No credentials are stored in source; the password is passed in the request body at call time.
-- No database migration is needed — the role rows and RLS policies from the recent security change already grant this account admin access through `private.is_admin()`.
-- `src/routes/admin.login.tsx` loses the `mode` state and sign-up branch, gaining a `resetPasswordForEmail` link.
+- Single migration: drop and recreate the affected policies with the inline `EXISTS` predicate, then drop `private.is_admin()` / `private.has_role()` and the `private` schema.
+- No application code changes required; `src/lib/use-admin.ts` already reads `user_roles` directly and will start succeeding once its select policy works.
