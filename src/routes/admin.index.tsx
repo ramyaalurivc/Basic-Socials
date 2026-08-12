@@ -15,11 +15,10 @@ function AdminHome() {
   return (
     <AdminShell title="Content">
       <div className="grid gap-8 lg:grid-cols-2">
-        <ContentList table="posts" label="Blog posts" newTo="/admin/posts/new" editBase="/admin/posts/$id" />
+        <ContentList table="posts" label="Blog posts" editBase="/admin/posts/$id" />
         <ContentList
           table="case_studies"
           label="Case studies"
-          newTo="/admin/case-studies/new"
           editBase="/admin/case-studies/$id"
         />
       </div>
