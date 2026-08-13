@@ -147,7 +147,7 @@ const reelItems: ReelItem[] = [
     client: "Koki",
     categoryTag: "Brand Campaign",
     metrics: "850K Impressions",
-    videoUrl: "/work/videos/koki.mp4",
+    videoUrl: "/work/videos/Koki.mp4",
   },
 ];
 
