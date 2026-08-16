@@ -1,9 +1,0 @@
-name = "basic-socials"
-compatibility_date = "2024-09-24"
-compatibility_flags = ["nodejs_compat"]
-
-main = "dist/_worker.js/index.js"
-
-[assets]
-directory = "./dist"
-not_found_handling = "single-page-application"

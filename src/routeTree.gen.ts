@@ -9,31 +9,59 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as PrivacyRouteImport } from './routes/privacy'
-import { Route as OurWorkRouteImport } from './routes/our-work'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AiSystemsRouteImport } from './routes/ai-systems'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as CareersIndexRouteImport } from './routes/careers.index'
+import { Route as CaseStudiesIndexRouteImport } from './routes/case-studies.index'
+import { Route as CaseStudiesSlugRouteImport } from './routes/case-studies.$slug'
+import { Route as AdminCaseStudiesIdRouteImport } from './routes/admin.case-studies.$id'
+import { Route as AdminPostsIdRouteImport } from './routes/admin.posts.$id'
+import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
+import { Route as ApiPublicJobApplicationRouteImport } from './routes/api/public/job-application'
+import { Route as CareersRoleIndexRouteImport } from './routes/careers.$role.index'
+import { Route as CareersRoleApplyRouteImport } from './routes/careers.$role.apply'
+import { Route as CareersRoleSubmittedRouteImport } from './routes/careers.$role.submitted'
 
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AiSystemsRoute = AiSystemsRouteImport.update({
+  id: '/ai-systems',
+  path: '/ai-systems',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PrivacyRoute = PrivacyRouteImport.update({
-  id: '/privacy',
-  path: '/privacy',
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const OurWorkRoute = OurWorkRouteImport.update({
-  id: '/our-work',
-  path: '/our-work',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogIndexRoute = BlogIndexRouteImport.update({
@@ -46,64 +74,239 @@ const BlogSlugRoute = BlogSlugRouteImport.update({
   path: '/blog/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CareersIndexRoute = CareersIndexRouteImport.update({
+  id: '/careers/',
+  path: '/careers/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesIndexRoute = CaseStudiesIndexRouteImport.update({
+  id: '/case-studies/',
+  path: '/case-studies/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesSlugRoute = CaseStudiesSlugRouteImport.update({
+  id: '/case-studies/$slug',
+  path: '/case-studies/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminCaseStudiesIdRoute = AdminCaseStudiesIdRouteImport.update({
+  id: '/admin/case-studies/$id',
+  path: '/admin/case-studies/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPostsIdRoute = AdminPostsIdRouteImport.update({
+  id: '/admin/posts/$id',
+  path: '/admin/posts/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
+  id: '/api/public/contact',
+  path: '/api/public/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicJobApplicationRoute = ApiPublicJobApplicationRouteImport.update({
+  id: '/api/public/job-application',
+  path: '/api/public/job-application',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoleIndexRoute = CareersRoleIndexRouteImport.update({
+  id: '/careers/$role/',
+  path: '/careers/$role/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoleApplyRoute = CareersRoleApplyRouteImport.update({
+  id: '/careers/$role/apply',
+  path: '/careers/$role/apply',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CareersRoleSubmittedRoute = CareersRoleSubmittedRouteImport.update({
+  id: '/careers/$role/submitted',
+  path: '/careers/$role/submitted',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/our-work': typeof OurWorkRoute
-  '/privacy': typeof PrivacyRoute
+  '/about': typeof AboutRoute
+  '/ai-systems': typeof AiSystemsRoute
+  '/faq': typeof FaqRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/login': typeof AdminLoginRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
+  '/careers/': typeof CareersIndexRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
+  '/admin/case-studies/$id': typeof AdminCaseStudiesIdRoute
+  '/admin/posts/$id': typeof AdminPostsIdRoute
+  '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/job-application': typeof ApiPublicJobApplicationRoute
+  '/careers/$role/apply': typeof CareersRoleApplyRoute
+  '/careers/$role/submitted': typeof CareersRoleSubmittedRoute
+  '/careers/$role/': typeof CareersRoleIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/our-work': typeof OurWorkRoute
-  '/privacy': typeof PrivacyRoute
+  '/about': typeof AboutRoute
+  '/ai-systems': typeof AiSystemsRoute
+  '/faq': typeof FaqRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/login': typeof AdminLoginRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/admin': typeof AdminIndexRoute
   '/blog': typeof BlogIndexRoute
+  '/careers': typeof CareersIndexRoute
+  '/case-studies': typeof CaseStudiesIndexRoute
+  '/admin/case-studies/$id': typeof AdminCaseStudiesIdRoute
+  '/admin/posts/$id': typeof AdminPostsIdRoute
+  '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/job-application': typeof ApiPublicJobApplicationRoute
+  '/careers/$role/apply': typeof CareersRoleApplyRoute
+  '/careers/$role/submitted': typeof CareersRoleSubmittedRoute
+  '/careers/$role': typeof CareersRoleIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/our-work': typeof OurWorkRoute
-  '/privacy': typeof PrivacyRoute
+  '/about': typeof AboutRoute
+  '/ai-systems': typeof AiSystemsRoute
+  '/faq': typeof FaqRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/admin/login': typeof AdminLoginRoute
   '/blog/$slug': typeof BlogSlugRoute
+  '/case-studies/$slug': typeof CaseStudiesSlugRoute
+  '/admin/': typeof AdminIndexRoute
   '/blog/': typeof BlogIndexRoute
+  '/careers/': typeof CareersIndexRoute
+  '/case-studies/': typeof CaseStudiesIndexRoute
+  '/admin/case-studies/$id': typeof AdminCaseStudiesIdRoute
+  '/admin/posts/$id': typeof AdminPostsIdRoute
+  '/api/public/contact': typeof ApiPublicContactRoute
+  '/api/public/job-application': typeof ApiPublicJobApplicationRoute
+  '/careers/$role/apply': typeof CareersRoleApplyRoute
+  '/careers/$role/submitted': typeof CareersRoleSubmittedRoute
+  '/careers/$role/': typeof CareersRoleIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/our-work'
-    | '/privacy'
+    | '/about'
+    | '/ai-systems'
+    | '/faq'
     | '/sitemap.xml'
+    | '/admin/login'
     | '/blog/$slug'
+    | '/case-studies/$slug'
+    | '/admin/'
     | '/blog/'
+    | '/careers/'
+    | '/case-studies/'
+    | '/admin/case-studies/$id'
+    | '/admin/posts/$id'
+    | '/api/public/contact'
+    | '/api/public/job-application'
+    | '/careers/$role/apply'
+    | '/careers/$role/submitted'
+    | '/careers/$role/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/our-work' | '/privacy' | '/sitemap.xml' | '/blog/$slug' | '/blog'
+  to:
+    | '/'
+    | '/about'
+    | '/ai-systems'
+    | '/faq'
+    | '/sitemap.xml'
+    | '/admin/login'
+    | '/blog/$slug'
+    | '/case-studies/$slug'
+    | '/admin'
+    | '/blog'
+    | '/careers'
+    | '/case-studies'
+    | '/admin/case-studies/$id'
+    | '/admin/posts/$id'
+    | '/api/public/contact'
+    | '/api/public/job-application'
+    | '/careers/$role/apply'
+    | '/careers/$role/submitted'
+    | '/careers/$role'
   id:
     | '__root__'
     | '/'
-    | '/our-work'
-    | '/privacy'
+    | '/about'
+    | '/ai-systems'
+    | '/faq'
     | '/sitemap.xml'
+    | '/admin/login'
     | '/blog/$slug'
+    | '/case-studies/$slug'
+    | '/admin/'
     | '/blog/'
+    | '/careers/'
+    | '/case-studies/'
+    | '/admin/case-studies/$id'
+    | '/admin/posts/$id'
+    | '/api/public/contact'
+    | '/api/public/job-application'
+    | '/careers/$role/apply'
+    | '/careers/$role/submitted'
+    | '/careers/$role/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  OurWorkRoute: typeof OurWorkRoute
-  PrivacyRoute: typeof PrivacyRoute
+  AboutRoute: typeof AboutRoute
+  AiSystemsRoute: typeof AiSystemsRoute
+  FaqRoute: typeof FaqRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  AdminLoginRoute: typeof AdminLoginRoute
   BlogSlugRoute: typeof BlogSlugRoute
+  CaseStudiesSlugRoute: typeof CaseStudiesSlugRoute
+  AdminIndexRoute: typeof AdminIndexRoute
   BlogIndexRoute: typeof BlogIndexRoute
+  CareersIndexRoute: typeof CareersIndexRoute
+  CaseStudiesIndexRoute: typeof CaseStudiesIndexRoute
+  AdminCaseStudiesIdRoute: typeof AdminCaseStudiesIdRoute
+  AdminPostsIdRoute: typeof AdminPostsIdRoute
+  ApiPublicContactRoute: typeof ApiPublicContactRoute
+  ApiPublicJobApplicationRoute: typeof ApiPublicJobApplicationRoute
+  CareersRoleApplyRoute: typeof CareersRoleApplyRoute
+  CareersRoleSubmittedRoute: typeof CareersRoleSubmittedRoute
+  CareersRoleIndexRoute: typeof CareersRoleIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/ai-systems': {
+      id: '/ai-systems'
+      path: '/ai-systems'
+      fullPath: '/ai-systems'
+      preLoaderRoute: typeof AiSystemsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -111,25 +314,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SitemapDotxmlRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/privacy': {
-      id: '/privacy'
-      path: '/privacy'
-      fullPath: '/privacy'
-      preLoaderRoute: typeof PrivacyRouteImport
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/our-work': {
-      id: '/our-work'
-      path: '/our-work'
-      fullPath: '/our-work'
-      preLoaderRoute: typeof OurWorkRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/blog/': {
@@ -146,16 +342,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BlogSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/careers/': {
+      id: '/careers/'
+      path: '/careers'
+      fullPath: '/careers/'
+      preLoaderRoute: typeof CareersIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies/': {
+      id: '/case-studies/'
+      path: '/case-studies'
+      fullPath: '/case-studies/'
+      preLoaderRoute: typeof CaseStudiesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies/$slug': {
+      id: '/case-studies/$slug'
+      path: '/case-studies/$slug'
+      fullPath: '/case-studies/$slug'
+      preLoaderRoute: typeof CaseStudiesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/case-studies/$id': {
+      id: '/admin/case-studies/$id'
+      path: '/admin/case-studies/$id'
+      fullPath: '/admin/case-studies/$id'
+      preLoaderRoute: typeof AdminCaseStudiesIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/posts/$id': {
+      id: '/admin/posts/$id'
+      path: '/admin/posts/$id'
+      fullPath: '/admin/posts/$id'
+      preLoaderRoute: typeof AdminPostsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/contact': {
+      id: '/api/public/contact'
+      path: '/api/public/contact'
+      fullPath: '/api/public/contact'
+      preLoaderRoute: typeof ApiPublicContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/job-application': {
+      id: '/api/public/job-application'
+      path: '/api/public/job-application'
+      fullPath: '/api/public/job-application'
+      preLoaderRoute: typeof ApiPublicJobApplicationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers/$role/': {
+      id: '/careers/$role/'
+      path: '/careers/$role'
+      fullPath: '/careers/$role/'
+      preLoaderRoute: typeof CareersRoleIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers/$role/apply': {
+      id: '/careers/$role/apply'
+      path: '/careers/$role/apply'
+      fullPath: '/careers/$role/apply'
+      preLoaderRoute: typeof CareersRoleApplyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/careers/$role/submitted': {
+      id: '/careers/$role/submitted'
+      path: '/careers/$role/submitted'
+      fullPath: '/careers/$role/submitted'
+      preLoaderRoute: typeof CareersRoleSubmittedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  OurWorkRoute: OurWorkRoute,
-  PrivacyRoute: PrivacyRoute,
+  AboutRoute: AboutRoute,
+  AiSystemsRoute: AiSystemsRoute,
+  FaqRoute: FaqRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  AdminLoginRoute: AdminLoginRoute,
   BlogSlugRoute: BlogSlugRoute,
+  CaseStudiesSlugRoute: CaseStudiesSlugRoute,
+  AdminIndexRoute: AdminIndexRoute,
   BlogIndexRoute: BlogIndexRoute,
+  CareersIndexRoute: CareersIndexRoute,
+  CaseStudiesIndexRoute: CaseStudiesIndexRoute,
+  AdminCaseStudiesIdRoute: AdminCaseStudiesIdRoute,
+  AdminPostsIdRoute: AdminPostsIdRoute,
+  ApiPublicContactRoute: ApiPublicContactRoute,
+  ApiPublicJobApplicationRoute: ApiPublicJobApplicationRoute,
+  CareersRoleApplyRoute: CareersRoleApplyRoute,
+  CareersRoleSubmittedRoute: CareersRoleSubmittedRoute,
+  CareersRoleIndexRoute: CareersRoleIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

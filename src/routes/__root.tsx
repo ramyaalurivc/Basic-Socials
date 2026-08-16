@@ -73,49 +73,25 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Basic Socials · Creative Marketing & Consulting Agency, Hyderabad" },
-      {
-        name: "description",
-        content:
-          "We basically handle your entire marketing — branding, social, performance, video & AI, talent, and consulting. Based in Hyderabad.",
-      },
+      { title: "Basic Socials · Marketing & Consulting Agency, Hyderabad" },
+      { name: "description", content: "We basically handle your entire marketing -branding, social, performance, video & AI, talent and consulting. Based in Hyderabad." },
       { name: "author", content: "Basic Socials" },
-      {
-        property: "og:title",
-        content: "Basic Socials · Creative Marketing & Consulting Agency, Hyderabad",
-      },
-      {
-        property: "og:description",
-        content:
-          "We basically handle your entire marketing — branding, social, performance, video & AI, talent, and consulting. Based in Hyderabad.",
-      },
+      { property: "og:title", content: "Basic Socials · Marketing & Consulting Agency, Hyderabad" },
+      { property: "og:description", content: "We basically handle your entire marketing -branding, social, performance, video & AI, talent and consulting. Based in Hyderabad." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@basicsocials" },
-      {
-        name: "twitter:title",
-        content: "Basic Socials · Creative Marketing & Consulting Agency, Hyderabad",
-      },
-      {
-        name: "twitter:description",
-        content:
-          "We basically handle your entire marketing — branding, social, performance, video & AI, talent, and consulting. Based in Hyderabad.",
-      },
-      {
-        property: "og:image",
-        content: "https://www.basicsocials.com/og-image.webp",
-      },
-      {
-        name: "twitter:image",
-        content: "https://www.basicsocials.com/og-image.webp",
-      },
+      { name: "twitter:card", content: "summary" },
+      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Basic Socials · Marketing & Consulting Agency, Hyderabad" },
+      { name: "twitter:description", content: "We basically handle your entire marketing -branding, social, performance, video & AI, talent and consulting. Based in Hyderabad." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vdZwvarEtkanO4HtnKOv5jg8fLh2/social-images/social-1779293139405-Basic_Socials_Logo_Full.webp" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/vdZwvarEtkanO4HtnKOv5jg8fLh2/social-images/social-1779293139405-Basic_Socials_Logo_Full.webp" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "canonical", href: "https://www.basicsocials.com/" },
+      { rel: "canonical", href: "https://basicsocials.lovable.app/" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -131,10 +107,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "@graph": [
             {
               "@type": "Organization",
-              "@id": "https://www.basicsocials.com/#organization",
+              "@id": "https://basicsocials.lovable.app/#organization",
               name: "Basic Socials",
-              url: "https://www.basicsocials.com/",
-              description: "Creative marketing and consulting agency in Hyderabad.",
+              url: "https://basicsocials.lovable.app/",
+              description: "Content and AI growth studio in Hyderabad.",
+              email: "socials@basicsocials.com",
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Hyderabad",
@@ -143,10 +120,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             },
             {
               "@type": "WebSite",
-              "@id": "https://www.basicsocials.com/#website",
-              url: "https://www.basicsocials.com/",
+              "@id": "https://basicsocials.lovable.app/#website",
+              url: "https://basicsocials.lovable.app/",
               name: "Basic Socials",
-              publisher: { "@id": "https://www.basicsocials.com/#organization" },
+              publisher: { "@id": "https://basicsocials.lovable.app/#organization" },
             },
           ],
         }),
@@ -179,10 +156,10 @@ function RootComponent() {
   useEffect(() => {
     if (typeof window === "undefined") return;
     const enterAudio = new Audio("/sfx/click.mp3");
-    enterAudio.volume = 1.0;
+    enterAudio.volume = 0.4;
     enterAudio.preload = "auto";
     const clickAudio = new Audio("/sfx/click2.mp3");
-    clickAudio.volume = 1.0;
+    clickAudio.volume = 0.4;
     clickAudio.preload = "auto";
     const onClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement | null;
@@ -193,9 +170,7 @@ function RootComponent() {
       try {
         audio.currentTime = 0;
         void audio.play();
-      } catch (e) {
-        // Click audio play failed
-      }
+      } catch {}
     };
     document.addEventListener("click", onClick, true);
     return () => document.removeEventListener("click", onClick, true);
