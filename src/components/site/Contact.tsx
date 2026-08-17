@@ -133,7 +133,7 @@ export function Contact() {
                     {submitting ? "Sending..." : "Send it →"}
                   </button>
                   <a
-                    href="https://wa.me/910000000000"
+                    href="https://wa.me/919866472562"
                     target="_blank"
                     rel="noreferrer"
                     className="btn-dark justify-center"
